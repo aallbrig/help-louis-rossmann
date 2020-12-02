@@ -9,11 +9,11 @@ const processGuide = document.getElementById('process-guide');
 // const waitingText = document.getElementById('waiting');
 
 async function renderProcessVideoHtml(videoDataRow) {
-  processGuide.classList.add('hidden');
   console.log(videoDataRow);
   videoTitle.innerText = videoDataRow.Video.Title;
-  videoIframe.src = videoDataRow.Video.EmbeddedUrl;
-  processGuide.classList.remove('d-none');
+  // Disallow browser URL caching
+  // TODO: Is this a bad idea? What about offline experince?
+  videoIframe.src = `${videoDataRow.Video.EmbeddedUrl}?timestamp=${new Date().getTime()}`;
 }
 
 async function main() {
@@ -24,7 +24,10 @@ async function main() {
   assignVideoBtn.onclick = async () => {
     const randomVideo = processQueue[Math.ceil(Math.random() * processQueue.length)];
     // waitingText.classList.remove('d-none');
+    processGuide.classList.add('hidden');
     await renderProcessVideoHtml(randomVideo);
+    processGuide.classList.remove('d-none');
+
     resetVideobtn.classList.remove('btn-secondary', 'disabled');
     resetVideobtn.classList.add('btn-primary');
     // waitingText.classList.add('hidden');
