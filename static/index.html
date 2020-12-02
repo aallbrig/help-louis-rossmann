@@ -28,15 +28,21 @@
     </div>
   </div>
 
-  <div id="video-processing" class="card h-50">
+  <div id="video-processing" class="card h-80">
     <div class="card-header">
       <div class="float-right">
-        <button id="assign-video" type="button" class="btn btn-primary">Assign Me A Random Video</button>
+        <button id="assign-video" type="button" class="btn btn-primary disabled">Assign Me A Random Video</button>
       </div>
     </div>
     <div class="card-body">
-      <div id="video">
-        <i>Waiting for you...</i>
+      <div>
+        <div id="waiting">
+          <i>Waiting for you...</i>
+        </div>
+        <div id="process-guide" class="hidden">
+          <h3 id="video-title" class="h5"></h3>
+          <iframe id="video-iframe" style="display: block; margin: 0 auto;" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </div>
