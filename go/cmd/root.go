@@ -124,6 +124,8 @@ func init() {
 
 	rootCmd.AddCommand(getStatusCmd)
 	rootCmd.AddCommand(getBackgroundColorHexCodes)
+	rootCmd.AddCommand(getModelIds)
+	rootCmd.AddCommand(getLogicBoardNumbers)
 }
 
 func Execute() {

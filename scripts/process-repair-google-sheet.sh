@@ -8,4 +8,6 @@ cd go
 go run main.go -i "${google_sheet_file}" > ../static/json/repair-videos-data.json
 go run main.go -i "${google_sheet_file}" get-status > ../static/json/statuses.json
 go run main.go -i "${google_sheet_file}" get-background-color-hex-codes > ../static/json/hex-codes.json
+go run main.go -i "${google_sheet_file}" get-model-ids > ../static/json/model-ids.json
+go run main.go -i "${google_sheet_file}" get-logic-board-numbers > ../static/json/logic-board-numbers.json
 
