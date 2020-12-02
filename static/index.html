@@ -52,9 +52,61 @@
           <i>Waiting for you...</i>
         </div
         >-->
-        <div id="process-guide" class="hidden">
-          <h3 id="video-title" class="h5"></h3>
-          <iframe id="video-iframe" style="display: block; margin: 0 auto;" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div id="process-guide" class="d-none">
+          <div class="mb-3">
+            <iframe id="video-iframe" style="display: block; margin: 0 auto;" width="560" height="315" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div id="process-accordion">
+            <div class="card">
+              <div id="heading-one" class="card-header">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                    Get ready to take notes
+                  </button>
+                </h5>
+              </div>
+              <div id="collapse-one" class="collapse show" aria-labelledby="heading-one" data-parent="#process-accordion">
+                <div class="card-body">
+                  Getting set up with a note taking system proves crucial in processing these videos. I recommend pen & paper but please use the system that works best with you.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div id="heading-two" class="card-header">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-two" aria-expanded="true" aria-controls="collapse-two">
+                    Analyze the video
+                  </button>
+                </h5>
+              </div>
+              <div id="collapse-two" class="collapse" aria-labelledby="heading-two" data-parent="#process-accordion">
+                <div class="card-body">
+                  <p>
+                    Lets analyze the video, starting with the title. Does the title "<b id="video-title"></b>" contain any information we're looking for? Sometimes the model identifier and/or the board part number is included in the title.
+                  </p>
+                  <p>
+                    It is now time to watch the video!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div id="heading-three" class="card-header">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-three" aria-expanded="true" aria-controls="collapse-three">
+                    Add discoveries to the public knowledge base
+                  </button>
+                </h5>
+              </div>
+              <div id="collapse-three" class="collapse" aria-labelledby="heading-three" data-parent="#process-accordion">
+                <div class="card-body">
+                  <p>
+                    Now take your notes and add to the public knowledge base!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

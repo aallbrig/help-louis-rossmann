@@ -24,7 +24,7 @@ async function main() {
   assignVideoBtn.onclick = async () => {
     const randomVideo = processQueue[Math.ceil(Math.random() * processQueue.length)];
     // waitingText.classList.remove('d-none');
-    processGuide.classList.add('hidden');
+    processGuide.classList.add('d-none');
     await renderProcessVideoHtml(randomVideo);
     processGuide.classList.remove('d-none');
 
