@@ -22,4 +22,7 @@ This process is meant to be rough & done quickly.
 This script is meant to be rough & done quickly.
 1. `scripts/process-repair-google-sheet.sh downloads/Louis\ Rossmann\ Repair\ Videos.ods`
 
+### Host local static files
+Requirement: `python3` binary. Uses simple http server. Opportunity to use nginx in docker if desire to be fancy reaches critical levels.
+1. `scripts/serve-static-locally.sh`
 
