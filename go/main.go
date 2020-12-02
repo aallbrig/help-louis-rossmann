@@ -100,11 +100,8 @@ var columnIdx = struct {
 var repairVideos []RepairVideoDataRow
 
 func main() {
-	fmt.Println("Rossman Repair Videos sheet processor")
 	args := os.Args[1:]
 	spreadsheetFilepath := args[0]
-
-	fmt.Println("Target file: ", spreadsheetFilepath)
 
 	wb, err := xlsx.OpenFile(spreadsheetFilepath)
 	if err != nil {
