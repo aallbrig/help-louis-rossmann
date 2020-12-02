@@ -4,16 +4,15 @@ const assignVideoBtn = document.getElementById('assign-video');
 const videoTitle = document.getElementById('video-title');
 const videoIframe = document.getElementById('video-iframe');
 const processGuide = document.getElementById('process-guide');
-const waitingText = document.getElementById('waiting');
+// TODO: Get waiting text functional
+// const waitingText = document.getElementById('waiting');
 
-function renderProcessVideoHtml(videoDataRow) {
-  waitingText.classList.remove('hidden');
+async function renderProcessVideoHtml(videoDataRow) {
   processGuide.classList.add('hidden');
   console.log(videoDataRow);
   videoTitle.innerText = videoDataRow.Video.Title;
   videoIframe.src = videoDataRow.Video.EmbeddedUrl;
-  waitingText.classList.add('hidden');
-  processGuide.classList.remove('hidden');
+  processGuide.classList.remove('d-none');
 }
 
 async function main() {
@@ -21,9 +20,11 @@ async function main() {
   const json = await jsonRequest.json();
   const processQueue = json.filter(_ => _.NeedsProcessing);
 
-  assignVideoBtn.onclick = () => {
+  assignVideoBtn.onclick = async () => {
     const randomVideo = processQueue[Math.ceil(Math.random() * processQueue.length)];
-    renderProcessVideoHtml(randomVideo);
+    // waitingText.classList.remove('d-none');
+    await renderProcessVideoHtml(randomVideo);
+    // waitingText.classList.add('hidden');
   };
   assignVideoBtn.classList.remove('disabled');
 }

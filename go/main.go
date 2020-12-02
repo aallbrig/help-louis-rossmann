@@ -47,20 +47,6 @@ type WikiDataEntry struct {
 	Status string
 }
 
-// TODO: Remove commented out cruft
-// var doNotProcessHex = []string{
-// 	"FFB6D7A8",
-// 	"FF34A853",
-// 	"FFFFFF00",
-// 	"FF93C47D",
-// 	"FFA64D79",
-// 	"FFCFE2F3",
-// }
-// var needsToBeProcessedHex = []string{
-// 	"",
-// 	"FF6AA84F",
-// 	"FFFFFFFF",
-// }
 var needsToBeProcessedStatuses = []string{
 	"Nothing yet",
 }
@@ -105,7 +91,7 @@ func main() {
 
 	wb, err := xlsx.OpenFile(spreadsheetFilepath)
 	if err != nil {
-		fmt.Println("Error opening ods or xlsx file")
+		fmt.Println("Error opening target xlsx file", spreadsheetFilepath)
 		fmt.Println(err)
 		os.Exit(1)
 	}
@@ -115,10 +101,13 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Structs for debugging
 	statusToRowIds := make(map[string][]int)
+	bgColorHexToRowIds := make(map[string][]int)
+
 	// Read the max row once, so it doesn't change in the loop
 	maxRow := datasheet.MaxRow
-	// Set i to 1 instead of 0 to skip the header row
+	// Set index to 1 to skip the header row
 	for i := 1; i <= maxRow; i++ {
 		row, err := datasheet.Row(i)
 		if err != nil {
@@ -126,24 +115,36 @@ func main() {
 			fmt.Println(err)
 			os.Exit(1)
 		}
-		videoUrlCell := row.GetCell(0)
+		videoUrlCell := row.GetCell(columnIdx.VideoUrl)
+
+		// For debugging
+		bgColorHex := videoUrlCell.GetStyle().Fill.BgColor
+		bgColorHexToRowIds[bgColorHex] = append(bgColorHexToRowIds[bgColorHex], i)
+
 		videoUrl := videoUrlCell.Value
 		u, err := url.Parse(videoUrl)
 		if err != nil {
+			// TODO: determine best behavior for invalid URL case
 			continue
 		}
 		query, err := url.ParseQuery(u.RawQuery)
 		if err != nil {
+			// TODO: determine best behavior for invalid URL case
 			continue
 		}
 		videoId, ok := query["v"]
 		if !ok {
+			// TODO: determine best behavior for invalid URL case
 			continue
 		}
-		embeddedUrl := fmt.Sprintf("https://youtube.com/embed/%s", strings.Join(videoId, ""))
 
+		embeddedUrl := fmt.Sprintf("https://youtube.com/embed/%s", strings.Join(videoId, ""))
 		status := row.GetCell(columnIdx.Status).Value
+
+		// For debugging
 		statusToRowIds[status] = append(statusToRowIds[status], i)
+
+		// Use list of expected statuses that determine the row still needs processing
 		needsProcessing := false
 		for _, expectedStatus := range needsToBeProcessedStatuses {
 			if status == expectedStatus {
@@ -151,6 +152,7 @@ func main() {
 			}
 		}
 
+		// Hydrate go struct with row data
 		repairVideo := RepairVideoDataRow{
 			NeedsProcessing: needsProcessing,
 			RowID:  RowID{
@@ -182,10 +184,11 @@ func main() {
 				Notes: row.GetCell(columnIdx.Notes).Value,
 			},
 		}
+
 		repairVideos = append(repairVideos, repairVideo)
 	}
 
-	// Uncomment to find out what HEX values and how many rows correspond to the values
+	// Uncomment to find out background color HEX values that appear in the sheet and how many rows correspond to that value
 	// TODO: This should be functionality exposed through running this program in a certain mode (subcommand, maybe?)
 	// for k := range hexToRowIds {
 	// 	rowIds := hexToRowIds[k]
@@ -193,7 +196,7 @@ func main() {
 	// 		rowIds[0] + 1)
 	// }
 
-	// Uncomment to find out what STATUS values and how many rows correspond to the values
+	// Uncomment to find out status values that appear in the sheet and how many rows correspond to that value
 	// TODO: This should be functionality exposed through running this program in a certain mode (subcommand, maybe?)
 	// for k := range statusToRowIds {
 	//	rowIds := statusToRowIds[k]
@@ -208,6 +211,7 @@ func main() {
 		os.Exit(1)
 	}
 
+	// output valid JSON to std.out
 	fmt.Print(string(prettyJson))
 	os.Exit(0)
 }

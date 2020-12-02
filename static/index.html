@@ -1,5 +1,11 @@
-<!html>
+<!doctype html>
+
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="author" content="Andrew Allbright">
+  <meta name="description" content="Help Louis Rossmann encode his repair videos into a public wiki">
+
   <title>Help Louis Rossmann</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
@@ -11,20 +17,21 @@
         Help Louis Rossman
       </h1>
       <div class="float-right">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#information-collapsable" aria-expanded="false" aria-controls="information-collapsable">
+        <button id="hide-btn" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#information-collapsable" aria-expanded="false" aria-controls="information-collapsable">
           Hide
         </button>
       </div>
     </div>
     <div id="information-collapsable" class="card-body collapse show">
       <p>Help Louis Rossmann organize his <a href="">repair videos</a> into a <a href="https://wiki2.rossmanngroup.com/index.php">public knowledge base</a> for repair enthusiasts to use!</p>
+      <hr />
+      <iframe style="display: block; margin: 0 auto;" width="560" height="315" src="https://www.youtube.com/embed/3kGqPjSDp14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <hr />
       <h3 class="h5">Getting Started</h3>
       <ol>
         <li><a href="https://wiki2.rossmanngroup.com/index.php?title=Special:CreateAccount&returnto=Main+Page">Create an account</a> on the wiki so you can contribute to the knowledge base.</li>
         <li>Grab a pen and paper (or other note taking devices) and then use this application to help process videos!</li>
       </ol>
-      <hr />
-      <iframe style="display: block; margin: 0 auto;" width="560" height="315" src="https://www.youtube.com/embed/3kGqPjSDp14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -36,9 +43,12 @@
     </div>
     <div class="card-body">
       <div>
+        <!--
+        TODO: Get this flavorful "waiting" section working
         <div id="waiting">
           <i>Waiting for you...</i>
-        </div>
+        </div
+        >-->
         <div id="process-guide" class="hidden">
           <h3 id="video-title" class="h5"></h3>
           <iframe id="video-iframe" style="display: block; margin: 0 auto;" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
