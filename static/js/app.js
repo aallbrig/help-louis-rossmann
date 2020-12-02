@@ -6,14 +6,18 @@ const videoTitle = document.getElementById('video-title');
 const videoIframe = document.getElementById('video-iframe');
 const processGuide = document.getElementById('process-guide');
 // TODO: Get waiting text functional
-// const waitingText = document.getElementById('waiting');
+const waitingText = document.getElementById('waiting');
 
 async function renderProcessVideoHtml(videoDataRow) {
-  console.log(videoDataRow);
   videoTitle.innerText = videoDataRow.Video.Title;
   // Disallow browser URL caching
   // TODO: Is this a bad idea? What about offline experince?
   videoIframe.src = `${videoDataRow.Video.EmbeddedUrl}?timestamp=${new Date().getTime()}`;
+}
+
+async function reset() {
+  videoTitle.innerText = '';
+  videoIframe.src = '';
 }
 
 async function main() {
@@ -23,14 +27,22 @@ async function main() {
 
   assignVideoBtn.onclick = async () => {
     const randomVideo = processQueue[Math.ceil(Math.random() * processQueue.length)];
-    // waitingText.classList.remove('d-none');
+    waitingText.classList.remove('d-none');
     processGuide.classList.add('d-none');
     await renderProcessVideoHtml(randomVideo);
     processGuide.classList.remove('d-none');
 
     resetVideobtn.classList.remove('btn-secondary', 'disabled');
     resetVideobtn.classList.add('btn-primary');
-    // waitingText.classList.add('hidden');
+    waitingText.classList.add('d-none');
+  };
+
+  resetVideobtn.onclick = async () => {
+    waitingText.classList.remove('d-none');
+    processGuide.classList.add('d-none');
+    resetVideobtn.classList.remove('btn-primary');
+    resetVideobtn.classList.add('btn-secondary', 'disabled');
+    await reset();
   };
   assignVideoBtn.classList.remove('disabled');
 }
