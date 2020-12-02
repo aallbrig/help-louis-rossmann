@@ -20,6 +20,6 @@ This process is meant to be rough & done quickly.
 
 ### Louis Rossmann Repair Videos processor script
 This script is meant to be rough & done quickly.
-1. `scripts/process-repair-google-sheet.sh downloads/Louis\ Rossmann\ Repair\ Videos.ods'
+1. `scripts/process-repair-google-sheet.sh downloads/Louis\ Rossmann\ Repair\ Videos.ods`
 
 
