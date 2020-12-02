@@ -11,12 +11,14 @@ import (
 	"strings"
 )
 
+var inputFilePath string
 var repairVideos []videos.RepairVideoDataRow
+
 var rootCmd = &cobra.Command{
 	Use: "",
 	Short: "Root command for converting Louis Rossmann's google sheet into JSON",
 	Run: func(cmd *cobra.Command, args []string) {
-		spreadsheetFilepath := args[0]
+		spreadsheetFilepath := inputFilePath
 		wb, err := xlsx.OpenFile(spreadsheetFilepath)
 		if err != nil {
 			fmt.Println("Error opening target xlsx file", spreadsheetFilepath)
@@ -29,10 +31,6 @@ var rootCmd = &cobra.Command{
 			os.Exit(1)
 		}
 
-		// Structs for debugging
-		statusToRowIds := make(map[string][]int)
-		bgColorHexToRowIds := make(map[string][]int)
-
 		// Read the max row once, so it doesn't change in the loop
 		maxRow := datasheet.MaxRow
 		// Set index to 1 to skip the header row
@@ -43,13 +41,7 @@ var rootCmd = &cobra.Command{
 				fmt.Println(err)
 				os.Exit(1)
 			}
-			videoUrlCell := row.GetCell(videos.ColumnIdx.VideoUrl)
-
-			// For debugging
-			bgColorHex := videoUrlCell.GetStyle().Fill.BgColor
-			bgColorHexToRowIds[bgColorHex] = append(bgColorHexToRowIds[bgColorHex], i)
-
-			videoUrl := videoUrlCell.Value
+			videoUrl := row.GetCell(videos.ColumnIdx.VideoUrl).Value
 			u, err := url.Parse(videoUrl)
 			if err != nil {
 				// TODO: determine best behavior for invalid URL case
@@ -68,9 +60,6 @@ var rootCmd = &cobra.Command{
 
 			embeddedUrl := fmt.Sprintf("https://youtube.com/embed/%s", strings.Join(videoId, ""))
 			status := row.GetCell(videos.ColumnIdx.Status).Value
-
-			// For debugging
-			statusToRowIds[status] = append(statusToRowIds[status], i)
 
 			// Use list of expected statuses that determine the row still needs processing
 			needsProcessing := false
@@ -116,22 +105,6 @@ var rootCmd = &cobra.Command{
 			repairVideos = append(repairVideos, repairVideo)
 		}
 
-		// Uncomment to find out background color HEX values that appear in the sheet and how many rows correspond to that value
-		// TODO: This should be functionality exposed through running this program in a certain mode (subcommand, maybe?)
-		// for k := range hexToRowIds {
-		// 	rowIds := hexToRowIds[k]
-		// 	fmt.Println("Hex Value: ", k, " has ", len(rowIds), " row IDs associated and whose first row ID is ",
-		// 		rowIds[0] + 1)
-		// }
-
-		// Uncomment to find out status values that appear in the sheet and how many rows correspond to that value
-		// TODO: This should be functionality exposed through running this program in a certain mode (subcommand, maybe?)
-		// for k := range statusToRowIds {
-		//	rowIds := statusToRowIds[k]
-		//	fmt.Println("Status ", k, " has ", len(rowIds), " row IDs associated and whose first row of this status is ",
-		//		rowIds[0] + 1)
-		//}
-
 		prettyJson, err := json.MarshalIndent(repairVideos, "", "  ")
 		if err != nil {
 			fmt.Println("Error endcoding go struct into JSON")
@@ -146,7 +119,11 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
+	rootCmd.PersistentFlags().StringVarP(&inputFilePath, "inputFilePath", "i", "", "input file (xlsx)")
+	rootCmd.MarkPersistentFlagRequired("inputFilePath")
 
+	rootCmd.AddCommand(getStatusCmd)
+	rootCmd.AddCommand(getBackgroundColorHexCodes)
 }
 
 func Execute() {

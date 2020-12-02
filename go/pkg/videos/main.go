@@ -41,6 +41,7 @@ type WikiDataEntry struct {
 var NeedsToBeProcessedStatuses = []string{
 	"Nothing yet",
 }
+
 var ColumnIdx = struct {
 	VideoUrl int
 	UploadDate int
@@ -74,4 +75,3 @@ var ColumnIdx = struct {
 	WikiUrl:        13,
 	Notes:          14,
 }
-
