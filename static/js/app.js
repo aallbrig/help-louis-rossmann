@@ -1,6 +1,7 @@
 // Load json/repair-videos-data.json file
 
 const assignVideoBtn = document.getElementById('assign-video');
+const resetVideobtn = document.getElementById('reset-video');
 const videoTitle = document.getElementById('video-title');
 const videoIframe = document.getElementById('video-iframe');
 const processGuide = document.getElementById('process-guide');
@@ -24,6 +25,8 @@ async function main() {
     const randomVideo = processQueue[Math.ceil(Math.random() * processQueue.length)];
     // waitingText.classList.remove('d-none');
     await renderProcessVideoHtml(randomVideo);
+    resetVideobtn.classList.remove('btn-secondary', 'disabled');
+    resetVideobtn.classList.add('btn-primary');
     // waitingText.classList.add('hidden');
   };
   assignVideoBtn.classList.remove('disabled');

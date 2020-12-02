@@ -17,7 +17,7 @@
         Help Louis Rossman
       </h1>
       <div class="float-right">
-        <button id="hide-btn" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#information-collapsable" aria-expanded="false" aria-controls="information-collapsable">
+        <button id="hide-btn" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#information-collapsable" aria-expanded="false" aria-controls="information-collapsable">
           Hide
         </button>
       </div>
@@ -29,8 +29,8 @@
       <hr />
       <h3 class="h5">Getting Started</h3>
       <ol>
-        <li><a href="https://wiki2.rossmanngroup.com/index.php?title=Special:CreateAccount&returnto=Main+Page">Create an account</a> on the wiki so you can contribute to the knowledge base.</li>
-        <li>Grab a pen and paper (or other note taking devices) and then use this application to help process videos!</li>
+        <li>Create a <a href="https://wiki2.rossmanngroup.com/index.php?title=Special:CreateAccount&returnto=Main+Page">account on the wiki</a> so you can contribute to the knowledge base.</li>
+        <li>Click the "Assign Random Video" button and follow the instructions.</li>
       </ol>
     </div>
   </div>
@@ -38,7 +38,10 @@
   <div id="video-processing" class="card h-80">
     <div class="card-header">
       <div class="float-right">
-        <button id="assign-video" type="button" class="btn btn-primary disabled">Assign Me A Random Video</button>
+        <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
+          <button id="reset-video" type="button" class="btn btn-secondary disabled">Reset</button>
+          <button id="assign-video" type="button" class="btn btn-primary disabled">Assign Random Video</button>
+        </div>
       </div>
     </div>
     <div class="card-body">
