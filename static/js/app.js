@@ -4,7 +4,6 @@ const resetVideoBtn = document.getElementById('reset-video');
 const videoTitle = document.getElementById('video-title');
 const videoIframe = document.getElementById('video-iframe');
 const processGuide = document.getElementById('process-guide');
-// TODO: Get waiting text functional
 const waitingText = document.getElementById('waiting');
 
 async function renderProcessVideoHtml(videoDataRow) {
