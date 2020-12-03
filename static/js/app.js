@@ -1,5 +1,4 @@
-// Load json/repair-videos-data.json file
-
+// TODO: Save current video and form inputs in local storage
 const assignVideoBtn = document.getElementById('assign-video');
 const resetVideoBtn = document.getElementById('reset-video');
 const videoTitle = document.getElementById('video-title');

@@ -53,6 +53,20 @@
           <div class="mb-3">
             <iframe id="video-iframe" style="display: block; margin: 0 auto;" width="560" height="315" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
+          <hr />
+          <div id="user-input" class="mb-3">
+            <label for="symptom">Symptom</label>
+            <textarea id="symptom" type="text" class="form-control" placeholder="Symptom"></textarea>
+            <label for="issue">Issue</label>
+            <textarea id="issue" type="text" class="form-control" placeholder="Issue"></textarea>
+            <label for="cause">Cause</label>
+            <textarea id="cause" type="text" class="form-control" placeholder="Cause"></textarea>
+            <!-- TODO -->
+            <!-- Note: the model identifier & model number can be determined based on logic board number (IIRC) -->
+            <!-- Input group where one can either type logic board number or select from a dropdown -->
+            <!-- Input group where one can either type the model identifier or select from a dropdown -->
+            <!-- Input group where one can either type the model number or select from a dropdown -->
+          </div>
           <div id="process-accordion">
             <div class="card">
               <div id="heading-one" class="card-header">
