@@ -24,6 +24,7 @@ class ProcessRepairVideosApp {
       processGuide: document.getElementById('process-guide'),
       waitingText: document.getElementById('waiting'),
       reportForm: document.getElementById('repair-report-form'),
+      modelIdsDropdown: document.getElementById('model-identifier-dropdown'),
     }
 
     const storedState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_APP_KEY));
@@ -34,12 +35,10 @@ class ProcessRepairVideosApp {
 
     this.state = Object.assign({}, stateDefaults, storedState);
 
-
+    // Bind event handlers
     this.dom.resetAppBtn.onclick = this.resetAppState.bind(this);
     this.dom.resetVideoBtn.onclick = this.resetProcessForm.bind(this);
-    this.dom.hideTopBtn.onclick = () => {
-      this.setState({ hideTopSection: true });
-    };
+    this.dom.hideTopBtn.onclick = this.setState.bind({ hideTopSection: true });
 
     this.renderState(this.state);
   }
@@ -106,13 +105,34 @@ class ProcessRepairVideosApp {
 
     this.dom.assignVideoBtn.classList.remove('disabled');
   }
+
+  setModelIdsDropdown(modelIdsFromSheetJson) {
+    const dropdown = this.dom.modelIdsDropdown;
+    Object.keys(modelIdsFromSheetJson)
+      .filter(modelId => modelId !== '')
+      .map(modelId => {
+        const menuItem = document.createElement('a');
+        menuItem.classList.add('dropdown-item');
+        menuItem.textContent = modelId;
+        menuItem.setAttribute('data-row-ids', modelIdsFromSheetJson[modelId])
+
+        return menuItem
+      })
+      .forEach(_ => dropdown.appendChild(_));
+  }
 }
 
 async function main() {
   const app = new ProcessRepairVideosApp();
-  const getRepairDataReq = await fetch('json/repair-videos-data.json');
-  const repairDataJson = await getRepairDataReq.json();
+  const getRepairDataReq = fetch('json/repair-videos-data.json');
+  const getModelIdsFromSheetReq = fetch('json/model-ids.json');
+  const getLogicBoardNumbersFromSheetReq = fetch('json/logic-board-numbers.json');
+  const repairVideosReqPro = await getRepairDataReq;
+  const repairDataJson = await repairVideosReqPro.json();
   app.setRepairVideoData(repairDataJson);
+  const getModelIdsReq = await getModelIdsFromSheetReq;
+  const modelIdsFromSheetJson = await getModelIdsReq.json();
+  app.setModelIdsDropdown(modelIdsFromSheetJson);
 }
 
 try {
