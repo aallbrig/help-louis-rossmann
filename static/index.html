@@ -9,6 +9,7 @@
   <meta name="description" content="Help Louis Rossmann encode his repair videos into a public wiki">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
   <title>Help Louis Rossmann</title>
 </head>
@@ -98,26 +99,16 @@
                     hide tip
                   </button>
 
-                  <p id="analyze-video-help-text-2" class="show">
-                    <i>Tip:</i> if the model ID is not in the title, check the video's description. Otherwise, find logical places in the video where Louis shows and/or talks about the device.
-                  </p>
-                  <button class="btn btn-link text-info show" data-toggle="collapse" data-target="#analyze-video-help-text-2" aria-expanded="true" aria-controls="analyze-video-help-text-2">
-                    hide tip
-                  </button>
-                  <p id="analyze-video-help-text-3" class="show">
-                    <i>Tip:</i> The logic board number can be used to help identify the model ID.
-                  </p>
-                  <button class="btn btn-link text-info show" data-toggle="collapse" data-target="#analyze-video-help-text-3" aria-expanded="true" aria-controls="analyze-video-help-text-3">
-                    hide tip
-                  </button>
-
                   <form id="repair-report-form" action="javascript:void(0);" class="mb-3">
 
                     <!-- TODO: Input group where one can either type the model identifier or select from a dropdown -->
                     <!-- Note: the model identifier & model number can be determined based on logic board number (IIRC) -->
-                    <label for="model-identifier">Model Identifier</label>
+                    <label for="model-identifier" data-toggle="tooltip" data-placement="top" title="e.g. The human readable name e.g. 'Macbook Pro 13'">
+                      Model Identifier <span class="badge badge-pill badge-info">?</span>
+                    </label>
+
                     <div class="input-group">
-                      <input id="model-identifier" type="text" class="form-control" aria-label="Model Identifier" placeholder="model-identifier">
+                      <input id="model-identifier" type="text" class="form-control" aria-label="Model Identifier" placeholder="Model ID">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Model IDs From Sheet
@@ -126,43 +117,48 @@
                       </div>
                     </div>
 
+                    <p id="analyze-video-help-text-2" class="show">
+                      <i>Tip:</i> if the model ID is not in the title, check the video's description. Otherwise, find logical places in the video where Louis shows and/or talks about the device.
+                    </p>
+                    <button class="btn btn-link text-info show" data-toggle="collapse" data-target="#analyze-video-help-text-2" aria-expanded="true" aria-controls="analyze-video-help-text-2">
+                      hide tip
+                    </button>
+                    <br />
 
-                    <label for="model-number">Model Number</label>
+
+                    <label for="model-identifier" data-toggle="tooltip" data-placement="top" title="The number of the specific model">
+                      Model Number <span class="badge badge-pill badge-info">?</span>
+                    </label>
                     <div class="input-group">
-                      <input id="model-number" type="text" class="form-control" aria-label="Model Number" placeholder="model-number">
+                      <input id="model-number" type="text" class="form-control" aria-label="Model Number" placeholder="Model number">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Model Numbers From Sheet
                         </button>
-                        <div id="model-number-dropdown" class="dropdown-menu">
-
-                          <!-- TODO: Generate dropdown menu from JSON -->
-                          <a class="dropdown-item" href="#">Foobar</a>
-                          <div role="separator" class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Foobar</a>
-
-                        </div>
+                        <div id="model-number-dropdown" class="dropdown-menu"></div>
                       </div>
                     </div>
 
-
-                    <label for="logic-board-number">Logic Board Number</label>
+                    <label for="model-identifier" data-toggle="tooltip" data-placement="top" title="Check the title. Otherwise, scrub through the video for the model ID">
+                      Logic Board Number <span class="badge badge-pill badge-info">?</span>
+                    </label>
                     <div class="input-group">
-                      <input id="logic-board-number" type="text" class="form-control" aria-label="Logic Board Number" placeholder="logic-board-number">
+                      <input id="logic-board-number" type="text" class="form-control" aria-label="Logic Board Number" placeholder="Logic board number">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Logic Board Numbers From Sheet
                         </button>
-                        <div id="logic-board-number-dropdown" class="dropdown-menu">
-
-                          <!-- TODO: Generate dropdown menu from JSON -->
-                          <a class="dropdown-item" href="#">Foobar</a>
-                          <div role="separator" class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Foobar</a>
-
-                        </div>
+                        <div id="logic-board-number-dropdown" class="dropdown-menu"></div>
                       </div>
                     </div>
+
+                    <p id="analyze-video-help-text-3" class="show">
+                      <i>Tip:</i> The logic board number can be used to help identify the model ID. Consulting a search engine isn't a terrible idea.
+                    </p>
+                    <button class="btn btn-link text-info show" data-toggle="collapse" data-target="#analyze-video-help-text-3" aria-expanded="true" aria-controls="analyze-video-help-text-3">
+                      hide tip
+                    </button>
+                    <br />
 
 
                     <!-- TODO: Write more thorough guide to help the app user out (that appears in a tooltip?) -->
@@ -181,11 +177,13 @@
 
                     <hr />
 
-                    <div class="float-right">
-                      <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
-                        <button id="reset-video" type="button" class="btn btn-secondary disabled">Reset Report</button>
-                        <!-- TODO: Add ability for user to save their report -->
-                        <button id="save-wiki-report" type="button" class="btn btn-success disabled">Save Report</button>
+                    <div class="mt-4 clearfix">
+                      <div class="float-right">
+                        <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
+                          <button id="reset-video" type="button" class="btn btn-secondary disabled">Reset Report</button>
+                          <!-- TODO: Add ability for user to save their report -->
+                          <button id="save-wiki-report" type="button" class="btn btn-success disabled">Save Report</button>
+                        </div>
                       </div>
                     </div>
                   </form>
