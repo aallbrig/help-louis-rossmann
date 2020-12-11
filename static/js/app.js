@@ -30,6 +30,7 @@ class ProcessRepairVideosApp {
       modelNumbersDropdown: document.getElementById('model-number-dropdown'),
       logicBoardNumberInput: document.getElementById('logic-board-number'),
       logicBoardNumbersDropdown: document.getElementById('logic-board-number-dropdown'),
+      doneRowAnswersTable: document.getElementById('done-row-answers-table'),
     }
 
     const storedState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_APP_KEY));
@@ -67,10 +68,10 @@ class ProcessRepairVideosApp {
   }
 
   renderProcessVideoHtml(videoDataRow) {
-    this.dom.videoTitle.innerText = videoDataRow.Video.Title;
     // Disallow browser URL caching so that iframe does not
     // TODO: Is this a bad idea? What about offline experince?
     this.dom.videoIframe.src = `${videoDataRow.Video.EmbeddedUrl}?timestamp=${new Date().getTime()}`;
+    this.dom.videoTitle.innerText = videoDataRow.Video.Title;
   }
 
   resetProcessForm() {
@@ -94,6 +95,38 @@ class ProcessRepairVideosApp {
     this.dom.waitingText.classList.add('d-none');
     this.dom.processGuide.classList.remove('d-none');
     this.dom.resetVideoBtn.classList.remove('disabled');
+  }
+
+  setDoneRowAnswersTable(repairVideos) {
+    console.log(repairVideos);
+    const tableData = repairVideos
+      .filter(_ => _.Wiki.Status == "Done")
+      .map(_ => {
+        const tr = document.createElement('tr');
+        tr.classList.add('table-success');
+
+        [
+          _.RowID.HumanReadable,
+          _.Repair.Symptom,
+          _.Repair.Cause,
+          _.Repair.Issues.join(', '),
+          _.Mac.ModelIdentifier,
+          _.Mac.ModelNumber,
+          _.Mac.LogicBoardPartNumber,
+        ].forEach(textContent => {
+          let td = document.createElement('td');
+          td.textContent = textContent;
+          tr.appendChild(td);
+        });
+
+        return tr;
+      })
+      .reduce((tbody, tr) => {
+        tbody.appendChild(tr);
+        return tbody;
+      }, document.createElement('tbody'));
+
+    this.dom.doneRowAnswersTable.appendChild(tableData);
   }
 
   setRepairVideoData(repairVideos) {
@@ -177,6 +210,7 @@ async function main() {
       const repairVideosReq = await getRepairDataReqF;
       const json = await repairVideosReq.json();
       app.setRepairVideoData(json);
+      app.setDoneRowAnswersTable(json);
       res();
     }),
     new Promise(async (res) => {
@@ -203,6 +237,8 @@ async function main() {
 try {
   const program = main();
   program.catch((e) => {
+    console.error("Error encountered");
+    console.error(e);
     // start app anyways
     const app = new ProcessRepairVideosApp();
     app.setRepairVideoData([]);
