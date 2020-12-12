@@ -20,7 +20,9 @@ class ProcessRepairVideosApp {
       resetAppBtn: document.getElementById('reset-app'),
       resetVideoBtn: document.getElementById('reset-video'),
       videoTitle: document.getElementById('video-title'),
+      videoRow: document.getElementById('video-row'),
       videoIframe: document.getElementById('video-iframe'),
+      videoYoutubeLink: document.getElementById('video-youtube-link'),
       processGuide: document.getElementById('process-guide'),
       waitingText: document.getElementById('waiting'),
       reportForm: document.getElementById('repair-report-form'),
@@ -45,6 +47,11 @@ class ProcessRepairVideosApp {
     this.dom.resetAppBtn.onclick = this.resetAppState.bind(this);
     this.dom.resetVideoBtn.onclick = this.resetProcessForm.bind(this);
     this.dom.hideTopBtn.onclick = () => this.setState({ hideTopSection: true });
+    this.dom.reportForm.oninput = () => {
+      this.dom.resetVideoBtn.classList.remove('disabled');
+      const formData = Object.fromEntries(new FormData(this.dom.reportForm).entries());
+      this.setState({ reportForm: formData });
+    };
 
     this.renderState(this.state);
   }
@@ -65,24 +72,29 @@ class ProcessRepairVideosApp {
     if (state.hideTopSection) {
       this.dom.topSection.classList.remove('show');
     }
+
+    if (state.reportForm) {
+      Object.keys(state.reportForm).forEach(inputName => {
+        document.getElementsByName(inputName).forEach(elem => {
+          elem.value = state.reportForm[inputName];
+        });
+      });
+    }
   }
 
   renderProcessVideoHtml(videoDataRow) {
     // Disallow browser URL caching so that iframe does not
     // TODO: Is this a bad idea? What about offline experince?
     this.dom.videoIframe.src = `${videoDataRow.Video.EmbeddedUrl}?timestamp=${new Date().getTime()}`;
+
+    this.dom.videoYoutubeLink.href = videoDataRow.Video.Url;
     this.dom.videoTitle.innerText = videoDataRow.Video.Title;
+    this.dom.videoRow.innerText = videoDataRow.RowID.HumanReadable;
   }
 
   resetProcessForm() {
-    // TODO: Reset form data
-    const formData = Object.fromEntries(new FormData(this.dom.reportForm).entries());
-    // this.setState({ showProcessingForm: false });
-    // this.dom.waitingText.classList.remove('d-none');
-    // this.dom.processGuide.classList.add('d-none');
-    // this.dom.videoTitle.innerText = '';
-    // this.dom.videoIframe.src = '';
     this.dom.resetVideoBtn.classList.add('disabled');
+    this.dom.reportForm.reset();
   }
 
   resetAppState() {
@@ -98,7 +110,6 @@ class ProcessRepairVideosApp {
   }
 
   setDoneRowAnswersTable(repairVideos) {
-    console.log(repairVideos);
     const tableData = repairVideos
       .filter(_ => _.Wiki.Status == "Done")
       .map(_ => {
@@ -107,12 +118,12 @@ class ProcessRepairVideosApp {
 
         [
           _.RowID.HumanReadable,
-          _.Repair.Symptom,
-          _.Repair.Cause,
-          _.Repair.Issues.join(', '),
           _.Mac.ModelIdentifier,
           _.Mac.ModelNumber,
           _.Mac.LogicBoardPartNumber,
+          _.Repair.Symptom,
+          _.Repair.Cause,
+          _.Repair.Issues.join(', '),
         ].forEach(textContent => {
           let td = document.createElement('td');
           td.textContent = textContent;

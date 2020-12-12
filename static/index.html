@@ -27,13 +27,13 @@
       </div>
     </div>
     <div id="information-collapsable" class="card-body collapse show">
-      <p>Help Louis Rossmann organize his <a href="">repair videos</a> into a <a href="https://wiki2.rossmanngroup.com/index.php">public knowledge base</a> for repair enthusiasts to use!</p>
+      <p>Help Louis Rossmann organize his <a href="https://docs.google.com/spreadsheets/d/1PulZnpPHxBFyJwKiJvTQqR0D3liKHdl48rz7zwh652U/edit" target="_blank">repair videos</a> into a <a href="https://wiki2.rossmanngroup.com/index.php" target="_blank">public knowledge base</a> for repair enthusiasts to use!</p>
       <hr />
       <iframe style="display: block; margin: 0 auto;" width="560" height="315" src="https://www.youtube.com/embed/3kGqPjSDp14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <hr />
       <h3 class="h5">Getting Started</h3>
       <ol>
-        <li>Create a <a href="https://wiki2.rossmanngroup.com/index.php?title=Special:CreateAccount&returnto=Main+Page">account on the wiki</a> so you can contribute to the knowledge base.</li>
+        <li>Create a <a href="https://wiki2.rossmanngroup.com/index.php?title=Special:CreateAccount&returnto=Main+Page" target="_blank">account on the wiki</a> so you can contribute to the knowledge base.</li>
         <li>Click the "Assign Random Video" button and follow the instructions.</li>
       </ol>
     </div>
@@ -61,7 +61,9 @@
             <iframe id="video-iframe" style="display: block; margin: 0 auto;" width="560" height="315" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <h3 id="video-title" class="h4 mt-3 mb-0"></h3>
             <p>
-              (<a id="video-youtube-link" href="">Direct Youtube Link</a>)
+              <b>Row:</b> <span id="video-row"></span>
+              <br />
+              (<a id="video-youtube-link" href="" target="_blank">Direct Youtube Link</a>)
             </p>
           </div>
           <hr />
@@ -93,13 +95,13 @@
               <div id="collapse-analyze-video" class="collapse" aria-labelledby="analyze-video-heading" data-parent="#process-accordion">
                 <div class="card-body">
                   <p>
-                    Fill out the form below by watching the video. Use any strategy to collect correct information! Step 3 uses the data you collect.
+                    Fill out the form below by watching the video. Use any strategy to collect correct information! Step 3 uses the data you enter.
                   </p>
                   <p>
                     If helpful, reference previous answers from the google sheet as an aid.
                     <br />
                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#previous-answers-modal">
-                      Previous Answers
+                      Previous "Done" Answers
                     </button>
                   </p>
                   <hr />
@@ -140,7 +142,12 @@
                       Model Number <span class="badge badge-pill badge-info">?</span>
                     </label>
                     <div class="input-group mb-4">
-                      <input id="model-number" type="text" class="form-control" aria-label="Model Number" placeholder="Model number">
+                      <input id="model-number"
+                             name="model-number"
+                             type="text"
+                             class="form-control"
+                             aria-label="Model Number"
+                             placeholder="Model number">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Model Numbers From Sheet
@@ -153,7 +160,12 @@
                       Logic Board Number <span class="badge badge-pill badge-info">?</span>
                     </label>
                     <div class="input-group mb-2">
-                      <input id="logic-board-number" type="text" class="form-control" aria-label="Logic Board Number" placeholder="Logic board number">
+                      <input id="logic-board-number"
+                             name="logic-board-number"
+                             type="text"
+                             class="form-control"
+                             aria-label="Logic Board Number"
+                             placeholder="Logic board number">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Logic Board Numbers From Sheet
@@ -173,10 +185,12 @@
                     <br />
 
 
-                    <!-- TODO: Write more thorough guide to help the app user out (that appears in a tooltip?) -->
-
                     <label for="symptom">Symptom</label>
-                    <textarea id="symptom" type="text" class="form-control" placeholder="Why do people think the laptop is broken?"></textarea>
+                    <textarea id="symptom"
+                              name="symptom"
+                              type="text"
+                              class="form-control"
+                              placeholder="Why do people think the laptop is broken?"></textarea>
                     <p id="help-text-symptom" class="collapse">
                       Sometimes Louis reads notes that accurately describe whats wrong. Other times, Louis has to explain (and maybe demonstrate) the errant behavior.
                     </p>
@@ -186,7 +200,11 @@
                     <br />
 
                     <label for="cause">Cause</label>
-                    <textarea id="cause" type="text" class="form-control" placeholder="What happened to break the device?"></textarea>
+                    <textarea id="cause"
+                              name="cause"
+                              type="text"
+                              class="form-control"
+                              placeholder="What happened to break the device?"></textarea>
                     <p id="help-text-cause" class="collapse">
                       What happened to break the device? Sometimes the customer spills water on it, other times a capacitor or corrosion breaks the device. Listen for customer note readings and look for Louis to do detective investigation.
                     </p>
@@ -196,7 +214,11 @@
                     <br />
 
                     <label for="issue">Issue</label>
-                    <textarea id="issue" type="text" class="form-control" placeholder="What is the detailed logic board based explanation for the break?"></textarea>
+                    <textarea id="issue"
+                              name="issue"
+                              type="text"
+                              class="form-control"
+                              placeholder="What is the detailed logic board based explanation for the break?"></textarea>
                     <p id="help-text-issue" class="collapse">
                       What is the detailed logic board based explanation for the break?
                     </p>
@@ -250,22 +272,22 @@
     <div class="modal-dialog mw-100 w-100" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Answers from Done Rows</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">"Done" Answers from <a href="https://docs.google.com/spreadsheets/d/1PulZnpPHxBFyJwKiJvTQqR0D3liKHdl48rz7zwh652U/edit" target="_blank">Repair Videos Google Sheet</a></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <table id="done-row-answers-table" class="table">
+          <table id="done-row-answers-table" class="table table-hover">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">Row</th>
+                <th scope="col">Model ID</th>
+                <th scope="col">Model #</th>
+                <th scope="col">Logic Board #</th>
                 <th scope="col">Symptom</th>
                 <th scope="col">Cause</th>
                 <th scope="col">Issue</th>
-                <th scope="col">Model ID</th>
-                <th scope="col">Model #</th>
-                <th scope="col">Logic Board Part #</th>
               </tr>
             </thead>
           </table>
