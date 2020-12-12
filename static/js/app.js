@@ -1,18 +1,61 @@
 const LOCAL_STORAGE_APP_KEY = 'app-state';
-// TODO: storage any reports generated user in local storage
 const LOCAL_STORAGE_REPORTS_KEY = 'app-reports';
 
-class ReportReports {
+class ReportsWidget {
   constructor() {
-    this.dom = {};
-    const storedState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_REPORTS_KEY));
-    const stateDefaults = {};
-    this.state = Object.assign({}, stateDefaults, storedState);
+    this.dom = {
+      reportsContainer: document.getElementById('reports-container'),
+    };
+    // TODO: validate stored data
+    const widgetState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_REPORTS_KEY));
+    const stateDefaults = {
+      reports: [],
+    };
+
+    this.setState(Object.assign({}, stateDefaults, widgetState));
+  }
+
+  addNewReport(reportFormData) {
+    // TODO: Validate report data
+    const reports = this.state.reports;
+    const updatedReports = [ ...reports, reportFormData ];
+
+    this.setState({ reports: updatedReports });
+  }
+
+  setState(newState) {
+    this.state = Object.assign({}, this.state, newState);
+
+    window.localStorage.setItem(LOCAL_STORAGE_REPORTS_KEY, JSON.stringify(this.state));
+    this.renderState(this.state);
+  }
+
+  renderState(state) {
+    const { reports } = state;
+
+    if (reports.length > 0) {
+      this.dom.reportsContainer.innerText = '';
+      reports
+        .map(this.reportCardDOM)
+        .forEach(DOM => this.dom.reportsContainer.appendChild(DOM));
+    } else {
+      this.dom.reportsContainer.innerText = 'No saved reports (yet)...';
+    }
+  }
+
+  reportCardDOM(report) {
+    const card = document.createElement('div');
+    card.classList.add('card', 'mt-3');
+    card.innerText = JSON.stringify(report, null, 2);
+
+    return card;
   }
 }
 
 class ProcessRepairVideosApp {
   constructor() {
+    this.reportsWidget = new ReportsWidget();
+
     this.dom = {
       topSection: document.getElementById('information-collapsable'),
       hideTopBtn: document.getElementById('hide-top'),
@@ -26,6 +69,7 @@ class ProcessRepairVideosApp {
       processGuide: document.getElementById('process-guide'),
       waitingText: document.getElementById('waiting'),
       reportForm: document.getElementById('repair-report-form'),
+      reportFormSaveBtn: document.getElementById('save-wiki-report'),
       modelIdInput: document.getElementById('model-identifier'),
       modelIdsDropdown: document.getElementById('model-identifier-dropdown'),
       modelNumberInput: document.getElementById('model-number'),
@@ -33,6 +77,8 @@ class ProcessRepairVideosApp {
       logicBoardNumberInput: document.getElementById('logic-board-number'),
       logicBoardNumbersDropdown: document.getElementById('logic-board-number-dropdown'),
       doneRowAnswersTable: document.getElementById('done-row-answers-table'),
+      writeToWikiHeading: document.getElementById('heading-write-to-wiki'),
+      writeToWikiCollapsable: document.getElementById('collapse-write-to-wiki'),
     }
 
     const storedState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_APP_KEY));
@@ -49,8 +95,27 @@ class ProcessRepairVideosApp {
     this.dom.hideTopBtn.onclick = () => this.setState({ hideTopSection: true });
     this.dom.reportForm.oninput = () => {
       this.dom.resetVideoBtn.classList.remove('disabled');
+      this.dom.reportFormSaveBtn.classList.remove('disabled');
       const formData = Object.fromEntries(new FormData(this.dom.reportForm).entries());
       this.setState({ reportForm: formData });
+    };
+    this.dom.reportFormSaveBtn.onclick = () => {
+      const reportFormData = Object.fromEntries(new FormData(this.dom.reportForm).entries());
+      const report = {
+        video: this.state.video,
+        form: reportFormData,
+      };
+      this.reportsWidget.addNewReport(report);
+      this.resetProcessForm();
+    }
+    this.dom.writeToWikiHeading.onclick = () => {
+      const classList = this.dom.writeToWikiCollapsable.classList;
+      // If the card is going to open...
+      if (!classList.contains('show')) {
+        console.log(classList);
+        console.log(this.state.reportForm);
+        this.renderWikiEntryWithUserInput();
+      }
     };
 
     this.renderState(this.state);
@@ -79,7 +144,13 @@ class ProcessRepairVideosApp {
           elem.value = state.reportForm[inputName];
         });
       });
+      this.dom.reportFormSaveBtn.classList.remove('disabled');
     }
+  }
+
+  renderWikiEntryWithUserInput() {
+    // Hacks: just take formData, append `-output` to each input name, and update HTML
+    // Object.keys(formData).forEach(inputKey => { document.getElementById(`${inputKey}-output`).textContent = formData[inputKey]; })
   }
 
   renderProcessVideoHtml(videoDataRow) {
@@ -93,8 +164,9 @@ class ProcessRepairVideosApp {
   }
 
   resetProcessForm() {
-    this.dom.resetVideoBtn.classList.add('disabled');
     this.dom.reportForm.reset();
+    this.dom.resetVideoBtn.classList.add('disabled');
+    this.dom.reportFormSaveBtn.classList.add('disabled');
     this.setState({ reportForm: null })
   }
 
@@ -209,6 +281,7 @@ class ProcessRepairVideosApp {
 }
 
 async function main() {
+  const reports = new ReportsWidget();
   const app = new ProcessRepairVideosApp();
   const getRepairDataReqF = fetch('json/repair-videos-data.json');
   const getModelIdsFromSheetReqF = fetch('json/model-ids.json');

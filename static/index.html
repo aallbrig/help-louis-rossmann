@@ -1,56 +1,72 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <meta name="author" content="Andrew Allbright">
-  <meta name="description" content="Help Louis Rossmann encode his repair videos into a public wiki">
+    <meta name="author" content="Andrew Allbright">
+    <meta name="description" content="Help Louis Rossmann encode his repair videos into a public wiki">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-  <title>Help Louis Rossmann</title>
-</head>
-<body class="container">
+    <title>Help Louis Rossmann</title>
+  </head>
+  <body class="container">
 
-  <div id="information" class="card mt-2 mb-3">
-    <div class="card-header">
-      <h1 class="h3 float-left">
-        Help Louis Rossman
-      </h1>
-      <div class="float-right">
-        <button id="hide-top" class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#information-collapsable" aria-expanded="false" aria-controls="information-collapsable">
-          Hide
-        </button>
-      </div>
-    </div>
-    <div id="information-collapsable" class="card-body collapse show">
-      <p>Help Louis Rossmann organize his <a href="https://docs.google.com/spreadsheets/d/1PulZnpPHxBFyJwKiJvTQqR0D3liKHdl48rz7zwh652U/edit" target="_blank">repair videos</a> into a <a href="https://wiki2.rossmanngroup.com/index.php" target="_blank">public knowledge base</a> for repair enthusiasts to use!</p>
-      <hr />
-      <iframe style="display: block; margin: 0 auto;" width="560" height="315" src="https://www.youtube.com/embed/3kGqPjSDp14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <hr />
-      <h3 class="h5">Getting Started</h3>
-      <ol>
-        <li>Create a <a href="https://wiki2.rossmanngroup.com/index.php?title=Special:CreateAccount&returnto=Main+Page" target="_blank">account on the wiki</a> so you can contribute to the knowledge base.</li>
-        <li>Click the "Assign Random Video" button and follow the instructions.</li>
-      </ol>
-    </div>
-  </div>
-
-  <div id="app-container" class="card h-80">
-
-    <div class="card-header">
-      <div class="float-right">
-        <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
-          <button id="assign-video" type="button" class="btn btn-primary disabled">Assign Random Video</button>
-          <button id="reset-app" type="button" class="btn btn-danger">Reset</button>
+    <div id="information" class="card mt-2 mb-3">
+      <div class="card-header">
+        <h1 class="h3 float-left">
+          Help Louis Rossman
+        </h1>
+        <div class="float-right">
+          <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
+            <button id="hide-top" class="btn btn-secondary" type="button" data-toggle="collapse"
+                    data-target="#information-collapsable" aria-expanded="false"
+                    aria-controls="information-collapsable">
+              Hide
+            </button>
+          </div>
         </div>
       </div>
+      <div id="information-collapsable" class="card-body collapse show">
+        <p>Help Louis Rossmann organize his <a
+            href="https://docs.google.com/spreadsheets/d/1PulZnpPHxBFyJwKiJvTQqR0D3liKHdl48rz7zwh652U/edit"
+            target="_blank">repair videos</a> into a <a href="https://wiki2.rossmanngroup.com/index.php"
+                                                        target="_blank">public knowledge base</a> for repair
+          enthusiasts to use!</p>
+        <hr/>
+        <iframe style="display: block; margin: 0 auto;" width="560" height="315"
+                src="https://www.youtube.com/embed/3kGqPjSDp14" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        <hr/>
+        <h3 class="h5">Getting Started</h3>
+        <ol>
+          <li>Create a <a
+              href="https://wiki2.rossmanngroup.com/index.php?title=Special:CreateAccount&returnto=Main+Page"
+              target="_blank">account on the wiki</a> so you can contribute to the knowledge base.
+          </li>
+          <li>Click the "Assign Random Video" button and follow the instructions.</li>
+        </ol>
+      </div>
     </div>
 
-    <div class="card-body">
+    <div id="app-container" class="card h-80">
+
+      <div class="card-header">
+        <div class="float-right">
+          <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
+            <button id="assign-video" type="button" class="btn btn-primary disabled">Assign Random Video</button>
+            <button id="reset-app" type="button" class="btn btn-danger">Reset App State</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
         <div id="process-guide" class="d-none">
 
           <p id="waiting">
@@ -58,28 +74,34 @@
           </p>
 
           <div id="video-container" class="mb-3 text-center">
-            <iframe id="video-iframe" style="display: block; margin: 0 auto;" width="560" height="315" src="" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="video-iframe" style="display: block; margin: 0 auto;" width="560" height="315" src=""
+                    frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             <h3 id="video-title" class="h4 mt-3 mb-0"></h3>
             <p>
               <b>Row:</b> <span id="video-row"></span>
-              <br />
+              <br/>
               (<a id="video-youtube-link" href="" target="_blank">Direct Youtube Link</a>)
             </p>
           </div>
-          <hr />
+          <hr/>
 
           <div id="process-accordion">
             <div id="take-notes" class="card">
               <div id="heading-one" class="card-header">
                 <h5 class="mb-0">
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-one"
+                          aria-expanded="true" aria-controls="collapse-one">
                     1. Get ready to take notes
                   </button>
                 </h5>
               </div>
-              <div id="collapse-one" class="collapse show" aria-labelledby="heading-one" data-parent="#process-accordion">
+              <div id="collapse-one" class="collapse show" aria-labelledby="heading-one"
+                   data-parent="#process-accordion">
                 <div class="card-body">
-                  Set up your space to take notes. Perhaps grab a drink and a snack along with your note taking devices? Get yourself ready to analyze a Louis video.
+                  Set up your space to take notes. Perhaps grab a drink and a snack along with your note
+                  taking devices? Get yourself ready to analyze a Louis video.
                 </div>
               </div>
             </div>
@@ -87,30 +109,36 @@
             <div id="analyze-video" class="card">
               <div id="analyze-video-heading" class="card-header">
                 <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-analyze-video" aria-expanded="true" aria-controls="collapse-analyze-video">
+                  <button class="btn btn-link collapsed" data-toggle="collapse"
+                          data-target="#collapse-analyze-video" aria-expanded="true"
+                          aria-controls="collapse-analyze-video">
                     2. Extract key pieces of information by watching the video
                   </button>
                 </h5>
               </div>
-              <div id="collapse-analyze-video" class="collapse" aria-labelledby="analyze-video-heading" data-parent="#process-accordion">
+              <div id="collapse-analyze-video" class="collapse" aria-labelledby="analyze-video-heading"
+                   data-parent="#process-accordion">
                 <div class="card-body">
                   <p>
-                    Fill out the form below by watching the video. Use any strategy to collect correct information! Step 3 uses the data you enter.
+                    Fill out the form below by watching the video. Use any strategy to collect correct
+                    information! Step 3 uses the data you enter.
                   </p>
                   <p>
                     If helpful, reference previous answers from the google sheet as an aid.
-                    <br />
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#previous-answers-modal">
+                    <br/>
+                    <button type="button" class="btn btn-info" data-toggle="modal"
+                            data-target="#previous-answers-modal">
                       Previous "Done" Answers
                     </button>
                   </p>
-                  <hr />
+                  <hr/>
 
                   <form id="repair-report-form" action="javascript:void(0);" class="my-5">
 
                     <!-- TODO: Input group where one can either type the model identifier or select from a dropdown -->
                     <!-- Note: the model identifier & model number can be determined based on logic board number (IIRC) -->
-                    <label for="model-identifier" data-toggle="tooltip" data-placement="top" title="The human readable name e.g. 'Macbook Pro 13'">
+                    <label for="model-identifier" data-toggle="tooltip" data-placement="top"
+                           title="The human readable name e.g. 'Macbook Pro 13'">
                       Model Identifier <span class="ml-2 badge badge-pill badge-info">?</span>
                     </label>
 
@@ -122,7 +150,8 @@
                              aria-label="Model Identifier"
                              placeholder="Model ID">
                       <div class="input-group-append">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Model IDs From Sheet
                         </button>
                         <div id="model-identifier-dropdown" class="dropdown-menu"></div>
@@ -130,15 +159,19 @@
                     </div>
 
                     <p id="analyze-video-help-text-2" class="collapse">
-                      If the model ID is not in the video's title then check the video's description. Quickly scrub through the video for spots with the model ID.
+                      If the model ID is not in the video's title then check the video's description.
+                      Quickly scrub through the video for spots with the model ID.
                     </p>
-                    <button class="btn btn-link text-info p-0 mb-3" data-toggle="collapse" data-target="#analyze-video-help-text-2" aria-expanded="true" aria-controls="analyze-video-help-text-2">
+                    <button class="btn btn-link text-info p-0 mb-3" data-toggle="collapse"
+                            data-target="#analyze-video-help-text-2" aria-expanded="true"
+                            aria-controls="analyze-video-help-text-2">
                       show tip
                     </button>
-                    <br />
+                    <br/>
 
 
-                    <label for="model-identifier" data-toggle="tooltip" data-placement="top" title="The number of the specific model">
+                    <label for="model-identifier" data-toggle="tooltip" data-placement="top"
+                           title="The number of the specific model">
                       Model Number <span class="badge badge-pill badge-info">?</span>
                     </label>
                     <div class="input-group mb-4">
@@ -149,14 +182,16 @@
                              aria-label="Model Number"
                              placeholder="Model number">
                       <div class="input-group-append">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Model Numbers From Sheet
                         </button>
                         <div id="model-number-dropdown" class="dropdown-menu"></div>
                       </div>
                     </div>
 
-                    <label for="model-identifier" data-toggle="tooltip" data-placement="top" title="Check the title. Otherwise, scrub through the video for the model ID">
+                    <label for="model-identifier" data-toggle="tooltip" data-placement="top"
+                           title="Check the title. Otherwise, scrub through the video for the model ID">
                       Logic Board Number <span class="badge badge-pill badge-info">?</span>
                     </label>
                     <div class="input-group mb-2">
@@ -167,7 +202,8 @@
                              aria-label="Logic Board Number"
                              placeholder="Logic board number">
                       <div class="input-group-append">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Logic Board Numbers From Sheet
                         </button>
                         <div id="logic-board-number-dropdown" class="dropdown-menu"></div>
@@ -175,14 +211,20 @@
                     </div>
 
                     <p id="help-text-logic-board-number" class="collapse">
-                      The logic board number may be used to identify the model ID and model number; consult a search engine. See if the title or description contains this. Search the video for PDFs or schematics that contain the data.
+                      The logic board number may be used to identify the model ID and model number;
+                      consult a search engine. See if the title or description contains this. Search the
+                      video for PDFs or schematics that contain the data.
 
-                      Once located, double check <a href="https://wiki2.rossmanngroup.com/index.php?title=Troubleshooting_Guides">the wiki</a> that the model ID + logic board number match.
+                      Once located, double check <a
+                        href="https://wiki2.rossmanngroup.com/index.php?title=Troubleshooting_Guides">the
+                      wiki</a> that the model ID + logic board number match.
                     </p>
-                    <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse" data-target="#analyze-video-help-text-3" aria-expanded="true" aria-controls="analyze-video-help-text-3">
+                    <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse"
+                            data-target="#analyze-video-help-text-3" aria-expanded="true"
+                            aria-controls="analyze-video-help-text-3">
                       show tip
                     </button>
-                    <br />
+                    <br/>
 
 
                     <label for="symptom">Symptom</label>
@@ -192,12 +234,15 @@
                               class="form-control"
                               placeholder="Why do people think the laptop is broken?"></textarea>
                     <p id="help-text-symptom" class="collapse">
-                      Sometimes Louis reads notes that accurately describe whats wrong. Other times, Louis has to explain (and maybe demonstrate) the errant behavior.
+                      Sometimes Louis reads notes that accurately describe whats wrong. Other times, Louis
+                      has to explain (and maybe demonstrate) the errant behavior.
                     </p>
-                    <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse" data-target="#help-text-symptom" aria-expanded="true" aria-controls="help-text-symptom">
+                    <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse"
+                            data-target="#help-text-symptom" aria-expanded="true"
+                            aria-controls="help-text-symptom">
                       show tip
                     </button>
-                    <br />
+                    <br/>
 
                     <label for="cause">Cause</label>
                     <textarea id="cause"
@@ -206,12 +251,16 @@
                               class="form-control"
                               placeholder="What happened to break the device?"></textarea>
                     <p id="help-text-cause" class="collapse">
-                      What happened to break the device? Sometimes the customer spills water on it, other times a capacitor or corrosion breaks the device. Listen for customer note readings and look for Louis to do detective investigation.
+                      What happened to break the device? Sometimes the customer spills water on it, other
+                      times a capacitor or corrosion breaks the device. Listen for customer note readings
+                      and look for Louis to do detective investigation.
                     </p>
-                    <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse" data-target="#help-text-cause" aria-expanded="true" aria-controls="help-text-cause">
+                    <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse"
+                            data-target="#help-text-cause" aria-expanded="true"
+                            aria-controls="help-text-cause">
                       show tip
                     </button>
-                    <br />
+                    <br/>
 
                     <label for="issue">Issue</label>
                     <textarea id="issue"
@@ -222,22 +271,12 @@
                     <p id="help-text-issue" class="collapse">
                       What is the detailed logic board based explanation for the break?
                     </p>
-                    <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse" data-target="#help-text-issue" aria-expanded="true" aria-controls="help-text-issue">
+                    <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse"
+                            data-target="#help-text-issue" aria-expanded="true"
+                            aria-controls="help-text-issue">
                       show tip
                     </button>
-                    <br />
 
-                    <hr />
-
-                    <div class="mt-4 clearfix">
-                      <div class="float-right">
-                        <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
-                          <button id="reset-video" type="button" class="btn btn-secondary disabled">Reset Report</button>
-                          <!-- TODO: Add ability for user to save their report -->
-                          <button id="save-wiki-report" type="button" class="btn btn-success disabled">Save Report</button>
-                        </div>
-                      </div>
-                    </div>
                   </form>
 
                 </div>
@@ -245,14 +284,17 @@
             </div>
 
             <div id="write-to-wiki" class="card">
-              <div id="heading-three" class="card-header">
+              <div id="heading-write-to-wiki" class="card-header">
                 <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-three" aria-expanded="true" aria-controls="collapse-three">
-                    3. Add discoveries to the public knowledge base
+                  <button class="btn btn-link collapsed" data-toggle="collapse"
+                          data-target="#collapse-write-to-wiki" aria-expanded="true"
+                          aria-controls="collapse-write-to-wiki">
+                    3. Add discoveries to the public knowledge wiki
                   </button>
                 </h5>
               </div>
-              <div id="collapse-three" class="collapse" aria-labelledby="heading-three" data-parent="#process-accordion">
+              <div id="collapse-write-to-wiki" class="collapse" aria-labelledby="heading-write-to-wiki"
+                   data-parent="#process-accordion">
                 <div class="card-body">
                   <p>
                     Now take your notes and add to the public knowledge base!
@@ -261,25 +303,62 @@
               </div>
             </div>
 
+            <hr/>
+
+            <div class="mt-4 clearfix">
+              <div class="float-right">
+                <div class="btn-group" role="group"
+                     aria-label="Video Processor button toolbelt">
+                  <button id="reset-video" type="button" class="btn btn-secondary disabled">
+                    Reset Report
+                  </button>
+                  <!-- TODO: Add ability for user to save their report -->
+                  <button id="save-wiki-report" type="button"
+                          class="btn btn-success disabled">Save Report
+                  </button>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="previous-answers-modal" tabindex="-1" role="dialog" aria-labelledby="previous-answers-modalTitle" aria-hidden="true">
-    <div class="modal-dialog mw-100 w-100" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">"Done" Answers from <a href="https://docs.google.com/spreadsheets/d/1PulZnpPHxBFyJwKiJvTQqR0D3liKHdl48rz7zwh652U/edit" target="_blank">Repair Videos Google Sheet</a></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+
+    <div id="user-generated-reports" class="card my-5">
+      <div id="heading-user-generated-reports" class="card-header">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-user-generated-reports"
+                  aria-expanded="true" aria-controls="collapse-user-generated-reports">
+            View Your Reports
           </button>
+        </h5>
+      </div>
+      <div id="collapse-user-generated-reports" class="collapse" aria-labelledby="heading-user-generated-reports"
+           data-parent="#process-accordion">
+        <div class="card-body">
+          <div id="reports-container"></div>
         </div>
-        <div class="modal-body">
-          <table id="done-row-answers-table" class="table table-hover">
-            <thead class="thead-dark">
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="previous-answers-modal" tabindex="-1" role="dialog"
+         aria-labelledby="previous-answers-modalTitle" aria-hidden="true">
+      <div class="modal-dialog mw-100 w-100" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">"Done" Answers from <a
+                href="https://docs.google.com/spreadsheets/d/1PulZnpPHxBFyJwKiJvTQqR0D3liKHdl48rz7zwh652U/edit"
+                target="_blank">Repair Videos Google Sheet</a></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table id="done-row-answers-table" class="table table-hover">
+              <thead class="thead-dark">
               <tr>
                 <th scope="col">Row</th>
                 <th scope="col">Model ID</th>
@@ -289,19 +368,27 @@
                 <th scope="col">Cause</th>
                 <th scope="col">Issue</th>
               </tr>
-            </thead>
-          </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </thead>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
-  <script src="js/app.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+            integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+            crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
