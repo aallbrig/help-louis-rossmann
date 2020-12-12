@@ -5,12 +5,15 @@ class ReportsWidget {
   constructor() {
     this.dom = {
       reportsContainer: document.getElementById('reports-container'),
+      deleteReportsBtn: document.getElementById('delete-reports'),
     };
     // TODO: validate stored data
     const widgetState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_REPORTS_KEY));
     const stateDefaults = {
       reports: [],
     };
+
+    this.dom.deleteReportsBtn.onclick = this.deleteAllReports.bind(this);
 
     this.setState(Object.assign({}, stateDefaults, widgetState));
   }
@@ -38,8 +41,10 @@ class ReportsWidget {
       reports
         .map(this.reportCardDOM)
         .forEach(DOM => this.dom.reportsContainer.appendChild(DOM));
+      this.dom.deleteReportsBtn.classList.remove('disabled');
     } else {
       this.dom.reportsContainer.innerText = 'No saved reports (yet)...';
+      this.dom.deleteReportsBtn.classList.add('disabled');
     }
   }
 
@@ -49,6 +54,10 @@ class ReportsWidget {
     card.innerText = JSON.stringify(report, null, 2);
 
     return card;
+  }
+
+  deleteAllReports() {
+    this.setState({ reports: [] });
   }
 }
 

@@ -24,6 +24,7 @@
         </h1>
         <div class="float-right">
           <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
+            <button id="reset-app" type="button" class="btn btn-warning">Reset App State</button>
             <button id="hide-top" class="btn btn-secondary" type="button" data-toggle="collapse"
                     data-target="#information-collapsable" aria-expanded="false"
                     aria-controls="information-collapsable">
@@ -33,18 +34,17 @@
         </div>
       </div>
       <div id="information-collapsable" class="card-body collapse show">
-        <p>Help Louis Rossmann organize his <a
-            href="https://docs.google.com/spreadsheets/d/1PulZnpPHxBFyJwKiJvTQqR0D3liKHdl48rz7zwh652U/edit"
-            target="_blank">repair videos</a> into a <a href="https://wiki2.rossmanngroup.com/index.php"
-                                                        target="_blank">public knowledge base</a> for repair
-          enthusiasts to use!</p>
+        <p>
+          Help Louis Rossman organize his <a href="https://docs.google.com/spreadsheets/d/1PulZnpPHxBFyJwKiJvTQqR0D3liKHdl48rz7zwh652U/edit" target="_blank">repair videos</a> into a <a href="https://wiki2.rossmanngroup.com/index.php" target="_blank">public knowledge wiki</a> for repair
+          enthusiasts.
+        </p>
         <hr/>
         <iframe style="display: block; margin: 0 auto;" width="560" height="315"
                 src="https://www.youtube.com/embed/3kGqPjSDp14" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
         <hr/>
-        <h3 class="h5">Getting Started</h3>
+        <h3 class="h4">Getting Started</h3>
         <ol>
           <li>Create a <a
               href="https://wiki2.rossmanngroup.com/index.php?title=Special:CreateAccount&returnto=Main+Page"
@@ -61,7 +61,6 @@
         <div class="float-right">
           <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
             <button id="assign-video" type="button" class="btn btn-primary disabled">Assign Random Video</button>
-            <button id="reset-app" type="button" class="btn btn-danger">Reset App State</button>
           </div>
         </div>
       </div>
@@ -82,7 +81,7 @@
             <p>
               <b>Row:</b> <span id="video-row"></span>
               <br/>
-              (<a id="video-youtube-link" href="" target="_blank">Direct Youtube Link</a>)
+              (<a id="video-youtube-link" class="text-muted" href="" target="_blank">Direct Youtube Link</a>)
             </p>
           </div>
           <hr/>
@@ -121,19 +120,11 @@
                 <div class="card-body">
                   <p>
                     Fill out the form below by watching the video. Use any strategy to collect correct
-                    information! Step 3 uses the data you enter.
-                  </p>
-                  <p>
-                    If helpful, reference previous answers from the google sheet as an aid.
-                    <br/>
-                    <button type="button" class="btn btn-info" data-toggle="modal"
-                            data-target="#previous-answers-modal">
-                      Previous "Done" Answers
-                    </button>
+                    information. Step 3 uses your input data.
                   </p>
                   <hr/>
 
-                  <form id="repair-report-form" action="javascript:void(0);" class="my-5">
+                  <form id="repair-report-form" action="javascript:void(0);" class="my-4">
 
                     <!-- TODO: Input group where one can either type the model identifier or select from a dropdown -->
                     <!-- Note: the model identifier & model number can be determined based on logic board number (IIRC) -->
@@ -279,6 +270,14 @@
 
                   </form>
 
+                  <div class="float-right mb-3">
+                    <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
+                      <button type="button" class="btn btn-info" data-toggle="modal"
+                              data-target="#previous-answers-modal">
+                        Previous "Done" Answers
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -298,6 +297,30 @@
                 <div class="card-body">
                   <p>
                     Now take your notes and add to the public knowledge base!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div id="update-google-sheet" class="card">
+              <div id="heading-update-google-sheet" class="card-header">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse"
+                          data-target="#collapse-update-google-sheet" aria-expanded="true"
+                          aria-controls="collapse-update-google-sheet">
+                    4. Update the google sheet
+                  </button>
+                </h5>
+              </div>
+              <div id="collapse-update-google-sheet" class="collapse" aria-labelledby="heading-update-google-sheet"
+                   data-parent="#process-accordion">
+                <div class="card-body">
+                  <p>
+                    Update Louis' <a href="" target="_blank">repair videos google sheet</a> with the information you gathered and a link to a wiki page.
+                    Congrats! Thank you for spending some of your time contributing to public knowledge.
+                  </p>
+                  <p>
+                    Save the report you generated or process another video.
                   </p>
                 </div>
               </div>
@@ -328,10 +351,10 @@
 
     <div id="user-generated-reports" class="card my-5">
       <div id="heading-user-generated-reports" class="card-header">
-        <h5 class="mb-0">
+        <h5 class="mb-0 float-left">
           <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-user-generated-reports"
                   aria-expanded="true" aria-controls="collapse-user-generated-reports">
-            View Your Reports
+            View Your Saved Reports
           </button>
         </h5>
       </div>
@@ -339,6 +362,13 @@
            data-parent="#process-accordion">
         <div class="card-body">
           <div id="reports-container"></div>
+          <div class="float-right">
+            <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
+              <button id="delete-reports" type="button" class="btn btn-danger disabled my-3">
+                Delete Saved Reports
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
