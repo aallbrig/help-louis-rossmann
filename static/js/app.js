@@ -95,6 +95,7 @@ class ProcessRepairVideosApp {
   resetProcessForm() {
     this.dom.resetVideoBtn.classList.add('disabled');
     this.dom.reportForm.reset();
+    this.setState({ reportForm: null })
   }
 
   resetAppState() {
@@ -216,7 +217,7 @@ async function main() {
 
   // Populate dropdowns with data from google sheet
   // TODO: Dry up this wet code
-  const allDropdownsPopulated = await Promise.all([
+  await Promise.all([
     new Promise(async (res) => {
       const repairVideosReq = await getRepairDataReqF;
       const json = await repairVideosReq.json();
