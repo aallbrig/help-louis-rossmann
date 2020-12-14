@@ -49,9 +49,55 @@ class ReportsWidget {
   }
 
   reportCardDOM(report) {
+    // Card Header
+    const rowIDBadge = document.createElement('span');
+    rowIDBadge.classList.add('badge', 'badge-info');
+    rowIDBadge.innerText = `Row ${report.video.RowID.HumanReadable}`;
+    const videoTitleText = document.createElement('span');
+    videoTitleText.textContent = ` ${report.video.Video.Title}`;
+
+    const reportExpandBtn = document.createElement('button');
+    reportExpandBtn.classList.add('btn', 'btn-link', 'collapsed');
+    reportExpandBtn.setAttribute('data-toggle', 'collapse');
+    reportExpandBtn.setAttribute('data-target', `#collapse-report-${report.video.RowID.Index}`);
+    reportExpandBtn.setAttribute('aria-expanded', 'true');
+    reportExpandBtn.setAttribute('aria-controls', `collapse-report-${report.video.RowID.Index}`);
+    reportExpandBtn.appendChild(rowIDBadge);
+    reportExpandBtn.appendChild(videoTitleText);
+
+    const cardTitleHeader = document.createElement('h5')
+    cardTitleHeader.classList.add('mb-0');
+    cardTitleHeader.appendChild(reportExpandBtn);
+
+    const cardTitle = document.createElement('div');
+    cardTitle.classList.add('card-header');
+    cardTitle.id = `heading-report-${report.video.RowID.Index}`;
+    cardTitle.appendChild(cardTitleHeader);
+
+
+    // Card Body
+    // TODO: Fill out the rest of the card body
+    const videoIFrame = document.createElement('iframe');
+    videoIFrame.src = report.video.Video.EmbeddedUrl;
+    videoIFrame.classList.add('mx-auto', 'mb-3');
+    videoIFrame.style.display = 'block';
+    videoIFrame.setAttribute('width', '560');
+    videoIFrame.setAttribute('height', '315');
+    videoIFrame.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    videoIFrame.setAttribute('allowFullscreen', 'true');
+
+    const cardBody = document.createElement('div');
+    cardBody.id = `collapse-report-${report.video.RowID.Index}`;
+    cardBody.classList.add('collapse');
+    cardBody.setAttribute('aria-labelledby', `heading-report-${report.video.RowID.Index}`);
+    cardBody.setAttribute('data-parent', '#reports-container');
+    cardBody.appendChild(videoIFrame);
+
+    // Complete Card
     const card = document.createElement('div');
     card.classList.add('card', 'mt-3');
-    card.innerText = JSON.stringify(report, null, 2);
+    card.appendChild(cardTitle);
+    card.appendChild(cardBody);
 
     return card;
   }
@@ -290,7 +336,6 @@ class ProcessRepairVideosApp {
 }
 
 async function main() {
-  const reports = new ReportsWidget();
   const app = new ProcessRepairVideosApp();
   const getRepairDataReqF = fetch('json/repair-videos-data.json');
   const getModelIdsFromSheetReqF = fetch('json/model-ids.json');
