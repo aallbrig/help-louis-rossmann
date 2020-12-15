@@ -124,6 +124,7 @@ class ProcessRepairVideosApp {
       processGuide: document.getElementById('process-guide'),
       waitingText: document.getElementById('waiting'),
       reportForm: document.getElementById('repair-report-form'),
+      addToWikiForm: document.getElementById('add-to-wiki-form'),
       reportFormSaveBtn: document.getElementById('save-wiki-report'),
       modelIdInput: document.getElementById('model-identifier'),
       modelIdsDropdown: document.getElementById('model-identifier-dropdown'),
@@ -151,14 +152,24 @@ class ProcessRepairVideosApp {
     this.dom.reportForm.oninput = () => {
       this.dom.resetVideoBtn.classList.remove('disabled');
       this.dom.reportFormSaveBtn.classList.remove('disabled');
+
       const formData = Object.fromEntries(new FormData(this.dom.reportForm).entries());
       this.setState({ reportForm: formData });
     };
+    this.dom.addToWikiForm.oninput = () => {
+      this.dom.resetVideoBtn.classList.remove('disabled');
+      this.dom.reportFormSaveBtn.classList.remove('disabled');
+
+      const formData = Object.fromEntries(new FormData(this.dom.addToWikiForm).entries());
+      this.setState({ addToWikiForm: formData });
+    }
     this.dom.reportFormSaveBtn.onclick = () => {
       const reportFormData = Object.fromEntries(new FormData(this.dom.reportForm).entries());
+      const addToWikiFormData = Object.fromEntries(new FormData(this.dom.addToWikiForm).entries());
       const report = {
         video: this.state.video,
-        form: reportFormData,
+        reportForm: reportFormData,
+        addToWikiForm: addToWikiFormData,
       };
       this.reportsWidget.addNewReport(report);
       this.resetProcessForm();
@@ -167,8 +178,6 @@ class ProcessRepairVideosApp {
       const classList = this.dom.writeToWikiCollapsable.classList;
       // If the card is going to open...
       if (!classList.contains('show')) {
-        console.log(classList);
-        console.log(this.state.reportForm);
         this.renderWikiEntryWithUserInput();
       }
     };
@@ -201,6 +210,14 @@ class ProcessRepairVideosApp {
       });
       this.dom.reportFormSaveBtn.classList.remove('disabled');
     }
+
+    if (state.addToWikiForm) {
+      Object.keys(state.addToWikiForm).forEach(inputName => {
+        document.getElementsByName(inputName).forEach(elem => {
+          elem.value = state.addToWikiForm[inputName];
+        });
+      });
+    }
   }
 
   renderWikiEntryWithUserInput() {
@@ -219,10 +236,15 @@ class ProcessRepairVideosApp {
   }
 
   resetProcessForm() {
-    this.dom.reportForm.reset();
     this.dom.resetVideoBtn.classList.add('disabled');
     this.dom.reportFormSaveBtn.classList.add('disabled');
-    this.setState({ reportForm: null })
+    this.dom.reportForm.reset();
+    this.dom.addToWikiForm.reset();
+
+    this.setState({
+      reportForm: null,
+      addToWikiForm: null,
+    })
   }
 
   resetAppState() {
