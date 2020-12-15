@@ -116,16 +116,16 @@ class ProcessRepairVideosApp {
       hideTopBtn: document.getElementById('hide-top'),
       assignVideoBtn: document.getElementById('assign-video'),
       resetAppBtn: document.getElementById('reset-app'),
-      resetVideoBtn: document.getElementById('reset-video'),
+      resetVideoBtn: document.getElementById('reset-report'),
       videoTitle: document.getElementById('video-title'),
       videoRow: document.getElementById('video-row'),
       videoIframe: document.getElementById('video-iframe'),
       videoYoutubeLink: document.getElementById('video-youtube-link'),
       processGuide: document.getElementById('process-guide'),
       waitingText: document.getElementById('waiting'),
-      reportForm: document.getElementById('repair-report-form'),
+      watchVideoForm: document.getElementById('repair-report-form'),
       addToWikiForm: document.getElementById('add-to-wiki-form'),
-      reportFormSaveBtn: document.getElementById('save-wiki-report'),
+      reportSaveBtn: document.getElementById('save-report'),
       modelIdInput: document.getElementById('model-identifier'),
       modelIdsDropdown: document.getElementById('model-identifier-dropdown'),
       modelNumberInput: document.getElementById('model-number'),
@@ -146,34 +146,40 @@ class ProcessRepairVideosApp {
     this.state = Object.assign({}, stateDefaults, storedState);
 
     // Bind event handlers
+    // Information section top toolbelt
     this.dom.resetAppBtn.onclick = this.resetAppState.bind(this);
-    this.dom.resetVideoBtn.onclick = this.resetProcessForm.bind(this);
     this.dom.hideTopBtn.onclick = () => this.setState({ hideTopSection: true });
-    this.dom.reportForm.oninput = () => {
-      this.dom.resetVideoBtn.classList.remove('disabled');
-      this.dom.reportFormSaveBtn.classList.remove('disabled');
 
-      const formData = Object.fromEntries(new FormData(this.dom.reportForm).entries());
-      this.setState({ reportForm: formData });
+    // Video Report section bottom toolbelt
+    this.dom.reportSaveBtn.onclick = () => {
+      const watchVideoForm = Object.fromEntries(new FormData(this.dom.watchVideoForm).entries());
+      const addToWikiFormData = Object.fromEntries(new FormData(this.dom.addToWikiForm).entries());
+      const report = {
+        video: this.state.video,
+        watchVideoForm: watchVideoForm,
+        addToWikiForm: addToWikiFormData,
+      };
+
+      this.reportsWidget.addNewReport(report);
+      this.resetProcessForm();
+    }
+    this.dom.resetVideoBtn.onclick = this.resetProcessForm.bind(this);
+
+    // Report section forms
+    this.dom.watchVideoForm.oninput = () => {
+      this.activateReportToolbelt();
+
+      const formData = Object.fromEntries(new FormData(this.dom.watchVideoForm).entries());
+      this.setState({ watchVideoForm: formData });
     };
     this.dom.addToWikiForm.oninput = () => {
-      this.dom.resetVideoBtn.classList.remove('disabled');
-      this.dom.reportFormSaveBtn.classList.remove('disabled');
+      this.activateReportToolbelt();
 
       const formData = Object.fromEntries(new FormData(this.dom.addToWikiForm).entries());
       this.setState({ addToWikiForm: formData });
     }
-    this.dom.reportFormSaveBtn.onclick = () => {
-      const reportFormData = Object.fromEntries(new FormData(this.dom.reportForm).entries());
-      const addToWikiFormData = Object.fromEntries(new FormData(this.dom.addToWikiForm).entries());
-      const report = {
-        video: this.state.video,
-        reportForm: reportFormData,
-        addToWikiForm: addToWikiFormData,
-      };
-      this.reportsWidget.addNewReport(report);
-      this.resetProcessForm();
-    }
+
+    // Take the latest user input from "Watch Video Form" when opening
     this.dom.writeToWikiHeading.onclick = () => {
       const classList = this.dom.writeToWikiCollapsable.classList;
       // If the card is going to open...
@@ -191,9 +197,18 @@ class ProcessRepairVideosApp {
     window.localStorage.setItem(LOCAL_STORAGE_APP_KEY, JSON.stringify(this.state));
   }
 
+  activateReportToolbelt() {
+    this.dom.reportSaveBtn.classList.remove('disabled');
+    this.dom.resetVideoBtn.classList.remove('disabled');
+  }
+
+  deactivateReportToolbelt() {
+    this.dom.reportSaveBtn.classList.add('disabled');
+    this.dom.resetVideoBtn.classList.add('disabled');
+  }
+
   renderState(state) {
     if (state.video) {
-      this.resetProcessForm();
       this.renderProcessVideoHtml(this.state.video);
       this.showProcessForm();
     }
@@ -202,13 +217,14 @@ class ProcessRepairVideosApp {
       this.dom.topSection.classList.remove('show');
     }
 
-    if (state.reportForm) {
-      Object.keys(state.reportForm).forEach(inputName => {
+    if (state.watchVideoForm) {
+      Object.keys(state.watchVideoForm).forEach(inputName => {
         document.getElementsByName(inputName).forEach(elem => {
-          elem.value = state.reportForm[inputName];
+          elem.value = state.watchVideoForm[inputName];
         });
       });
-      this.dom.reportFormSaveBtn.classList.remove('disabled');
+
+      this.activateReportToolbelt();
     }
 
     if (state.addToWikiForm) {
@@ -217,6 +233,8 @@ class ProcessRepairVideosApp {
           elem.value = state.addToWikiForm[inputName];
         });
       });
+
+      this.activateReportToolbelt();
     }
   }
 
@@ -236,13 +254,12 @@ class ProcessRepairVideosApp {
   }
 
   resetProcessForm() {
-    this.dom.resetVideoBtn.classList.add('disabled');
-    this.dom.reportFormSaveBtn.classList.add('disabled');
-    this.dom.reportForm.reset();
+    this.deactivateReportToolbelt();
+    this.dom.watchVideoForm.reset();
     this.dom.addToWikiForm.reset();
 
     this.setState({
-      reportForm: null,
+      watchVideoForm: null,
       addToWikiForm: null,
     })
   }
