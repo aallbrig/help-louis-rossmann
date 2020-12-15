@@ -302,6 +302,29 @@
                   <p>
                     Now take your notes and add to the public knowledge base!
                   </p>
+                  <form id="add-to-wiki-form" action="javascript:void(0);" class="my-4">
+                    <label for="wiki-url" data-toggle="tooltip" data-placement="top"
+                           title="The public knowledge wiki has pages for each mac. What wiki URLs are associated with the video?">
+                      Wiki Entry URL<span class="ml-2 badge badge-pill badge-info">?</span>
+                    </label>
+
+                    <input id="wiki-url"
+                           name="wiki-url"
+                           type="text"
+                           class="form-control"
+                           aria-label="Wiki URL"
+                           placeholder="What are the wiki URLs associated with this repair?">
+
+                    <label for="wiki-entry-notes" class="mt-4"  data-toggle="tooltip" data-placement="top"
+                           title="This is meant to capture any meta comments about the public wiki">
+                      Notes on Wiki update<span class="ml-2 badge badge-pill badge-info">?</span>
+                    </label>
+                    <textarea id="wiki-entry-notes"
+                              name="wiki-entry-notes"
+                              type="text"
+                              class="form-control"
+                              placeholder="Did you add a new wiki page? Did you find something odd about the page you edited?""></textarea>
+                  </form>
                 </div>
               </div>
             </div>
