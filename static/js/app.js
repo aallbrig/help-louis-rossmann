@@ -220,7 +220,11 @@ class ProcessRepairVideosApp {
     if (state.watchVideoForm) {
       Object.keys(state.watchVideoForm).forEach(inputName => {
         document.getElementsByName(inputName).forEach(elem => {
-          elem.value = state.watchVideoForm[inputName];
+          if (elem.type === 'checkbox') {
+            elem.checked = state.watchVideoForm[inputName] === 'on';
+          } else {
+            elem.value = state.watchVideoForm[inputName];
+          }
         });
       });
 
@@ -228,9 +232,13 @@ class ProcessRepairVideosApp {
     }
 
     if (state.addToWikiForm) {
-      Object.keys(state.addToWikiForm).forEach(inputName => {
+      Object.keys(state.watchVideoForm).forEach(inputName => {
         document.getElementsByName(inputName).forEach(elem => {
-          elem.value = state.addToWikiForm[inputName];
+          if (elem.type === 'checkbox') {
+            elem.checked = state.watchVideoForm[inputName] === 'on';
+          } else {
+            elem.value = state.watchVideoForm[inputName];
+          }
         });
       });
 
