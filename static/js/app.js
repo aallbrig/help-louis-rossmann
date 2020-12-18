@@ -1,6 +1,35 @@
 const LOCAL_STORAGE_APP_KEY = 'app-state';
 const LOCAL_STORAGE_REPORTS_KEY = 'app-reports';
 
+function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
+  const tr = document.createElement('tr');
+  [
+    video.RowID.HumanReadable,
+    video.Video.Url,
+    '( ignored )',
+    video.Video.Title,
+    video.Repair.Cause,
+    ...video.Repair.Issues,
+    video.Mac.ModelIdentifier,
+    video.Mac.ModelNumber,
+    video.Mac.LogicBoardPartNumber,
+    '( ignored )',
+    video.Wiki.Status,
+    '( ignored )',
+    video.Wiki.Url,
+    video.Wiki.Notes,
+
+  ].map(tdText => {
+    const td = document.createElement('td');
+    td.textContent = tdText;
+    return td;
+  }).forEach(td => {
+    tr.appendChild(td);
+  });
+
+  return tr;
+}
+
 class ReportsWidget {
   constructor() {
     this.dom = {
@@ -133,8 +162,9 @@ class ProcessRepairVideosApp {
       logicBoardNumberInput: document.getElementById('logic-board-number'),
       logicBoardNumbersDropdown: document.getElementById('logic-board-number-dropdown'),
       doneRowAnswersTable: document.getElementById('done-row-answers-table'),
-      writeToWikiHeading: document.getElementById('heading-write-to-wiki'),
-      writeToWikiCollapsable: document.getElementById('collapse-write-to-wiki'),
+      writeToGoogleSheetHeading: document.getElementById('heading-update-google-sheet'),
+      writeToGoogleSheetCollapsable: document.getElementById('collapse-update-google-sheet'),
+      writeToGoogleSheetTableBody: document.getElementById('form-inputs-as-sheet-additions-tbody'),
     }
 
     const storedState = JSON.parse(localStorage.getItem(LOCAL_STORAGE_APP_KEY));
@@ -180,11 +210,11 @@ class ProcessRepairVideosApp {
     }
 
     // Take the latest user input from "Watch Video Form" when opening
-    this.dom.writeToWikiHeading.onclick = () => {
-      const classList = this.dom.writeToWikiCollapsable.classList;
+    this.dom.writeToGoogleSheetHeading.onclick = () => {
+      const classList = this.dom.writeToGoogleSheetCollapsable.classList;
       // If the card is going to open...
       if (!classList.contains('show')) {
-        this.renderWikiEntryWithUserInput();
+        this.renderUserInputAsTable();
       }
     };
 
@@ -246,9 +276,54 @@ class ProcessRepairVideosApp {
     }
   }
 
-  renderWikiEntryWithUserInput() {
+  renderUserInputAsTable() {
     // Hacks: just take formData, append `-output` to each input name, and update HTML
     // Object.keys(formData).forEach(inputKey => { document.getElementById(`${inputKey}-output`).textContent = formData[inputKey]; })
+    const table = this.dom.writeToGoogleSheetTableBody;
+    table.innerHTML = '';
+
+    const video = this.state.video;
+    const watchVideoForm = this.state.watchVideoForm;
+    const addToWikiForm = this.state.addToWikiForm;
+
+    const videoWithFormInput = Object.assign({}, video, {
+      Mac: {
+        ModelIdentifier: watchVideoForm['model-identifier'],
+        ModelNumber: watchVideoForm['model-number'],
+        LogicBoardPartNumber: watchVideoForm['logic-board-number'],
+      },
+      Repair: {
+        Cause: watchVideoForm['cause'],
+        Symptom: watchVideoForm['symptom'],
+        Issues: [
+          watchVideoForm['issue'],
+          '( ignored )',
+        ],
+      },
+      Wiki: {
+        Url: addToWikiForm['wiki-url'],
+        Notes: addToWikiForm['wiki-entry-notes'],
+        Status: 'Done',
+      },
+    });
+
+    const surroundingVideos = this.state.videos
+      .filter(_ => _.RowID.Index != video.RowID.Index && _.RowID.Index >= video.RowID.Index - 2 && _.RowID.Index <= video.RowID.Index + 2)
+
+    const [ one, two, three, four, ...rest ] = surroundingVideos;
+    const renderTheseVideos = [
+      one,
+      two,
+      videoWithFormInput,
+      three,
+      four,
+    ];
+    renderTheseVideos
+      .map(videoData => VideoTableDataToGoogleSheetTableRow(videoData, videoData.RowID.Index == video.RowID.Index))
+      .forEach(tr => {
+        table.appendChild(tr);
+      });
+    // get 2 rows above, and two rows below the data
   }
 
   renderProcessVideoHtml(videoDataRow) {
@@ -259,6 +334,8 @@ class ProcessRepairVideosApp {
     this.dom.videoYoutubeLink.href = videoDataRow.Video.Url;
     this.dom.videoTitle.innerText = videoDataRow.Video.Title;
     this.dom.videoRow.innerText = videoDataRow.RowID.HumanReadable;
+
+
   }
 
   resetProcessForm() {
@@ -316,6 +393,8 @@ class ProcessRepairVideosApp {
   }
 
   setRepairVideoData(repairVideos) {
+    this.setState({ videos: repairVideos });
+
     const processQueue = repairVideos.filter(_ => _.NeedsProcessing);
 
     this.dom.assignVideoBtn.onclick = () => {
