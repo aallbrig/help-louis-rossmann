@@ -3,25 +3,41 @@ const LOCAL_STORAGE_REPORTS_KEY = 'app-reports';
 
 function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
   const tr = document.createElement('tr');
+  if (highlight) {
+    tr.classList.add('table-success', 'font-weight-bold');
+  } else {
+    tr.classList.add('table-dark')
+  }
+
   [
-    video.RowID.HumanReadable,
+    `${(highlight) ? 'YOU ' : ''}${video.RowID.HumanReadable}`,
     video.Video.Url,
-    '( ignored )',
+    'ignore',
     video.Video.Title,
     video.Repair.Cause,
     ...video.Repair.Issues,
     video.Mac.ModelIdentifier,
     video.Mac.ModelNumber,
     video.Mac.LogicBoardPartNumber,
-    '( ignored )',
+    'ignore',
     video.Wiki.Status,
-    '( ignored )',
+    'ignore',
     video.Wiki.Url,
     video.Wiki.Notes,
 
-  ].map(tdText => {
+  ].map((tdText, indx) => {
     const td = document.createElement('td');
-    td.textContent = tdText;
+    if (indx === 0) {
+      td.classList.add('text-right');
+      td.textContent = tdText;
+    } else if (indx === 1) { // the video URL
+      const a = document.createElement('a');
+      a.href = tdText;
+      a.textContent = '(link)';
+      td.appendChild(a);
+    } else {
+      td.textContent = tdText;
+    }
     return td;
   }).forEach(td => {
     tr.appendChild(td);
@@ -286,6 +302,8 @@ class ProcessRepairVideosApp {
     const watchVideoForm = this.state.watchVideoForm;
     const addToWikiForm = this.state.addToWikiForm;
 
+    // TODO: Maybe this data conversion happens on user input? May enable a decrease in what data needs to be
+    // tracked (e.g. forms; rehydrating forms could happen from the video JSON object)
     const videoWithFormInput = Object.assign({}, video, {
       Mac: {
         ModelIdentifier: watchVideoForm['model-identifier'],
@@ -297,7 +315,7 @@ class ProcessRepairVideosApp {
         Symptom: watchVideoForm['symptom'],
         Issues: [
           watchVideoForm['issue'],
-          '( ignored )',
+          '',
         ],
       },
       Wiki: {

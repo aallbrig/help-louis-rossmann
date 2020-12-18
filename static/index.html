@@ -284,9 +284,11 @@
 
                   <div class="float-right my-3">
                     <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
-                      <button type="button" class="btn btn-info" data-toggle="modal"
+                      <button type="button" class="btn btn-outline-info" data-toggle="modal"
                               data-target="#previous-answers-modal">
-                        Previous "Done" Answers<span class="badge badge-pill badge-info" data-toggle="tooltip" data-placement="top" title="View a table of previous 'done' answers from Louis' google sheet">?</span>
+                        <span data-toggle="tooltip" data-placement="top" title="View a table of previous 'done' answers from Louis' google sheet">
+                          Reference Previous "Done" Answers
+                        </span>
                       </button>
                     </div>
                   </div>
@@ -358,28 +360,38 @@
               <div id="collapse-update-google-sheet" class="collapse" aria-labelledby="heading-update-google-sheet"
                    data-parent="#process-accordion">
                 <div class="card-body">
-                  <table id="form-inputs-as-sheet-additions" class="table-sm table-hover">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">Row #</th>
-                        <th scope="col">VideoUrl</th>
-                        <th scope="col">Upload date</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Cause</th>
-                        <th scope="col">Issue</th>
-                        <th scope="col">Issue 2</th>
-                        <th scope="col">Model Identifier</th>
-                        <th scope="col">Model Number</th>
-                        <th scope="col">Logic Board Part Number</th>
-                        <th scope="col">Other info</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">User working on it</th>
-                        <th scope="col">Link to wiki page</th>
-                        <th scope="col">Notes</th>
-                      </tr>
-                    </thead>
-                    <tbody id="form-inputs-as-sheet-additions-tbody"></tbody>
-                  </table>
+                  <p>
+                    This is the final step!
+                  </p>
+                  <p>
+                    Update Louis' <a href="" target="_blank">repair videos google sheet</a> with the information you gathered. Reference the table below for how your update should look. If you want to update the table values below, go back to step 2 or 3.
+                  </p>
+                  <div class="card">
+                    <div class="card-body p-0" style="overflow-x: scroll;">
+                      <table id="form-inputs-as-sheet-additions" class="table table-sm table-hover">
+                        <thead class="thead-dark">
+                        <tr>
+                          <th scope="col" class="text-right" style="min-width: 95px;">#</th>
+                          <th scope="col">VideoUrl</th>
+                          <th scope="col">Upload date</th>
+                          <th scope="col" style="min-width: 400px;">Name</th>
+                          <th scope="col" style="min-width: 400px;">Cause</th>
+                          <th scope="col" style="min-width: 400px;">Issue</th>
+                          <th scope="col">Issue 2</th>
+                          <th scope="col" style="min-width: 100px;">Model Identifier</th>
+                          <th scope="col" style="min-width: 100px;">Model Number</th>
+                          <th scope="col" style="min-width: 100px;">Logic Board Part Number</th>
+                          <th scope="col" style="min-width: 400px;">Other info</th>
+                          <th scope="col" style="min-width: 100px;">Status</th>
+                          <th scope="col" style="min-width: 100px;">User working on it</th>
+                          <th scope="col" style="min-width: 200px;">Link to wiki page</th>
+                          <th scope="col" style="min-width: 400px;">Notes</th>
+                        </tr>
+                        </thead>
+                        <tbody id="form-inputs-as-sheet-additions-tbody"></tbody>
+                      </table>
+                    </div>
+                  </div>
                   <p>
                     Update Louis' <a href="" target="_blank">repair videos google sheet</a> with the information you gathered and a link to a wiki page.
                     Congrats! Thank you for spending some of your time contributing to public knowledge.
@@ -444,24 +456,24 @@
       <div class="modal-dialog mw-100 w-100" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">"Done" Answers from <a
+            <h5 class="modal-title" id="exampleModalLongTitle">"Done" answers from <a
                 href="https://docs.google.com/spreadsheets/d/1PulZnpPHxBFyJwKiJvTQqR0D3liKHdl48rz7zwh652U/edit"
-                target="_blank">Repair Videos Google Sheet</a></h5>
+                target="_blank">Repair Videos Google Sheet</a> for reference</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <table id="done-row-answers-table" class="table table-hover">
+          <div class="modal-body p-0" style="height: 600px; overflow-x: scroll; overflow-y: scroll;">
+            <table id="done-row-answers-table" class="table table-hover" style="width: 100%;">
               <thead class="thead-dark">
               <tr>
-                <th scope="col">Row</th>
-                <th scope="col">Model ID</th>
+                <th scope="col">#</th>
+                <th scope="col" style="min-width: 125px;">Model ID</th>
                 <th scope="col">Model #</th>
-                <th scope="col">Logic Board #</th>
-                <th scope="col">Symptom</th>
-                <th scope="col">Cause</th>
-                <th scope="col">Issue</th>
+                <th scope="col" style="min-width: 125px;">Logic Board #</th>
+                <th scope="col" style="min-width: 200px;">Symptom</th>
+                <th scope="col" style="min-width: 300px;">Cause</th>
+                <th scope="col" style="min-width: 300px;">Issue</th>
               </tr>
               </thead>
               <tbody></tbody>
