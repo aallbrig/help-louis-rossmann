@@ -289,7 +289,7 @@ function CopyUserInputTableFromVideoData(video) {
 
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.classList.add('btn', 'btn-default', 'btn-lg');
+      btn.classList.add('btn', 'btn-link', 'btn-lg');
       btn.setAttribute('data-copy-value', tblRow.columnData);
       btn.appendChild(favIcon);
 
@@ -327,7 +327,7 @@ function CopyUserInputTableFromVideoData(video) {
 function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
   const tr = document.createElement('tr');
   if (highlight) {
-    tr.classList.add('table-success', 'font-weight-bold');
+    tr.classList.add('font-weight-bold');
   } else {
     tr.classList.add('table-dark')
   }
@@ -350,10 +350,16 @@ function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
 
   ].map((tdText, indx) => {
     const td = document.createElement('td');
+    // highlight which cells the user needs to update
+    if ([4, 5, 7, 8, 9, 11, 13, 14].indexOf(indx) === -1) {
+      td.classList.add('table-secondary');
+    }
+
     if (indx === 0) { // the row ID
       td.classList.add('text-right');
-      td.textContent = tdText;
-    } else if (indx === 1) { // the video URL
+    }
+
+    if (indx === 1) { // the video URL
       const a = document.createElement('a');
       a.href = tdText;
       a.textContent = tdText;
@@ -361,6 +367,7 @@ function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
     } else {
       td.textContent = tdText;
     }
+
     return td;
   }).forEach(td => {
     tr.appendChild(td);
@@ -388,10 +395,22 @@ class ReportsWidget {
   }
 
   addNewReport(reportFormData) {
+    let updatedReports;
     // TODO: Validate report data
     const reports = this.state.reports;
-    const updatedReports = [ ...reports, reportFormData ];
+    const maybePreviousReport = reports.filter(report => report.video.RowID.Index == reportFormData.video.RowID.Index);
 
+    if (maybePreviousReport.length > 0) {
+      updatedReports = reports.map(report => {
+        if (report.video.RowID.Index == reportFormData.video.RowID.Index) {
+          return reportFormData;
+        } else {
+          return report;
+        }
+      });
+    } else {
+      updatedReports = [ ...reports, reportFormData ];
+    }
     this.setState({ reports: updatedReports });
   }
 
@@ -474,10 +493,16 @@ class ReportsWidget {
     table.append(thead, tbody);
 
     const parentRef = this.parentRef;
+    // <button id="delete-reports" type="button" class="btn btn-danger disabled my-3" data-toggle="tooltip" data-placement="top" title="Delete your saved reports from browser storage. This operation cannot be undone.">
     const editBtn = document.createElement('button');
     editBtn.type = 'button';
     editBtn.classList.add('btn', 'btn-outline-primary', 'px-5', 'mx-2');
-    editBtn.textContent = 'Edit';
+    editBtn.setAttribute('data-toogle', 'tooltip');
+    editBtn.setAttribute('data-placement', 'top');
+    editBtn.setAttribute('title', 'Edit this report in the processing area above');
+    editBtn.innerHTML = `
+      Edit <i class="fa fa-question-circle"></i>
+    `;
     editBtn.onclick = (e) => {
       parentRef.resetProcessForm();
       parentRef.renderProcessVideoHtml(videoWithFormData);
@@ -561,11 +586,12 @@ class ProcessRepairVideosApp {
     // Video Report section bottom toolbelt
     this.dom.reportSaveBtn.onclick = () => {
       const watchVideoForm = Object.fromEntries(new FormData(this.dom.watchVideoForm).entries());
-      const addToWikiFormData = Object.fromEntries(new FormData(this.dom.addToWikiForm).entries());
+      const addToWikiForm = Object.fromEntries(new FormData(this.dom.addToWikiForm).entries());
       const report = {
         video: this.state.video,
-        watchVideoForm: watchVideoForm,
-        addToWikiForm: addToWikiFormData,
+        videoWithUserInput: mergeFormDataWithVideo(this.state.video, { watchVideoForm, addToWikiForm }),
+        watchVideoForm,
+        addToWikiForm,
       };
 
       this.reportsWidget.addNewReport(report);
@@ -760,7 +786,7 @@ class ProcessRepairVideosApp {
 
   setDoneRowAnswersTable(repairVideos) {
     const tableData = repairVideos
-      .filter(_ => _.Wiki.Status == "Done")
+      .filter(_ => _.Wiki.Status === 'Done')
       .map(_ => {
         const tr = document.createElement('tr');
         tr.classList.add('table-success');
@@ -790,6 +816,7 @@ class ProcessRepairVideosApp {
   }
 
   setRepairVideoData(repairVideos) {
+    // TODO: Make sure repairVideosJson meets expected JSON schema
     this.setState({ videos: repairVideos });
 
     const processQueue = repairVideos.filter(_ => _.NeedsProcessing);
@@ -808,54 +835,35 @@ class ProcessRepairVideosApp {
   }
 
   setModelIdsDropdown(modelIdsFromSheetJson) {
-    Object.keys(modelIdsFromSheetJson)
-      .filter(_ => _ !== '')
-      .map(modelId => {
-        const menuItem = document.createElement('a');
-        menuItem.classList.add('dropdown-item');
-        menuItem.textContent = modelId;
-        menuItem.setAttribute('data-row-ids', modelIdsFromSheetJson[modelId])
-        menuItem.addEventListener('click', () => {
-          this.dom.modelIdInput.value = modelId;
-        });
-
-        return menuItem
-      })
-      .forEach((_) => this.dom.modelIdsDropdown.appendChild(_));
+    this._setDropdownMenuItems(modelIdsFromSheetJson, this.dom.modelIdsDropdown, this.dom.modelIdInput);
   }
 
   setModelNumbersDropdown(modelNumbersFromSheetJson) {
-    Object.keys(modelNumbersFromSheetJson)
-      .filter(_ => _ !== '')
-      .map(modelNumber => {
-        const menuItem = document.createElement('a');
-        menuItem.classList.add('dropdown-item');
-        menuItem.textContent = modelNumber;
-        menuItem.setAttribute('data-row-ids', modelNumbersFromSheetJson[modelNumber])
-        menuItem.addEventListener('click', () => {
-          this.dom.modelNumberInput.value = modelNumber;
-        });
-
-        return menuItem
-      })
-      .forEach((_) => this.dom.modelNumbersDropdown.appendChild(_));
+    this._setDropdownMenuItems(modelNumbersFromSheetJson, this.dom.modelNumbersDropdown, this.dom.modelNumberInput);
   }
 
   setLogicBoardNumbersDropdown(logicBoardNumbersFromSheet) {
-    Object.keys(logicBoardNumbersFromSheet)
-      .filter(_ => _ !== '')
-      .map(logicBoardNumber => {
+    this._setDropdownMenuItems(logicBoardNumbersFromSheet, this.dom.logicBoardNumbersDropdown, this.dom.logicBoardNumberInput);
+  }
+
+  _setDropdownMenuItems(json, dropdownElem, inputElem) {
+    // TODO: Validate the JSON meets expected JSON schema
+
+    Object.keys(json)
+      // Ignore empty strings and any responses with commas or question marks
+      .filter(_ => _ !== '' && !/^.*[,?].*/.test(_))
+      .map(jsonKey => {
         const menuItem = document.createElement('a');
         menuItem.classList.add('dropdown-item');
-        menuItem.textContent = logicBoardNumber;
-        menuItem.setAttribute('data-row-ids', logicBoardNumbersFromSheet[logicBoardNumber])
+        menuItem.textContent = jsonKey;
+        menuItem.setAttribute('data-row-ids', json[jsonKey])
         menuItem.addEventListener('click', () => {
-          this.dom.logicBoardNumberInput.value = logicBoardNumber;
+          inputElem.value = jsonKey;
         });
 
         return menuItem
       })
-      .forEach((_) => this.dom.logicBoardNumbersDropdown.appendChild(_));
+      .forEach((_) => dropdownElem.appendChild(_));
   }
 }
 

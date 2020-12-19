@@ -23,13 +23,13 @@
         </h1>
         <div class="float-right">
           <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
-            <button id="reset-app" type="button" class="btn btn-warning">
-              Reset App State<span class="badge badge-pill badge-warning" data-toggle="tooltip" data-placement="top" title="Reset assigned video and forms. Does not delete saved reports.">?</span>
+            <button id="reset-app" type="button" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Reset assigned video and forms. Does not delete saved reports.">
+              Reset App State <i class="fa fa-question-circle"></i>
             </button>
-            <button id="hide-top" class="btn btn-secondary" type="button" data-toggle="collapse"
+            <button id="hide-top" class="btn btn-outline-secondary" type="button" data-toggle="collapse"
                     data-target="#information-collapsable" aria-expanded="false"
                     aria-controls="information-collapsable">
-              Hide<span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top" title="Hide this top section">?</span>
+              Hide <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="Hide this top section"></i>
             </button>
           </div>
         </div>
@@ -61,8 +61,8 @@
       <div class="card-header">
         <div class="float-right">
           <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
-            <button id="assign-video" type="button" class="btn btn-primary disabled">
-              Assign Random Video<span class="badge badge-pill badge-primary" data-toggle="tooltip" data-placement="top" title="Click this button to be guided through processing a Louis Rossman video">?</span>
+            <button id="assign-video" type="button" class="btn btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Click this button to be guided through processing a Louis Rossman video">
+              Assign Random Video <i class="fa fa-question-circle"></i>
             </button>
           </div>
         </div>
@@ -75,18 +75,6 @@
         </p>
 
         <div id="process-guide" class="d-none">
-          <div id="video-container" class="mb-3 text-center">
-            <iframe id="video-iframe" class="mx-auto" style="display: block" width="560" height="315" src=""
-                    frameborder="0"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            <h3 id="video-title" class="h4 mt-3 mb-0"></h3>
-            <p>
-              <b>Row:</b> <span id="video-row"></span>
-              <br/>
-              (<a id="video-youtube-link" class="text-muted" href="" target="_blank">Direct Youtube Link</a>)
-            </p>
-          </div>
           <hr/>
 
           <div id="process-accordion">
@@ -121,10 +109,23 @@
               <div id="collapse-analyze-video" class="collapse" aria-labelledby="analyze-video-heading"
                    data-parent="#process-accordion">
                 <div class="card-body">
-                  <p>
-                    Fill out the form below by watching the video. Use any strategy to collect correct
-                    information. Step 3 uses your input data.
-                  </p>
+                  <div id="video-container" class="mb-3">
+                    <p>
+                      Fill out the form below by watching the video. Use any strategy to collect correct
+                      information. You will use this in step 4 "Update the google sheet."
+                    </p>
+                    <div class="card card-body bg-light">
+                      <iframe id="video-iframe" class="mx-auto" style="display: block" width="560" height="315" src=""
+                              frameborder="0"
+                              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowfullscreen></iframe>
+                      <p>
+                        <b>Video Title:</b> <span id="video-title" ></span><br/>
+                        <b>Google Sheet Row #:</b> <span id="video-row"></span><br/>
+                        <a id="video-youtube-link" class="text-muted" href="" target="_blank">Direct Youtube Link</a>
+                      </p>
+                    </div>
+                  </div>
                   <hr/>
 
                   <form id="repair-report-form" action="javascript:void(0);" class="my-4">
@@ -414,12 +415,13 @@
                       </table>
                     </div>
                   </div>
+                  <h3 class="h4">
+                    Congrats!
+                  </h3>
                   <p>
-                    Update Louis' <a href="" target="_blank">repair videos google sheet</a> with the information you gathered and a link to a wiki page.
-                    Congrats! Thank you for spending some of your time contributing to public knowledge.
-                  </p>
-                  <p>
-                    Save the report you generated or process another video.
+                    You have contributed to the public wiki. There is a future repair professional or hobbyist who will certainly appreciate your effort!
+
+                    Feel free to "save" the report you generated, and then process another video!
                   </p>
                 </div>
               </div>
@@ -431,12 +433,12 @@
               <div class="float-right">
                 <div class="btn-group" role="group"
                      aria-label="Video Processor button toolbelt">
-                  <button id="reset-report" type="button" class="btn btn-secondary disabled">
-                    Reset Form<span class="badge badge-pill badge-secondary" data-toggle="tooltip" data-placement="top" title="Clear form input (but keep the assigned video)">?</span>
+                  <button id="reset-report" type="button" class="btn btn-secondary disabled" data-toggle="tooltip" data-placement="top" title="Clear form input (but keep the assigned video)">
+                    Reset Form <i class="fa fa-question-circle"></i>
                   </button>
                   <!-- TODO: Add ability for user to save their report -->
-                  <button id="save-report" type="button" class="btn btn-success disabled">
-                    Save Report<span class="badge badge-pill badge-success" data-toggle="tooltip" data-placement="top" title="Save a new report. View the saved report in the 'Your Saved Reports' section.">?</span>
+                  <button id="save-report" type="button" class="btn btn-success disabled" data-toggle="tooltip" data-placement="top" title="Save a new report. View the saved report in the 'Your Saved Reports' section.">
+                    Save Report <i class="fa fa-question-circle"></i>
                   </button>
                 </div>
               </div>
@@ -462,8 +464,8 @@
           <div id="reports-container"></div>
           <div class="float-right">
             <div class="btn-group" role="group" aria-label="Video Processor button toolbelt">
-              <button id="delete-reports" type="button" class="btn btn-danger disabled my-3">
-                Delete Saved Reports<span class="badge badge-pill badge-danger" data-toggle="tooltip" data-placement="top" title="Delete your saved reports from browser storage. This operation cannot be undone.">?</span>
+              <button id="delete-reports" type="button" class="btn btn-danger disabled my-3" data-toggle="tooltip" data-placement="top" title="Delete your saved reports from browser storage. This operation cannot be undone.">
+                Delete Saved Reports <i class="fa fa-question-circle"></i>
               </button>
             </div>
           </div>
