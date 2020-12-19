@@ -6,9 +6,9 @@
       "HumanReadable": 2
     },
     "Video": {
-      "Title": "Check CB300 on A1706 Touchbar Macbook Pros stuck at 5v that aren't charging",
-      "Url": "https://www.youtube.com/watch?v=oA7EidmgXF8",
-      "EmbeddedUrl": "https://youtube.com/embed/oA7EidmgXF8"
+      "Title": "A1398 Liquid damaged CPU power circuit restoration on Macbook Pro",
+      "Url": "https://www.youtube.com/watch?v=ZcyMl-M7DRo",
+      "EmbeddedUrl": "https://youtube.com/embed/ZcyMl-M7DRo"
     },
     "Repair": {
       "Cause": "",
@@ -37,9 +37,9 @@
       "HumanReadable": 3
     },
     "Video": {
-      "Title": "Diagnosing USB C charging issues on an A1707 Touchbar Macbook Pro",
-      "Url": "https://www.youtube.com/watch?v=S7RWdVWv7oU",
-      "EmbeddedUrl": "https://youtube.com/embed/S7RWdVWv7oU"
+      "Title": "Restoring a horribly liquid damaged Macbook Air logic board: before \u0026 after.",
+      "Url": "https://www.youtube.com/watch?v=0MH9KrXp-W4",
+      "EmbeddedUrl": "https://youtube.com/embed/0MH9KrXp-W4"
     },
     "Repair": {
       "Cause": "",
@@ -62,10 +62,72 @@
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
       "Index": 3,
       "HumanReadable": 4
+    },
+    "Video": {
+      "Title": "Check CB300 on A1706 Touchbar Macbook Pros stuck at 5v that aren't charging",
+      "Url": "https://www.youtube.com/watch?v=oA7EidmgXF8",
+      "EmbeddedUrl": "https://youtube.com/embed/oA7EidmgXF8"
+    },
+    "Repair": {
+      "Cause": "Component failure",
+      "Symptom": "No Power",
+      "Issues": [
+        "Shorted CB300 due to corrosion",
+        "dirty between CB321 and heatshield"
+      ],
+      "OtherInfo": "Capacitor CB300 is in a tight space  - needed to slightly bend metal shield out of the way. Removed CB300 with micro soldering pencil, but needed metal foil (as a heat shield over CB3215) and hot air station at 300 degrees to get new CB300 in place. Stopped hot air as soon as cap was in place to avoid melting solderballs under CB3215. Did not see the logic board part number in the video."
+    },
+    "Mac": {
+      "ModelIdentifier": "Macbook Pro",
+      "ModelNumber": "A1706",
+      "LogicBoardPartNumber": ""
+    },
+    "Wiki": {
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1706_2016-2017_Touchbar_13%E2%80%9D_macbook_Pro",
+      "Notes": "In Flex Board View, CB300 was shown to be a capacitor (10uF) from PP3V3_G3H to ground; it is voltage in of the CB3215. On schematic (\"X362 MLB SCHEMATIC\") and board layout, points out the control lines that negotiate voltage level for USB-C charging.",
+      "Status": "Done"
+    }
+  },
+  {
+    "NeedsProcessing": false,
+    "RowID": {
+      "Index": 4,
+      "HumanReadable": 5
+    },
+    "Video": {
+      "Title": "Diagnosing USB C charging issues on an A1707 Touchbar Macbook Pro",
+      "Url": "https://www.youtube.com/watch?v=S7RWdVWv7oU",
+      "EmbeddedUrl": "https://youtube.com/embed/S7RWdVWv7oU"
+    },
+    "Repair": {
+      "Cause": "Liquid damage",
+      "Symptom": "No Power",
+      "Issues": [
+        "Dead CD3215",
+        "Another port is burnt"
+      ],
+      "OtherInfo": "Stuck at 5V on one port, other port"
+    },
+    "Mac": {
+      "ModelIdentifier": "Macbook Pro",
+      "ModelNumber": "A1707",
+      "LogicBoardPartNumber": ""
+    },
+    "Wiki": {
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1707_2016-2017_Touchbar_15”_macbook_Pro",
+      "Notes": "The port stuck at 5V is the one with dead CD3215. Another port keeps at 0V -\u003e port is dead. Other ports bootlooping -\u003e Good port and good CD3215, but not working because of the other dead CD3215.",
+      "Status": "Done"
+    }
+  },
+  {
+    "NeedsProcessing": true,
+    "RowID": {
+      "Index": 5,
+      "HumanReadable": 6
     },
     "Video": {
       "Title": "Fixing a very badly water damaged Macbook Air",
@@ -95,8 +157,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 4,
-      "HumanReadable": 5
+      "Index": 6,
+      "HumanReadable": 7
     },
     "Video": {
       "Title": "Why this A1466 Macbook Air can't charge a battery",
@@ -104,17 +166,17 @@
       "EmbeddedUrl": "https://youtube.com/embed/5Yx_QcfemrQ"
     },
     "Repair": {
-      "Cause": "",
-      "Symptom": "",
+      "Cause": "Component Failure",
+      "Symptom": "Run on battery, but would not charge battery",
       "Issues": [
-        "",
+        "Q7155 died",
         ""
       ],
-      "OtherInfo": ""
+      "OtherInfo": "A known good battery displayed the same symptoms. The battery current sensing circuit was checked."
     },
     "Mac": {
-      "ModelIdentifier": "",
-      "ModelNumber": "",
+      "ModelIdentifier": "Macbook Air",
+      "ModelNumber": "A1466",
       "LogicBoardPartNumber": ""
     },
     "Wiki": {
@@ -126,8 +188,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 5,
-      "HumanReadable": 6
+      "Index": 7,
+      "HumanReadable": 8
     },
     "Video": {
       "Title": "Fixing a Macbook Air logic board + a favor to ask of my audience",
@@ -157,8 +219,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 6,
-      "HumanReadable": 7
+      "Index": 8,
+      "HumanReadable": 9
     },
     "Video": {
       "Title": "Diagnosing an A1706 Macbook Pro that won't charge.",
@@ -188,8 +250,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 7,
-      "HumanReadable": 8
+      "Index": 9,
+      "HumanReadable": 10
     },
     "Video": {
       "Title": "Macbook Pro 4v on PPBUS G3H how to repair common logic board failure",
@@ -219,8 +281,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 8,
-      "HumanReadable": 9
+      "Index": 10,
+      "HumanReadable": 11
     },
     "Video": {
       "Title": "Macbook Air logic board repair featuring sushi \u0026 the great state of Texas.",
@@ -250,8 +312,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 9,
-      "HumanReadable": 10
+      "Index": 11,
+      "HumanReadable": 12
     },
     "Video": {
       "Title": "Macbook Air no power logic board repair without hot air station",
@@ -281,8 +343,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 10,
-      "HumanReadable": 11
+      "Index": 12,
+      "HumanReadable": 13
     },
     "Video": {
       "Title": "Fixing a Macbook as the world burns helps me relax. Come relax with me. 🙂",
@@ -312,8 +374,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 11,
-      "HumanReadable": 12
+      "Index": 13,
+      "HumanReadable": 14
     },
     "Video": {
       "Title": "A boring Macbook logic board repair.",
@@ -343,8 +405,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 12,
-      "HumanReadable": 13
+      "Index": 14,
+      "HumanReadable": 15
     },
     "Video": {
       "Title": "820-3209 No power after water damage to Macbook Air logic board repair",
@@ -374,8 +436,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 13,
-      "HumanReadable": 14
+      "Index": 15,
+      "HumanReadable": 16
     },
     "Video": {
       "Title": "Will this badly water damaged A1502 Macbook Pro be fixable?",
@@ -405,8 +467,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 14,
-      "HumanReadable": 15
+      "Index": 16,
+      "HumanReadable": 17
     },
     "Video": {
       "Title": "A1466 Macbook Air drawing 66 mA, no green light on charger.",
@@ -436,8 +498,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 15,
-      "HumanReadable": 16
+      "Index": 17,
+      "HumanReadable": 18
     },
     "Video": {
       "Title": "Only 4v on PPBUS_G3H: what could be wrong with this A1398 Macbook Pro?",
@@ -467,8 +529,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 16,
-      "HumanReadable": 17
+      "Index": 18,
+      "HumanReadable": 19
     },
     "Video": {
       "Title": "Fixing an A1398 Retina screen without replacing the LCD",
@@ -498,8 +560,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 17,
-      "HumanReadable": 18
+      "Index": 19,
+      "HumanReadable": 20
     },
     "Video": {
       "Title": "A1466 Macbook Air starts with no backlight now has no image logic board repair",
@@ -529,8 +591,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 18,
-      "HumanReadable": 19
+      "Index": 20,
+      "HumanReadable": 21
     },
     "Video": {
       "Title": "Board repair featuring discussion of a new trade association",
@@ -560,8 +622,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 19,
-      "HumanReadable": 20
+      "Index": 21,
+      "HumanReadable": 22
     },
     "Video": {
       "Title": "Let's fix a Macbook together! 😃",
@@ -591,8 +653,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 20,
-      "HumanReadable": 21
+      "Index": 22,
+      "HumanReadable": 23
     },
     "Video": {
       "Title": "Why can't franchise fix Macbook? :(",
@@ -622,8 +684,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 21,
-      "HumanReadable": 22
+      "Index": 23,
+      "HumanReadable": 24
     },
     "Video": {
       "Title": "A1502 strange failure 0 000A drawn no power",
@@ -653,8 +715,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 22,
-      "HumanReadable": 23
+      "Index": 24,
+      "HumanReadable": 25
     },
     "Video": {
       "Title": "Repairing a refurbished Apple motherboard for a Macbook Air - PROPERLY!",
@@ -684,8 +746,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 23,
-      "HumanReadable": 24
+      "Index": 25,
+      "HumanReadable": 26
     },
     "Video": {
       "Title": "Replacing SMD capacitor without hot air station flat on the board PLEASE WORK THIRD UPLOAD",
@@ -715,8 +777,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 24,
-      "HumanReadable": 25
+      "Index": 26,
+      "HumanReadable": 27
     },
     "Video": {
       "Title": "Macbook Pro dead again repairing the logic board",
@@ -746,8 +808,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 25,
-      "HumanReadable": 26
+      "Index": 27,
+      "HumanReadable": 28
     },
     "Video": {
       "Title": "820-3115 A1278 Macbook logic board repair no power",
@@ -777,8 +839,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 26,
-      "HumanReadable": 27
+      "Index": 28,
+      "HumanReadable": 29
     },
     "Video": {
       "Title": "A long rambling boring board repair video",
@@ -808,8 +870,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 27,
-      "HumanReadable": 28
+      "Index": 29,
+      "HumanReadable": 30
     },
     "Video": {
       "Title": "A1708 Macbook Pro USB-C port replacement: how to guide. 20v DC in rail short, logic board repair",
@@ -839,8 +901,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 28,
-      "HumanReadable": 29
+      "Index": 30,
+      "HumanReadable": 31
     },
     "Video": {
       "Title": "It's a Macbook: of course keyboard backlight can kill the entire machine",
@@ -870,8 +932,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 29,
-      "HumanReadable": 30
+      "Index": 31,
+      "HumanReadable": 32
     },
     "Video": {
       "Title": "Diagnosing USB-C muxing issues that prevent Macbook from charging",
@@ -901,8 +963,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 30,
-      "HumanReadable": 31
+      "Index": 32,
+      "HumanReadable": 33
     },
     "Video": {
       "Title": "A1707 Macbook Pro touchbar no power failed logic board PP3V3_G3H issue",
@@ -932,8 +994,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 31,
-      "HumanReadable": 32
+      "Index": 33,
+      "HumanReadable": 34
     },
     "Video": {
       "Title": "A 20 minute rant disguised as a board repair video",
@@ -963,8 +1025,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 32,
-      "HumanReadable": 33
+      "Index": 34,
+      "HumanReadable": 35
     },
     "Video": {
       "Title": "Macbook Pro no brain CPU vcore issue 820-3476",
@@ -994,8 +1056,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 33,
-      "HumanReadable": 34
+      "Index": 35,
+      "HumanReadable": 36
     },
     "Video": {
       "Title": "A1466 Macbook Air 24 mA no PM_SLP_S4_L logic board repair",
@@ -1025,8 +1087,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 34,
-      "HumanReadable": 35
+      "Index": 36,
+      "HumanReadable": 37
     },
     "Video": {
       "Title": "Macbook sets board on fire because... Apple.",
@@ -1056,8 +1118,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 35,
-      "HumanReadable": 36
+      "Index": 37,
+      "HumanReadable": 38
     },
     "Video": {
       "Title": "Reusing A1398 LCD screen when screen backlight has died",
@@ -1087,8 +1149,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 36,
-      "HumanReadable": 37
+      "Index": 38,
+      "HumanReadable": 39
     },
     "Video": {
       "Title": "Web design with Louis featuring a blueballed Macbook repair",
@@ -1118,8 +1180,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 37,
-      "HumanReadable": 38
+      "Index": 39,
+      "HumanReadable": 40
     },
     "Video": {
       "Title": "The sound of a suffering Macbook Air CPU with no heatpipe 😢",
@@ -1149,8 +1211,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 38,
-      "HumanReadable": 39
+      "Index": 40,
+      "HumanReadable": 41
     },
     "Video": {
       "Title": "Apple PCB design is a meme.",
@@ -1180,8 +1242,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 39,
-      "HumanReadable": 40
+      "Index": 41,
+      "HumanReadable": 42
     },
     "Video": {
       "Title": "Apple soldering was this bad(yes, really)",
@@ -1211,8 +1273,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 40,
-      "HumanReadable": 41
+      "Index": 42,
+      "HumanReadable": 43
     },
     "Video": {
       "Title": "A1466 Macbook Air logic board killed by bug poop",
@@ -1242,8 +1304,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 41,
-      "HumanReadable": 42
+      "Index": 43,
+      "HumanReadable": 44
     },
     "Video": {
       "Title": "20 minute rant disguised as board repair: A1989 no power 820-00850 logic board repair",
@@ -1273,8 +1335,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 42,
-      "HumanReadable": 43
+      "Index": 44,
+      "HumanReadable": 45
     },
     "Video": {
       "Title": "A1706 stuck at 5v with PP3V3_G3H present \u0026working CD3215 - what could it be??",
@@ -1304,8 +1366,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 43,
-      "HumanReadable": 44
+      "Index": 45,
+      "HumanReadable": 46
     },
     "Video": {
       "Title": "Macbook Air no backlight A1466 logic board repair",
@@ -1319,7 +1381,7 @@
         "Bad diode (soldered badly by someone else)",
         ""
       ],
-      "OtherInfo": "3V to screen (OK), 2.8V backlight enable (OK), stuck at 8V (no boost), replacing LED driver did not work, replaced diode (component name not mentioned) -\u003e fixed."
+      "OtherInfo": "3V to screen (OK), 2.8V backlight enable (OK), stuck at 8V (no boost), replacing LED driver did not work, replaced diode (component name not mentioned) -\u003e fixed.  [it's a XW7720 diode on PPVOUT_SW_LCDBKLT_FB]"
     },
     "Mac": {
       "ModelIdentifier": "MacBook Air",
@@ -1328,15 +1390,15 @@
     },
     "Wiki": {
       "Url": "",
-      "Notes": "Can anyone with a schematic / photographic memory plz ID the bad diode so I can add this to the wiki? It's the component the red multimeter probe is touching at 8.38 in the video. ",
+      "Notes": "Can anyone with a schematic / photographic memory plz ID the bad diode so I can add this to the wiki? It's the component the red multimeter probe is touching at 8.38 in the video.",
       "Status": "Need help"
     }
   },
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 44,
-      "HumanReadable": 45
+      "Index": 46,
+      "HumanReadable": 47
     },
     "Video": {
       "Title": "The hole won't win again: Macbook board DEFEATED and data recovered.",
@@ -1366,8 +1428,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 45,
-      "HumanReadable": 46
+      "Index": 47,
+      "HumanReadable": 48
     },
     "Video": {
       "Title": "Macbook board develops hole through it, Apple calls it liquid damage. 😂",
@@ -1397,8 +1459,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 46,
-      "HumanReadable": 47
+      "Index": 48,
+      "HumanReadable": 49
     },
     "Video": {
       "Title": "Fixing a burned 821-1722 DC in cable on an A1466 Macbook Air.",
@@ -1428,8 +1490,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 47,
-      "HumanReadable": 48
+      "Index": 49,
+      "HumanReadable": 50
     },
     "Video": {
       "Title": "Poor little Macbook board gets ruined by terrible repair shop 😢",
@@ -1459,8 +1521,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 48,
-      "HumanReadable": 49
+      "Index": 50,
+      "HumanReadable": 51
     },
     "Video": {
       "Title": "Macbook Pro Touchbar questionmark folder repair",
@@ -1490,8 +1552,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 49,
-      "HumanReadable": 50
+      "Index": 51,
+      "HumanReadable": 52
     },
     "Video": {
       "Title": "A1466 Macbook Air no power: 24 mA isn't just a PM_SLP_S4_L problem!",
@@ -1521,8 +1583,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 50,
-      "HumanReadable": 51
+      "Index": 52,
+      "HumanReadable": 53
     },
     "Video": {
       "Title": "A happy Macbook board repair 😊 820-00281 dead no power",
@@ -1552,8 +1614,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 51,
-      "HumanReadable": 52
+      "Index": 53,
+      "HumanReadable": 54
     },
     "Video": {
       "Title": "A1502 Macbook Pro logic board repair - 820-4924 120 mA usage, not powering on",
@@ -1583,8 +1645,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 52,
-      "HumanReadable": 53
+      "Index": 54,
+      "HumanReadable": 55
     },
     "Video": {
       "Title": "A1466 Macbook Air - no backlight, no corona",
@@ -1614,8 +1676,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 53,
-      "HumanReadable": 54
+      "Index": 55,
+      "HumanReadable": 56
     },
     "Video": {
       "Title": "A dead A1502 Macbook Pro 820-4924 taking 200 mA",
@@ -1645,8 +1707,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 54,
-      "HumanReadable": 55
+      "Index": 56,
+      "HumanReadable": 57
     },
     "Video": {
       "Title": "Macbook wine spill repair 820-4924",
@@ -1676,8 +1738,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 55,
-      "HumanReadable": 56
+      "Index": 57,
+      "HumanReadable": 58
     },
     "Video": {
       "Title": "Macbook Pro 820-00281 PPBUS_G3H not present after liquid damage",
@@ -1707,8 +1769,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 56,
-      "HumanReadable": 57
+      "Index": 58,
+      "HumanReadable": 59
     },
     "Video": {
       "Title": "820-00239 board charger stuck at 5v-300mA then loops on/off. Why?",
@@ -1738,8 +1800,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 57,
-      "HumanReadable": 58
+      "Index": 59,
+      "HumanReadable": 60
     },
     "Video": {
       "Title": "Does Apple put poorly refurbished boards in customer devices when they pay for replacements?",
@@ -1769,8 +1831,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 58,
-      "HumanReadable": 59
+      "Index": 60,
+      "HumanReadable": 61
     },
     "Video": {
       "Title": "A1990 Macbook Pro DEAD after update: how to repair T2 failure on 820-01041",
@@ -1800,8 +1862,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 59,
-      "HumanReadable": 60
+      "Index": 61,
+      "HumanReadable": 62
     },
     "Video": {
       "Title": "A1466 Macbook Air logic board repair - no green light on charger",
@@ -1831,8 +1893,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 60,
-      "HumanReadable": 61
+      "Index": 62,
+      "HumanReadable": 63
     },
     "Video": {
       "Title": "Macbook TROLLS me for an hour before I fix it 😡",
@@ -1860,10 +1922,10 @@
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 61,
-      "HumanReadable": 62
+      "Index": 63,
+      "HumanReadable": 64
     },
     "Video": {
       "Title": "Macbook Pro A1502 repair - braindead, no image, no POST, 200mA draw.",
@@ -1871,30 +1933,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/yGDURMxwzt8"
     },
     "Repair": {
-      "Cause": "",
-      "Symptom": "",
+      "Cause": "Liquid Damage",
+      "Symptom": "500mA, 340mA, variable amperage, intermittent fan spin.",
       "Issues": [
-        "",
-        ""
+        "Corrosion at U1950 area.",
+        "Corrosion at JTAG connector"
       ],
-      "OtherInfo": ""
+      "OtherInfo": "U1950 replaced and a jumper wire was used there. The JTAG connector was removed."
     },
     "Mac": {
       "ModelIdentifier": "MacBook Pro",
       "ModelNumber": "A1502",
-      "LogicBoardPartNumber": ""
+      "LogicBoardPartNumber": "820-3476"
     },
     "Wiki": {
       "Url": "",
       "Notes": "",
-      "Status": "Nothing yet"
+      "Status": "Done"
     }
   },
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 62,
-      "HumanReadable": 63
+      "Index": 64,
+      "HumanReadable": 65
     },
     "Video": {
       "Title": "Macbook not turning on: tricky charge circuit issue",
@@ -1924,8 +1986,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 63,
-      "HumanReadable": 64
+      "Index": 65,
+      "HumanReadable": 66
     },
     "Video": {
       "Title": "Louis returns to fixing Macbooks!",
@@ -1955,8 +2017,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 64,
-      "HumanReadable": 65
+      "Index": 66,
+      "HumanReadable": 67
     },
     "Video": {
       "Title": "Macbook Air board repair - it's about time 😊",
@@ -1986,8 +2048,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 65,
-      "HumanReadable": 66
+      "Index": 67,
+      "HumanReadable": 68
     },
     "Video": {
       "Title": "FIRST NEW OFFICE BOARD REPAIR!",
@@ -2017,8 +2079,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 66,
-      "HumanReadable": 67
+      "Index": 68,
+      "HumanReadable": 69
     },
     "Video": {
       "Title": "macbook repair - I'm on a plane to Washington \u0026 sitting next to someone who SMELLS BAD for 6 hrs! 😞",
@@ -2048,8 +2110,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 67,
-      "HumanReadable": 68
+      "Index": 69,
+      "HumanReadable": 70
     },
     "Video": {
       "Title": "Macbook Pro A1398: drawing 100 mA, no green light, logic board repair",
@@ -2079,8 +2141,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 68,
-      "HumanReadable": 69
+      "Index": 70,
+      "HumanReadable": 71
     },
     "Video": {
       "Title": "Methodology to FAST logic board problem solving -  Macbook Pro no green light",
@@ -2099,7 +2161,7 @@
     "Mac": {
       "ModelIdentifier": "MacBook Pro",
       "ModelNumber": "A1502",
-      "LogicBoardPartNumber": "820-3476"
+      "LogicBoardPartNumber": "Corrosion at backlight voltage divider."
     },
     "Wiki": {
       "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1502_2013-2014_13%E2%80%9D_Macbook_Pro_Retina",
@@ -2110,8 +2172,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 69,
-      "HumanReadable": 70
+      "Index": 71,
+      "HumanReadable": 72
     },
     "Video": {
       "Title": "BADLY corroded Macbook Pro: which corrosion is causing our issue, and why?",
@@ -2141,8 +2203,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 70,
-      "HumanReadable": 71
+      "Index": 72,
+      "HumanReadable": 73
     },
     "Video": {
       "Title": "It's Apple. Even the board components are laughing at you...",
@@ -2172,8 +2234,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 71,
-      "HumanReadable": 72
+      "Index": 73,
+      "HumanReadable": 74
     },
     "Video": {
       "Title": "A1466 Macbook Air 820-3437 fixed after lots of water damage",
@@ -2203,8 +2265,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 72,
-      "HumanReadable": 73
+      "Index": 74,
+      "HumanReadable": 75
     },
     "Video": {
       "Title": "A1398 Macbook Pro not turning on PPBUS_G3H not present",
@@ -2234,8 +2296,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 73,
-      "HumanReadable": 74
+      "Index": 75,
+      "HumanReadable": 76
     },
     "Video": {
       "Title": "What is an ACTIVE short and how does it differ from a NORMAL short circuit?",
@@ -2265,8 +2327,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 74,
-      "HumanReadable": 75
+      "Index": 76,
+      "HumanReadable": 77
     },
     "Video": {
       "Title": "Macbook Pro touchbar logic board repair - no power",
@@ -2296,8 +2358,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 75,
-      "HumanReadable": 76
+      "Index": 77,
+      "HumanReadable": 78
     },
     "Video": {
       "Title": "What does a knockoff charger do to a Macbook Pro? Why should you not use one?",
@@ -2327,8 +2389,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 76,
-      "HumanReadable": 77
+      "Index": 78,
+      "HumanReadable": 79
     },
     "Video": {
       "Title": "A1932 Macbook Air water damage repair",
@@ -2358,8 +2420,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 77,
-      "HumanReadable": 78
+      "Index": 79,
+      "HumanReadable": 80
     },
     "Video": {
       "Title": "Macbook Pro water damage repair",
@@ -2389,8 +2451,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 78,
-      "HumanReadable": 79
+      "Index": 80,
+      "HumanReadable": 81
     },
     "Video": {
       "Title": "Macbook Pro water damage repair",
@@ -2420,8 +2482,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 79,
-      "HumanReadable": 80
+      "Index": 81,
+      "HumanReadable": 82
     },
     "Video": {
       "Title": "Macbook Pro USB port not working: repair, diagnosis and solution.",
@@ -2451,8 +2513,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 80,
-      "HumanReadable": 81
+      "Index": 82,
+      "HumanReadable": 83
     },
     "Video": {
       "Title": "SSD SMOKES inside Macbook Air, is it fixable?",
@@ -2482,8 +2544,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 81,
-      "HumanReadable": 82
+      "Index": 83,
+      "HumanReadable": 84
     },
     "Video": {
       "Title": "A word regarding my lack of integrity.",
@@ -2513,8 +2575,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 82,
-      "HumanReadable": 83
+      "Index": 84,
+      "HumanReadable": 85
     },
     "Video": {
       "Title": "Macbook Air Water Damage Repair",
@@ -2544,8 +2606,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 83,
-      "HumanReadable": 84
+      "Index": 85,
+      "HumanReadable": 86
     },
     "Video": {
       "Title": "😢 Crazy nasty Macbook board brings Louis to brink of insanity, self pity, \u0026 defeat. 😢",
@@ -2575,8 +2637,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 84,
-      "HumanReadable": 85
+      "Index": 86,
+      "HumanReadable": 87
     },
     "Video": {
       "Title": "A1502 Macbook Pro taking 160-180 mA but not turning on.",
@@ -2606,8 +2668,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 85,
-      "HumanReadable": 86
+      "Index": 87,
+      "HumanReadable": 88
     },
     "Video": {
       "Title": "Why do I start measuring where I measure when fixing Macbook logic boards?",
@@ -2637,8 +2699,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 86,
-      "HumanReadable": 87
+      "Index": 88,
+      "HumanReadable": 89
     },
     "Video": {
       "Title": "Soldered on Macbook SSD not showing up? How to diagnose \u0026 repair it!",
@@ -2668,8 +2730,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 87,
-      "HumanReadable": 88
+      "Index": 89,
+      "HumanReadable": 90
     },
     "Video": {
       "Title": "A1466 Macbook Air no green light",
@@ -2699,8 +2761,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 88,
-      "HumanReadable": 89
+      "Index": 90,
+      "HumanReadable": 91
     },
     "Video": {
       "Title": "A1708 Macbook Pro taking 10 mA after liquid; what's wrong?",
@@ -2730,8 +2792,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 89,
-      "HumanReadable": 90
+      "Index": 91,
+      "HumanReadable": 92
     },
     "Video": {
       "Title": "Why is an A1466 Macbook Pro taking 45-65 mA and not turning on?",
@@ -2761,8 +2823,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 90,
-      "HumanReadable": 91
+      "Index": 92,
+      "HumanReadable": 93
     },
     "Video": {
       "Title": "How Apple is shaping the future of repair.",
@@ -2792,8 +2854,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 91,
-      "HumanReadable": 92
+      "Index": 93,
+      "HumanReadable": 94
     },
     "Video": {
       "Title": "Macbook Pro taking 20 milliamps not turning on",
@@ -2823,8 +2885,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 92,
-      "HumanReadable": 93
+      "Index": 94,
+      "HumanReadable": 95
     },
     "Video": {
       "Title": "😊 A happy A1707 Macbook Pro board repair 😊",
@@ -2854,8 +2916,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 93,
-      "HumanReadable": 94
+      "Index": 95,
+      "HumanReadable": 96
     },
     "Video": {
       "Title": "Macbook Air, no backlight repair: 820-3437 in very bad condition",
@@ -2885,8 +2947,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 94,
-      "HumanReadable": 95
+      "Index": 96,
+      "HumanReadable": 97
     },
     "Video": {
       "Title": "A1707 Macbook Pro not charging, stuck at 5v - the short that was only shorted when turned on.",
@@ -2916,8 +2978,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 95,
-      "HumanReadable": 96
+      "Index": 97,
+      "HumanReadable": 98
     },
     "Video": {
       "Title": "The most common Macbook Air logic board failure - how to fix.",
@@ -2947,8 +3009,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 96,
-      "HumanReadable": 97
+      "Index": 98,
+      "HumanReadable": 99
     },
     "Video": {
       "Title": "$3000 laptop turned to paperweight due to ISL9240 unavailability. :'(",
@@ -2978,8 +3040,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 97,
-      "HumanReadable": 98
+      "Index": 99,
+      "HumanReadable": 100
     },
     "Video": {
       "Title": "Why fix spill damaged logic boards before cleaning them?",
@@ -3001,16 +3063,16 @@
       "LogicBoardPartNumber": ""
     },
     "Wiki": {
-      "Url": "Could't identify the board but there is already entry about CD3215 corrosion on all models so nothing to do here",
+      "Url": "Could't identify the board but there is already entry about CD3215 corrosion on all models so nothing to do here ",
       "Notes": "Unboxing of the 1M subscriber plaque. \"That's what we want in our board: some nice big balls!\"",
       "Status": "Done"
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 98,
-      "HumanReadable": 99
+      "Index": 100,
+      "HumanReadable": 101
     },
     "Video": {
       "Title": "Institutionalized board repair gone wrong",
@@ -3018,30 +3080,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/myhB6dcm5lE"
     },
     "Repair": {
-      "Cause": "",
-      "Symptom": "",
+      "Cause": "Bad ISL9239",
+      "Symptom": "Not turning on",
       "Issues": [
-        "",
+        "PP3V3_G3H missing",
         ""
       ],
-      "OtherInfo": ""
+      "OtherInfo": "Charger stuck at 5V, 0mA, board worked on by other company, ISL9239 replaced-\u003efixed"
     },
     "Mac": {
-      "ModelIdentifier": "",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
+      "ModelIdentifier": "Macbook pro",
+      "ModelNumber": "A1708",
+      "LogicBoardPartNumber": "820-00875"
     },
     "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Nothing yet"
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1708_2016,_2017_Macbook_Pro_13%E2%80%9D_USB-C_non-touchbar",
+      "Notes": "Board id through image matching, Problem and solution already in wiki, added link to video as example + some info",
+      "Status": "Done"
     }
   },
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 99,
-      "HumanReadable": 100
+      "Index": 101,
+      "HumanReadable": 102
     },
     "Video": {
       "Title": "Anel is back",
@@ -3071,8 +3133,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 100,
-      "HumanReadable": 101
+      "Index": 102,
+      "HumanReadable": 103
     },
     "Video": {
       "Title": "Dead Macbook Pro from feces like substance on current sensing circuit",
@@ -3102,8 +3164,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 101,
-      "HumanReadable": 102
+      "Index": 103,
+      "HumanReadable": 104
     },
     "Video": {
       "Title": "How unauthorized INFLUENCERS fix Apple products",
@@ -3133,8 +3195,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 102,
-      "HumanReadable": 103
+      "Index": 104,
+      "HumanReadable": 105
     },
     "Video": {
       "Title": "A random PM_SLP_S4_L+ board repair",
@@ -3164,8 +3226,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 103,
-      "HumanReadable": 104
+      "Index": 105,
+      "HumanReadable": 106
     },
     "Video": {
       "Title": "Paul's queue is easy work - Macbook Air with PM_SLP_S4_L missing, SOLVED!",
@@ -3195,8 +3257,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 104,
-      "HumanReadable": 105
+      "Index": 106,
+      "HumanReadable": 107
     },
     "Video": {
       "Title": "A1502 Macbook logic board repair, CHGR_DCIN \u0026 burned D7105",
@@ -3226,8 +3288,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 105,
-      "HumanReadable": 106
+      "Index": 107,
+      "HumanReadable": 108
     },
     "Video": {
       "Title": "Macbook Pro logic board repair in NYC 🗽",
@@ -3257,8 +3319,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 106,
-      "HumanReadable": 107
+      "Index": 108,
+      "HumanReadable": 109
     },
     "Video": {
       "Title": "MacBook logic board repair bad S0 power rail affects S4 rail",
@@ -3288,8 +3350,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 107,
-      "HumanReadable": 108
+      "Index": 109,
+      "HumanReadable": 110
     },
     "Video": {
       "Title": "A happy, educational Macbook Air no-green-light-on-charger logic board repair video. 😊",
@@ -3319,8 +3381,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 108,
-      "HumanReadable": 109
+      "Index": 110,
+      "HumanReadable": 111
     },
     "Video": {
       "Title": "820-00928 takes 20 mA 20v not turning on",
@@ -3350,8 +3412,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 109,
-      "HumanReadable": 110
+      "Index": 111,
+      "HumanReadable": 112
     },
     "Video": {
       "Title": "Troubleshooting 5v on Touchbar Macbook Pro charger - IMPORTANT INFORMATION on finding the BAD CD3215",
@@ -3381,8 +3443,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 110,
-      "HumanReadable": 111
+      "Index": 112,
+      "HumanReadable": 113
     },
     "Video": {
       "Title": "My CPA's assistant uses a Macbook. Should I fire them?",
@@ -3412,8 +3474,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 111,
-      "HumanReadable": 112
+      "Index": 113,
+      "HumanReadable": 114
     },
     "Video": {
       "Title": "A1706 Macbook Pro Touchbar common cause of spontaneous death",
@@ -3443,8 +3505,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 112,
-      "HumanReadable": 113
+      "Index": 114,
+      "HumanReadable": 115
     },
     "Video": {
       "Title": "A1398 Macbook Pro not turning on - no power",
@@ -3474,8 +3536,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 113,
-      "HumanReadable": 114
+      "Index": 115,
+      "HumanReadable": 116
     },
     "Video": {
       "Title": "A1466 Macbook Air taking 70 mA and dead logic board repair",
@@ -3505,8 +3567,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 114,
-      "HumanReadable": 115
+      "Index": 116,
+      "HumanReadable": 117
     },
     "Video": {
       "Title": "Identifying power cycling, repairing Macbook logic board",
@@ -3536,8 +3598,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 115,
-      "HumanReadable": 116
+      "Index": 117,
+      "HumanReadable": 118
     },
     "Video": {
       "Title": "Macbook Air, no green light: chip randomly died.",
@@ -3567,8 +3629,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 116,
-      "HumanReadable": 117
+      "Index": 118,
+      "HumanReadable": 119
     },
     "Video": {
       "Title": "Paul demonstrates how to work with a hole under a BGA chip.",
@@ -3598,8 +3660,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 117,
-      "HumanReadable": 118
+      "Index": 119,
+      "HumanReadable": 120
     },
     "Video": {
       "Title": "Mac authorized dealer said WHAT??? + 1st attempt at ASMR board repair.",
@@ -3629,8 +3691,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 118,
-      "HumanReadable": 119
+      "Index": 120,
+      "HumanReadable": 121
     },
     "Video": {
       "Title": "Macbook Air A1466 board drawing 200 mA but not turning on: how to repair.",
@@ -3660,8 +3722,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 119,
-      "HumanReadable": 120
+      "Index": 121,
+      "HumanReadable": 122
     },
     "Video": {
       "Title": "820-3437 not turning on 200mA drawn from power supply.",
@@ -3691,8 +3753,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 120,
-      "HumanReadable": 121
+      "Index": 122,
+      "HumanReadable": 123
     },
     "Video": {
       "Title": "Recovering from mistakes while fixing a board. Positivity wins.",
@@ -3722,8 +3784,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 121,
-      "HumanReadable": 122
+      "Index": 123,
+      "HumanReadable": 124
     },
     "Video": {
       "Title": "What do I do if my MacBook Air won't turn on?",
@@ -3753,8 +3815,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 122,
-      "HumanReadable": 123
+      "Index": 124,
+      "HumanReadable": 125
     },
     "Video": {
       "Title": "How to repair a Macbook that doesn't power on after liquid",
@@ -3784,8 +3846,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 123,
-      "HumanReadable": 124
+      "Index": 125,
+      "HumanReadable": 126
     },
     "Video": {
       "Title": "Will a MacBook work after spilled water?",
@@ -3815,8 +3877,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 124,
-      "HumanReadable": 125
+      "Index": 126,
+      "HumanReadable": 127
     },
     "Video": {
       "Title": "How do I fix a wet MacBook Air?",
@@ -3846,8 +3908,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 125,
-      "HumanReadable": 126
+      "Index": 127,
+      "HumanReadable": 128
     },
     "Video": {
       "Title": "Paul's corner: ? folder on A1706 Macbook Pro, SSD not detected",
@@ -3875,10 +3937,10 @@
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 126,
-      "HumanReadable": 127
+      "Index": 128,
+      "HumanReadable": 129
     },
     "Video": {
       "Title": "What do I do if my Mac isn’t charging?",
@@ -3886,30 +3948,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/aMy3xLcH78g"
     },
     "Repair": {
-      "Cause": "",
-      "Symptom": "No Charging",
+      "Cause": "Liquid damage",
+      "Symptom": "Not turning on, no green light, 90mA",
       "Issues": [
-        "",
-        ""
+        "corrosion around SMC",
+        "Short on PP3V42"
       ],
-      "OtherInfo": ""
+      "OtherInfo": "SMC reflowed. Components around SMC removed, pads cleaned up, components restored, jumper wire used. PP3V42_G3G shorted. clock chip was replaced and this cleared the short. Fixed."
     },
     "Mac": {
-      "ModelIdentifier": "",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
+      "ModelIdentifier": "MacBook Pro",
+      "ModelNumber": "A1502",
+      "LogicBoardPartNumber": "820-4924"
     },
     "Wiki": {
-      "Url": "",
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1502_2015-2016_13%E2%80%9D_Macbook_Pro_Retina",
       "Notes": "",
-      "Status": "Nothing yet"
+      "Status": "Done"
     }
   },
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 127,
-      "HumanReadable": 128
+      "Index": 129,
+      "HumanReadable": 130
     },
     "Video": {
       "Title": "Paul's corner - replacing keyboard ICs on A1502 2015 Macbook Pro 820-4924",
@@ -3939,8 +4001,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 128,
-      "HumanReadable": 129
+      "Index": 130,
+      "HumanReadable": 131
     },
     "Video": {
       "Title": "Louis fixes girlfriend's Macbook.",
@@ -3970,8 +4032,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 129,
-      "HumanReadable": 130
+      "Index": 131,
+      "HumanReadable": 132
     },
     "Video": {
       "Title": "How do I fix a black screen on my Touchbar MacBook Pro?",
@@ -4001,8 +4063,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 130,
-      "HumanReadable": 131
+      "Index": 132,
+      "HumanReadable": 133
     },
     "Video": {
       "Title": "Why are the USB ports not working on my Mac?",
@@ -4032,8 +4094,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 131,
-      "HumanReadable": 132
+      "Index": 133,
+      "HumanReadable": 134
     },
     "Video": {
       "Title": "Can a Macbook with water damage be repaired?",
@@ -4063,8 +4125,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 132,
-      "HumanReadable": 133
+      "Index": 134,
+      "HumanReadable": 135
     },
     "Video": {
       "Title": "Fixing a Macbook. Let's fix a Macbook. :)",
@@ -4094,8 +4156,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 133,
-      "HumanReadable": 134
+      "Index": 135,
+      "HumanReadable": 136
     },
     "Video": {
       "Title": "820-00840 A1708 Macbook Pro with no backlight: how to repair its logic board.",
@@ -4125,8 +4187,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 134,
-      "HumanReadable": 135
+      "Index": 136,
+      "HumanReadable": 137
     },
     "Video": {
       "Title": "Final non-Louis repair video my plane landed back in NYC see you later today",
@@ -4156,8 +4218,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 135,
-      "HumanReadable": 136
+      "Index": 137,
+      "HumanReadable": 138
     },
     "Video": {
       "Title": "Meet an AUSTRALIAN who fixes boards: Paul Daniels!",
@@ -4187,8 +4249,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 136,
-      "HumanReadable": 137
+      "Index": 138,
+      "HumanReadable": 139
     },
     "Video": {
       "Title": "Introducing Louis' replacement(this is the best we could do on short notice, sorry ppl)",
@@ -4218,8 +4280,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 137,
-      "HumanReadable": 138
+      "Index": 139,
+      "HumanReadable": 140
     },
     "Video": {
       "Title": "How Anel is spending his day",
@@ -4249,8 +4311,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 138,
-      "HumanReadable": 139
+      "Index": 140,
+      "HumanReadable": 141
     },
     "Video": {
       "Title": "Can DUST kill a Macbook motherboard?",
@@ -4280,8 +4342,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 139,
-      "HumanReadable": 140
+      "Index": 141,
+      "HumanReadable": 142
     },
     "Video": {
       "Title": "Louis' last repair before a long vacation",
@@ -4311,8 +4373,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 140,
-      "HumanReadable": 141
+      "Index": 142,
+      "HumanReadable": 143
     },
     "Video": {
       "Title": "USB-C Macbook Pro not turning on no PPBUS_G3H",
@@ -4342,8 +4404,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 141,
-      "HumanReadable": 142
+      "Index": 143,
+      "HumanReadable": 144
     },
     "Video": {
       "Title": "Macbook Air takes 20 milliamps, doesn't turn on: logic board repair",
@@ -4373,8 +4435,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 142,
-      "HumanReadable": 143
+      "Index": 144,
+      "HumanReadable": 145
     },
     "Video": {
       "Title": "A1708 Macbook Pro 20v 0amps not turning on",
@@ -4404,8 +4466,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 143,
-      "HumanReadable": 144
+      "Index": 145,
+      "HumanReadable": 146
     },
     "Video": {
       "Title": "Employee shows up to work drunk. Can he still beat Genius Bar?",
@@ -4435,8 +4497,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 144,
-      "HumanReadable": 145
+      "Index": 146,
+      "HumanReadable": 147
     },
     "Video": {
       "Title": "A fun 820-00165 board repair missing PP3V42_G3H",
@@ -4466,8 +4528,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 145,
-      "HumanReadable": 146
+      "Index": 147,
+      "HumanReadable": 148
     },
     "Video": {
       "Title": "A1278 Macbook taking 200 mA but not turning on",
@@ -4484,7 +4546,7 @@
       "OtherInfo": "Board was not fixed as it was not economically viable to do so."
     },
     "Mac": {
-      "ModelIdentifier": "MacBook Air",
+      "ModelIdentifier": "MacBook Pro",
       "ModelNumber": "A1278",
       "LogicBoardPartNumber": "820-2936"
     },
@@ -4497,8 +4559,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 146,
-      "HumanReadable": 147
+      "Index": 148,
+      "HumanReadable": 149
     },
     "Video": {
       "Title": "Why pay Louis? YOU CAN TAKE IT SOMEPLACE CHEAPER!!!",
@@ -4528,8 +4590,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 147,
-      "HumanReadable": 148
+      "Index": 149,
+      "HumanReadable": 150
     },
     "Video": {
       "Title": "No green light on A1278 Macbook",
@@ -4559,8 +4621,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 148,
-      "HumanReadable": 149
+      "Index": 150,
+      "HumanReadable": 151
     },
     "Video": {
       "Title": "I'm not angry with you. I'm just disappointed in you.",
@@ -4590,8 +4652,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 149,
-      "HumanReadable": 150
+      "Index": 151,
+      "HumanReadable": 152
     },
     "Video": {
       "Title": "Can Macbook be fixed?",
@@ -4621,8 +4683,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 150,
-      "HumanReadable": 151
+      "Index": 152,
+      "HumanReadable": 153
     },
     "Video": {
       "Title": "Passing gear down to channel's protege",
@@ -4652,8 +4714,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 151,
-      "HumanReadable": 152
+      "Index": 153,
+      "HumanReadable": 154
     },
     "Video": {
       "Title": "NEW Macbook Air repair || discussion of Google's CREEPY permanent storage of all recordings",
@@ -4681,10 +4743,10 @@
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 152,
-      "HumanReadable": 153
+      "Index": 154,
+      "HumanReadable": 155
     },
     "Video": {
       "Title": "Macbook Air screen flickers: fixed by the magic of Paul S.",
@@ -4692,30 +4754,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/ojyF6FSTA8g"
     },
     "Repair": {
-      "Cause": "",
+      "Cause": "corroded hall sensor",
       "Symptom": "Screen flickers",
       "Issues": [
-        "",
+        "hall sensor is not working properly, open-close state (with magnet in screen) is not know for device",
         ""
       ],
       "OtherInfo": ""
     },
     "Mac": {
       "ModelIdentifier": "MacBook Air",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
+      "ModelNumber": "?",
+      "LogicBoardPartNumber": "?"
     },
     "Wiki": {
       "Url": "",
-      "Notes": "",
-      "Status": "Nothing yet"
+      "Notes": "I cant't find any entry for hall sensor repair in wiki, I don't know the Model and Board of this video",
+      "Status": "Need help"
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 153,
-      "HumanReadable": 154
+      "Index": 155,
+      "HumanReadable": 156
     },
     "Video": {
       "Title": "Paul fixes SCORCHED Macbook Pro Retina, restoring USB and HDMI.",
@@ -4723,30 +4785,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/GGCRSaJlxjc"
     },
     "Repair": {
-      "Cause": "",
-      "Symptom": "",
+      "Cause": "burned connector on motherboard end",
+      "Symptom": "No Power On",
       "Issues": [
-        "USB",
-        "HDMI"
+        "USB3 and HDMI on right IO board defective",
+        ""
       ],
       "OtherInfo": "Retina"
     },
     "Mac": {
       "ModelIdentifier": "MacBook Pro",
-      "ModelNumber": "",
+      "ModelNumber": "A1398",
       "LogicBoardPartNumber": ""
     },
     "Wiki": {
-      "Url": "",
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1398_2012-early2013_15%E2%80%9D_Macbook_Pro_Retina",
       "Notes": "",
-      "Status": "Nothing yet"
+      "Status": "Done"
     }
   },
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 154,
-      "HumanReadable": 155
+      "Index": 156,
+      "HumanReadable": 157
     },
     "Video": {
       "Title": "A1708 Macbook Pro has no audio: repair of logic board",
@@ -4776,8 +4838,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 155,
-      "HumanReadable": 156
+      "Index": 157,
+      "HumanReadable": 158
     },
     "Video": {
       "Title": "Louis does NOT cherrypick: the queue is random.",
@@ -4807,8 +4869,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 156,
-      "HumanReadable": 157
+      "Index": 158,
+      "HumanReadable": 159
     },
     "Video": {
       "Title": "What does knockoff charger do to Macbook Pro Retina?",
@@ -4838,8 +4900,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 157,
-      "HumanReadable": 158
+      "Index": 159,
+      "HumanReadable": 160
     },
     "Video": {
       "Title": "Macbook Pro Retina screen flickers: why? Let's fix its logic board and find out.",
@@ -4869,8 +4931,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 158,
-      "HumanReadable": 159
+      "Index": 160,
+      "HumanReadable": 161
     },
     "Video": {
       "Title": "Why Macbook Pro Retina has no green light and 12.23v on PPBUS_G3H",
@@ -4900,8 +4962,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 159,
-      "HumanReadable": 160
+      "Index": 161,
+      "HumanReadable": 162
     },
     "Video": {
       "Title": "Louis fixes boards worse than franchise :'(",
@@ -4931,8 +4993,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 160,
-      "HumanReadable": 161
+      "Index": 162,
+      "HumanReadable": 163
     },
     "Video": {
       "Title": "Why new Macbook boards will be unfixable for me: sad :(",
@@ -4962,8 +5024,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 161,
-      "HumanReadable": 162
+      "Index": 163,
+      "HumanReadable": 164
     },
     "Video": {
       "Title": "Why Macbook Pro retina logic board takes 100 mA but doesn't turn on",
@@ -4993,8 +5055,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 162,
-      "HumanReadable": 163
+      "Index": 164,
+      "HumanReadable": 165
     },
     "Video": {
       "Title": "Two chips: one nozzle :)",
@@ -5024,8 +5086,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 163,
-      "HumanReadable": 164
+      "Index": 165,
+      "HumanReadable": 166
     },
     "Video": {
       "Title": "No backlight on awful Macbook Air",
@@ -5055,8 +5117,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 164,
-      "HumanReadable": 165
+      "Index": 166,
+      "HumanReadable": 167
     },
     "Video": {
       "Title": "A1708 Macbook Pro not charging or turning on with a LAAAAAABEL on it",
@@ -5086,8 +5148,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 165,
-      "HumanReadable": 166
+      "Index": 167,
+      "HumanReadable": 168
     },
     "Video": {
       "Title": "Macbook Pro no green light on magsafe charger",
@@ -5117,8 +5179,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 166,
-      "HumanReadable": 167
+      "Index": 168,
+      "HumanReadable": 169
     },
     "Video": {
       "Title": "Louis stops using profane language, and fixes a board.",
@@ -5148,8 +5210,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 167,
-      "HumanReadable": 168
+      "Index": 169,
+      "HumanReadable": 170
     },
     "Video": {
       "Title": "820-3115 A1278 Macbook Pro not turning on logic board repair",
@@ -5179,8 +5241,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 168,
-      "HumanReadable": 169
+      "Index": 170,
+      "HumanReadable": 171
     },
     "Video": {
       "Title": "PM_SLP_S4_L missing on disgusting Macbook Air",
@@ -5210,8 +5272,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 169,
-      "HumanReadable": 170
+      "Index": 171,
+      "HumanReadable": 172
     },
     "Video": {
       "Title": "A1706 Macbook Pro 820-00239 not charging or turning on: but why?",
@@ -5241,8 +5303,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 170,
-      "HumanReadable": 171
+      "Index": 172,
+      "HumanReadable": 173
     },
     "Video": {
       "Title": "Rehot PMIC bro? Yes, rehot PMIC bro!",
@@ -5272,8 +5334,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 171,
-      "HumanReadable": 172
+      "Index": 173,
+      "HumanReadable": 174
     },
     "Video": {
       "Title": "Why did Louis move to front of store?",
@@ -5303,8 +5365,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 172,
-      "HumanReadable": 173
+      "Index": 174,
+      "HumanReadable": 175
     },
     "Video": {
       "Title": "Genius bar quotes FAIR price... what?",
@@ -5334,8 +5396,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 173,
-      "HumanReadable": 174
+      "Index": 175,
+      "HumanReadable": 176
     },
     "Video": {
       "Title": "Why are TPS51980 U7501 chip power rails jumping on Macbook logic board?",
@@ -5365,8 +5427,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 174,
-      "HumanReadable": 175
+      "Index": 176,
+      "HumanReadable": 177
     },
     "Video": {
       "Title": "Why is PM_SLP_S4_L missing on this Macbook Air logic board?",
@@ -5396,8 +5458,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 175,
-      "HumanReadable": 176
+      "Index": 177,
+      "HumanReadable": 178
     },
     "Video": {
       "Title": "Why is PPBUS_G3H 1.7v on this Macbook Air logic board?",
@@ -5427,8 +5489,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 176,
-      "HumanReadable": 177
+      "Index": 178,
+      "HumanReadable": 179
     },
     "Video": {
       "Title": "What causes 4v on PPBUS_G3H on Macbook logic board?",
@@ -5458,8 +5520,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 177,
-      "HumanReadable": 178
+      "Index": 179,
+      "HumanReadable": 180
     },
     "Video": {
       "Title": "A fun day of board repair at Rossmann Group",
@@ -5489,8 +5551,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 178,
-      "HumanReadable": 179
+      "Index": 180,
+      "HumanReadable": 181
     },
     "Video": {
       "Title": "RANDOM :)",
@@ -5520,8 +5582,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 179,
-      "HumanReadable": 180
+      "Index": 181,
+      "HumanReadable": 182
     },
     "Video": {
       "Title": "820-4924 drawing 70 milliamps but not powering on",
@@ -5551,8 +5613,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 180,
-      "HumanReadable": 181
+      "Index": 182,
+      "HumanReadable": 183
     },
     "Video": {
       "Title": "Why is ALL_SYS_PWRGD missing?",
@@ -5582,8 +5644,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 181,
-      "HumanReadable": 182
+      "Index": 183,
+      "HumanReadable": 184
     },
     "Video": {
       "Title": "820-00281 Macbook Pro Touchbar board is dead: why?",
@@ -5613,8 +5675,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 182,
-      "HumanReadable": 183
+      "Index": 184,
+      "HumanReadable": 185
     },
     "Video": {
       "Title": "What is power cycling and what causes it on Macbook logic board?",
@@ -5644,8 +5706,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 183,
-      "HumanReadable": 184
+      "Index": 185,
+      "HumanReadable": 186
     },
     "Video": {
       "Title": "Macbook Pro A1502 no green light after liquid damage",
@@ -5675,8 +5737,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 184,
-      "HumanReadable": 185
+      "Index": 186,
+      "HumanReadable": 187
     },
     "Video": {
       "Title": "The best Macbook logic board repair - right here on http://www.rossmanngroup.com",
@@ -5706,8 +5768,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 185,
-      "HumanReadable": 186
+      "Index": 187,
+      "HumanReadable": 188
     },
     "Video": {
       "Title": "The PROPER way to solder BGA chips.",
@@ -5737,8 +5799,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 186,
-      "HumanReadable": 187
+      "Index": 188,
+      "HumanReadable": 189
     },
     "Video": {
       "Title": "MacBook air board repair + ten minutes of pure, unadulterated shilling for rossmanngroup.com",
@@ -5768,8 +5830,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 187,
-      "HumanReadable": 188
+      "Index": 189,
+      "HumanReadable": 190
     },
     "Video": {
       "Title": "Why does Louis wear gloves when working on Macbooks?",
@@ -5799,8 +5861,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 188,
-      "HumanReadable": 189
+      "Index": 190,
+      "HumanReadable": 191
     },
     "Video": {
       "Title": "Can Touchbar Macbook Pro logic board that won't charge be fixed?",
@@ -5830,8 +5892,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 189,
-      "HumanReadable": 190
+      "Index": 191,
+      "HumanReadable": 192
     },
     "Video": {
       "Title": "Can Macbook Air be fixed outside of a miserable CSAT Solutions sweatshop?",
@@ -5861,8 +5923,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 190,
-      "HumanReadable": 191
+      "Index": 192,
+      "HumanReadable": 193
     },
     "Video": {
       "Title": "Crest Ultrasonic Cleaner performs miracle on little Macbook Air.",
@@ -5892,8 +5954,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 191,
-      "HumanReadable": 192
+      "Index": 193,
+      "HumanReadable": 194
     },
     "Video": {
       "Title": "Fixing USB-C Macbook that doesn't charge || College prof claims real programmers use mac?",
@@ -5923,8 +5985,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 192,
-      "HumanReadable": 193
+      "Index": 194,
+      "HumanReadable": 195
     },
     "Video": {
       "Title": "Why is Macbook Pro Retina taking 200mA and not turning on?",
@@ -5954,8 +6016,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 193,
-      "HumanReadable": 194
+      "Index": 195,
+      "HumanReadable": 196
     },
     "Video": {
       "Title": "Macbook Pro Retina no backlight after screen replacement: FIXED!",
@@ -5985,8 +6047,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 194,
-      "HumanReadable": 195
+      "Index": 196,
+      "HumanReadable": 197
     },
     "Video": {
       "Title": "Macbook Air logic board repair PM_SLP_S4_L missing",
@@ -6016,8 +6078,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 195,
-      "HumanReadable": 196
+      "Index": 197,
+      "HumanReadable": 198
     },
     "Video": {
       "Title": "Why is Macbook Air missing PM_SLP_S4_L again?",
@@ -6047,8 +6109,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 196,
-      "HumanReadable": 197
+      "Index": 198,
+      "HumanReadable": 199
     },
     "Video": {
       "Title": "What part of Macbook is made from BULLETPROOF component quality?",
@@ -6078,8 +6140,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 197,
-      "HumanReadable": 198
+      "Index": 199,
+      "HumanReadable": 200
     },
     "Video": {
       "Title": "Does Macbook can be fixed?",
@@ -6109,8 +6171,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 198,
-      "HumanReadable": 199
+      "Index": 200,
+      "HumanReadable": 201
     },
     "Video": {
       "Title": "Can Macbook logic board burn and die without liquid?",
@@ -6127,21 +6189,21 @@
       "OtherInfo": "Why does it burn? Because its a macbook. No external physical damage was done to it"
     },
     "Mac": {
-      "ModelIdentifier": "MacBook 15\"",
-      "ModelNumber": "",
+      "ModelIdentifier": "MacBook 13\"?",
+      "ModelNumber": "??",
       "LogicBoardPartNumber": ""
     },
     "Wiki": {
-      "Url": "",
-      "Notes": "Replace Pad with Jumper wire",
-      "Status": "On it"
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1398_2015-2016_15%E2%80%9D_Macbook_Pro_Retina ?",
+      "Notes": "Replace burned pad with jumper wire, unkown MacBook or Board Model",
+      "Status": "Need help"
     }
   },
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 199,
-      "HumanReadable": 200
+      "Index": 201,
+      "HumanReadable": 202
     },
     "Video": {
       "Title": "Touchbar Macbook Pro repair after devastating liquid spill",
@@ -6159,51 +6221,20 @@
     },
     "Mac": {
       "ModelIdentifier": "MacBook Pro",
-      "ModelNumber": "A1707",
+      "ModelNumber": "A1706",
       "LogicBoardPartNumber": ""
     },
     "Wiki": {
-      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1707_2016-2017_Touchbar_15%E2%80%9D_macbook_Pro",
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1706_2016-2017_Touchbar_13%E2%80%9D_macbook_Pro",
       "Notes": "Liquid damage on booth board sides, clean PP3V3_G3H area and replace chip -\u003e measure 0.0V enable signal on PIN10 of the chip -\u003e clean ISO 9239 area and replace chip (VoltageIn PIN5 heavy burned) -\u003e replug charger (20V/0.9A) -\u003e measure 0.7V on VCore -\u003e plug screen on, it boot up",
       "Status": "Done"
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 200,
-      "HumanReadable": 201
-    },
-    "Video": {
-      "Title": "One nozzle flows two chips at the same time :D",
-      "Url": "https://www.youtube.com/watch?v=vXymRpTYI6g",
-      "EmbeddedUrl": "https://youtube.com/embed/vXymRpTYI6g"
-    },
-    "Repair": {
-      "Cause": "bad CD3215C00 chips",
-      "Symptom": "Not powering on",
-      "Issues": [
-        "Stuck at 5V on the USB-C charger even with PP3v3_G3H was present",
-        "Other charging port not working"
-      ],
-      "OtherInfo": "Replaced both CD3215C00 chips"
-    },
-    "Mac": {
-      "ModelIdentifier": "Macbook",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
-    },
-    "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Nothing yet"
-    }
-  },
-  {
-    "NeedsProcessing": true,
-    "RowID": {
-      "Index": 201,
-      "HumanReadable": 202
+      "Index": 203,
+      "HumanReadable": 204
     },
     "Video": {
       "Title": "Why does A1398 Retina Macbook Pro have no backlight?",
@@ -6211,13 +6242,13 @@
       "EmbeddedUrl": "https://youtube.com/embed/P0QUr3n5W1E"
     },
     "Repair": {
-      "Cause": "",
-      "Symptom": "No Backlight",
+      "Cause": "bad LCD Connector",
+      "Symptom": "Screen doesn't turn on",
       "Issues": [
-        "",
-        ""
+        "Restistant to ground: with screen 24Ohm, unplugged screen 300Ohm",
+        "LCD cable burned, bad LCD connector"
       ],
-      "OtherInfo": ""
+      "OtherInfo": "resolder LCD connector and plug screen back on"
     },
     "Mac": {
       "ModelIdentifier": "MacBook Pro",
@@ -6225,16 +6256,16 @@
       "LogicBoardPartNumber": ""
     },
     "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Nothing yet"
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1398_2012-early2013_15%E2%80%9D_Macbook_Pro_Retina",
+      "Notes": "There was a short inside LCD connector",
+      "Status": "Done"
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 202,
-      "HumanReadable": 203
+      "Index": 204,
+      "HumanReadable": 205
     },
     "Video": {
       "Title": "Why does Macbook Air board draw 150mA and not turn on?",
@@ -6242,30 +6273,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/p18YbmWcFo0"
     },
     "Repair": {
-      "Cause": "",
+      "Cause": "bad R8156 and R8153 -\u003e S0PGD_C fail",
       "Symptom": "No Power On",
       "Issues": [
-        "",
-        ""
+        "Stuck at 150mA from Charger",
+        "ALL_SYS_PWRGD missing"
       ],
-      "OtherInfo": ""
+      "OtherInfo": "clean up and replace R8156 and R8153 and 376S0854"
     },
     "Mac": {
       "ModelIdentifier": "MacBook Air",
       "ModelNumber": "",
-      "LogicBoardPartNumber": ""
+      "LogicBoardPartNumber": "820-3437/820-00165"
     },
     "Wiki": {
-      "Url": "",
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1466_2015-2017_13%E2%80%9D_Macbook_Air",
       "Notes": "",
-      "Status": "Nothing yet"
+      "Status": "Done"
     }
   },
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 203,
-      "HumanReadable": 204
+      "Index": 205,
+      "HumanReadable": 206
     },
     "Video": {
       "Title": "How to diagnose an ISL95530 U7000 failure on a 12' A1534 Macbook",
@@ -6295,8 +6326,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 204,
-      "HumanReadable": 205
+      "Index": 206,
+      "HumanReadable": 207
     },
     "Video": {
       "Title": "Finding the nub: how to fix Macbook logic boards when solder points corrode away.",
@@ -6326,8 +6357,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 205,
-      "HumanReadable": 206
+      "Index": 207,
+      "HumanReadable": 208
     },
     "Video": {
       "Title": "Why fix logic boards before cleaning the corrosion?",
@@ -6357,8 +6388,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 206,
-      "HumanReadable": 207
+      "Index": 208,
+      "HumanReadable": 209
     },
     "Video": {
       "Title": "Louis fixes board while losing mind, earns 1 star review.",
@@ -6388,8 +6419,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 207,
-      "HumanReadable": 208
+      "Index": 209,
+      "HumanReadable": 210
     },
     "Video": {
       "Title": "Can Best Buy GeekSquad fix Macbook Air liquid damage?",
@@ -6419,8 +6450,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 208,
-      "HumanReadable": 209
+      "Index": 210,
+      "HumanReadable": 211
     },
     "Video": {
       "Title": "Why is PP3V3_G3H the most important power line on USB-C Macbook Pros?",
@@ -6450,8 +6481,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 209,
-      "HumanReadable": 210
+      "Index": 211,
+      "HumanReadable": 212
     },
     "Video": {
       "Title": "Can Sweden fix Macbook?",
@@ -6481,8 +6512,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 210,
-      "HumanReadable": 211
+      "Index": 212,
+      "HumanReadable": 213
     },
     "Video": {
       "Title": "Why is Macbook Air dead AGAIN???",
@@ -6512,8 +6543,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 211,
-      "HumanReadable": 212
+      "Index": 213,
+      "HumanReadable": 214
     },
     "Video": {
       "Title": "Why are franchise repair companies horrible at repair?",
@@ -6543,8 +6574,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 212,
-      "HumanReadable": 213
+      "Index": 214,
+      "HumanReadable": 215
     },
     "Video": {
       "Title": "USB-C charging failure in Touchbar Macbook Pro",
@@ -6574,8 +6605,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 213,
-      "HumanReadable": 214
+      "Index": 215,
+      "HumanReadable": 216
     },
     "Video": {
       "Title": "Louis meets his mentor \u0026 fixes a terrible Apple refurb.",
@@ -6605,8 +6636,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 214,
-      "HumanReadable": 215
+      "Index": 216,
+      "HumanReadable": 217
     },
     "Video": {
       "Title": "Can thunderbolt circuit kill a Macbook?",
@@ -6636,8 +6667,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 215,
-      "HumanReadable": 216
+      "Index": 217,
+      "HumanReadable": 218
     },
     "Video": {
       "Title": "Retina Macbook Pro no image after liquid damage",
@@ -6667,8 +6698,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 216,
-      "HumanReadable": 217
+      "Index": 218,
+      "HumanReadable": 219
     },
     "Video": {
       "Title": "Can Macbook have USB port?",
@@ -6698,8 +6729,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 217,
-      "HumanReadable": 218
+      "Index": 219,
+      "HumanReadable": 220
     },
     "Video": {
       "Title": "Falling through cracks of despair? Get a Macbook repair!(at rossmanngroup.com)  😊",
@@ -6729,8 +6760,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 218,
-      "HumanReadable": 219
+      "Index": 220,
+      "HumanReadable": 221
     },
     "Video": {
       "Title": "Apple BOTCHES Macbook board design: AGAIN!",
@@ -6760,8 +6791,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 219,
-      "HumanReadable": 220
+      "Index": 221,
+      "HumanReadable": 222
     },
     "Video": {
       "Title": "A1534 12' Macbook, 820-00045 30-60 milliamp power cycling: logic board repair.",
@@ -6791,8 +6822,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 220,
-      "HumanReadable": 221
+      "Index": 222,
+      "HumanReadable": 223
     },
     "Video": {
       "Title": "A1707 Macbook Pro Touchbar 30-60 milliamp power cycling: logic board repair.",
@@ -6822,8 +6853,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 221,
-      "HumanReadable": 222
+      "Index": 223,
+      "HumanReadable": 224
     },
     "Video": {
       "Title": "Macbook Air 820-00165 taking 0.1 amps - what does this mean?",
@@ -6853,8 +6884,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 222,
-      "HumanReadable": 223
+      "Index": 224,
+      "HumanReadable": 225
     },
     "Video": {
       "Title": "Should all Macbooks set themselves on fire?",
@@ -6884,8 +6915,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 223,
-      "HumanReadable": 224
+      "Index": 225,
+      "HumanReadable": 226
     },
     "Video": {
       "Title": "What does 12.23v on PPBUS_G3H mean on a Macbook logic board?",
@@ -6915,8 +6946,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 224,
-      "HumanReadable": 225
+      "Index": 226,
+      "HumanReadable": 227
     },
     "Video": {
       "Title": "Fixing Macbook, losing mind. :(",
@@ -6946,8 +6977,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 225,
-      "HumanReadable": 226
+      "Index": 227,
+      "HumanReadable": 228
     },
     "Video": {
       "Title": "How do Touchbar Macbooks charge? What is the sequel to the famous onewire circuit?",
@@ -6977,8 +7008,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 226,
-      "HumanReadable": 227
+      "Index": 228,
+      "HumanReadable": 229
     },
     "Video": {
       "Title": "Why is there a sponge in this Macbook?",
@@ -7008,8 +7039,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 227,
-      "HumanReadable": 228
+      "Index": 229,
+      "HumanReadable": 230
     },
     "Video": {
       "Title": "Fixing braindead Macbook A1708",
@@ -7039,8 +7070,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 228,
-      "HumanReadable": 229
+      "Index": 230,
+      "HumanReadable": 231
     },
     "Video": {
       "Title": "Another Macbook Air saved from the scrap heap of the Genius Bar.",
@@ -7070,8 +7101,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 229,
-      "HumanReadable": 230
+      "Index": 231,
+      "HumanReadable": 232
     },
     "Video": {
       "Title": "Does Macbook Air spontaneously die?",
@@ -7101,8 +7132,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 230,
-      "HumanReadable": 231
+      "Index": 232,
+      "HumanReadable": 233
     },
     "Video": {
       "Title": "Can 1 drop of liquid destroy a Macbook Air?",
@@ -7132,8 +7163,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 231,
-      "HumanReadable": 232
+      "Index": 233,
+      "HumanReadable": 234
     },
     "Video": {
       "Title": "Restoring PPBUS_G3H on an 820-3330 A1286 2012 Macbook Pro with faulty logic board",
@@ -7163,8 +7194,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 232,
-      "HumanReadable": 233
+      "Index": 234,
+      "HumanReadable": 235
     },
     "Video": {
       "Title": "Nastiest Macbook board ever.",
@@ -7194,8 +7225,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 233,
-      "HumanReadable": 234
+      "Index": 235,
+      "HumanReadable": 236
     },
     "Video": {
       "Title": "Post concussion repair",
@@ -7225,8 +7256,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 234,
-      "HumanReadable": 235
+      "Index": 236,
+      "HumanReadable": 237
     },
     "Video": {
       "Title": "Can spec of green dust kill a Macbook?",
@@ -7256,8 +7287,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 235,
-      "HumanReadable": 236
+      "Index": 237,
+      "HumanReadable": 238
     },
     "Video": {
       "Title": "Friday night penetration (of Macbook)",
@@ -7287,8 +7318,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 236,
-      "HumanReadable": 237
+      "Index": 238,
+      "HumanReadable": 239
     },
     "Video": {
       "Title": "Why does Macbook have grey screen with no picture?",
@@ -7318,8 +7349,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 237,
-      "HumanReadable": 238
+      "Index": 239,
+      "HumanReadable": 240
     },
     "Video": {
       "Title": "Can bug hide and stay hidden inside Macbook?",
@@ -7349,8 +7380,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 238,
-      "HumanReadable": 239
+      "Index": 240,
+      "HumanReadable": 241
     },
     "Video": {
       "Title": "Why does this kill a Macbook?",
@@ -7380,8 +7411,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 239,
-      "HumanReadable": 240
+      "Index": 241,
+      "HumanReadable": 242
     },
     "Video": {
       "Title": "Touchbars aren't hard to fix, are they Paul? :-)",
@@ -7411,8 +7442,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 240,
-      "HumanReadable": 241
+      "Index": 242,
+      "HumanReadable": 243
     },
     "Video": {
       "Title": "What franchise can't fix in two months Louis solves in 20 minutes. Franchise = :'(",
@@ -7440,10 +7471,10 @@
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 241,
-      "HumanReadable": 242
+      "Index": 243,
+      "HumanReadable": 244
     },
     "Video": {
       "Title": "Macbook repair + GoPro testing :D",
@@ -7451,30 +7482,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/YC8q7GJ3vK8"
     },
     "Repair": {
-      "Cause": "",
-      "Symptom": "",
+      "Cause": "Knock-off charger?",
+      "Symptom": "Not turning on, not Charging. Charger light present.",
       "Issues": [
-        "",
+        "Cracked resistors R7121 and R7122) in the current sense circuit.",
         ""
       ],
-      "OtherInfo": ""
+      "OtherInfo": "Broken resistors were replaced and the ISL6259 (U7100) was replaced as well. Fixed."
     },
     "Mac": {
-      "ModelIdentifier": "",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
+      "ModelIdentifier": "MacBook Pro",
+      "ModelNumber": "A1398",
+      "LogicBoardPartNumber": "820-00426"
     },
     "Wiki": {
-      "Url": "",
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1398_2015-2016_15%E2%80%9D_Macbook_Pro_Retina",
       "Notes": "",
-      "Status": "Nothing yet"
+      "Status": "Done"
     }
   },
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 242,
-      "HumanReadable": 243
+      "Index": 244,
+      "HumanReadable": 245
     },
     "Video": {
       "Title": "TPS51980 or SMC failure? When SMC_PM_G2_EN isn't enough.",
@@ -7504,8 +7535,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 243,
-      "HumanReadable": 244
+      "Index": 245,
+      "HumanReadable": 246
     },
     "Video": {
       "Title": "Louis fills a hole to make Macbook Chooch",
@@ -7535,8 +7566,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 244,
-      "HumanReadable": 245
+      "Index": 246,
+      "HumanReadable": 247
     },
     "Video": {
       "Title": "Reflow my balls and heighten my PPBUS",
@@ -7566,8 +7597,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 245,
-      "HumanReadable": 246
+      "Index": 247,
+      "HumanReadable": 248
     },
     "Video": {
       "Title": "Does Louis owe thermal imager an apology?",
@@ -7597,8 +7628,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 246,
-      "HumanReadable": 247
+      "Index": 248,
+      "HumanReadable": 249
     },
     "Video": {
       "Title": "Fixing dead Macbook Pro with PP3V42_G3H missing \u0026 no magsafe light",
@@ -7628,8 +7659,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 247,
-      "HumanReadable": 248
+      "Index": 249,
+      "HumanReadable": 250
     },
     "Video": {
       "Title": "Is Macbook durable?",
@@ -7659,8 +7690,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 248,
-      "HumanReadable": 249
+      "Index": 250,
+      "HumanReadable": 251
     },
     "Video": {
       "Title": "Why do old 17' Macbooks have intermittent display?",
@@ -7690,8 +7721,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 249,
-      "HumanReadable": 250
+      "Index": 251,
+      "HumanReadable": 252
     },
     "Video": {
       "Title": "How to fix short circuit on a Macbook.",
@@ -7721,8 +7752,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 250,
-      "HumanReadable": 251
+      "Index": 252,
+      "HumanReadable": 253
     },
     "Video": {
       "Title": "Why does little Macbook have no trackpad?",
@@ -7752,8 +7783,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 251,
-      "HumanReadable": 252
+      "Index": 253,
+      "HumanReadable": 254
     },
     "Video": {
       "Title": "PP3V42 teaches a positive, happy life lesson.",
@@ -7783,8 +7814,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 252,
-      "HumanReadable": 253
+      "Index": 254,
+      "HumanReadable": 255
     },
     "Video": {
       "Title": "What does it mean when Macbook Air beeps three times?",
@@ -7814,8 +7845,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 253,
-      "HumanReadable": 254
+      "Index": 255,
+      "HumanReadable": 256
     },
     "Video": {
       "Title": "What does bad current sensing look like on Macbook Pro?",
@@ -7845,8 +7876,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 254,
-      "HumanReadable": 255
+      "Index": 256,
+      "HumanReadable": 257
     },
     "Video": {
       "Title": "Best Buy \u0026 Genius Bar tag team defenseless Macbook :'(",
@@ -7876,8 +7907,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 255,
-      "HumanReadable": 256
+      "Index": 257,
+      "HumanReadable": 258
     },
     "Video": {
       "Title": "How to fix charging issues on USB C Macbooks, IMPORTANT CD3215 COMPATIBILITY INFO!",
@@ -7907,8 +7938,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 256,
-      "HumanReadable": 257
+      "Index": 258,
+      "HumanReadable": 259
     },
     "Video": {
       "Title": "Can Macbook see the light with help from I2C?",
@@ -7938,8 +7969,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 257,
-      "HumanReadable": 258
+      "Index": 259,
+      "HumanReadable": 260
     },
     "Video": {
       "Title": "DESTROYED Macbook fixed by GENIUS technician! (Paul S)",
@@ -7969,8 +8000,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 258,
-      "HumanReadable": 259
+      "Index": 260,
+      "HumanReadable": 261
     },
     "Video": {
       "Title": "How to fix a Macbook that won't turn on.",
@@ -8000,8 +8031,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 259,
-      "HumanReadable": 260
+      "Index": 261,
+      "HumanReadable": 262
     },
     "Video": {
       "Title": "Can eBay battery kill a Macbook?",
@@ -8031,8 +8062,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 260,
-      "HumanReadable": 261
+      "Index": 262,
+      "HumanReadable": 263
     },
     "Video": {
       "Title": "How to repair sensor on Touchbar Macbook when running slow without Apple diagnostic software",
@@ -8062,8 +8093,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 261,
-      "HumanReadable": 262
+      "Index": 263,
+      "HumanReadable": 264
     },
     "Video": {
       "Title": "How to repair common issue when Macbook Air won't charge",
@@ -8093,8 +8124,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 262,
-      "HumanReadable": 263
+      "Index": 264,
+      "HumanReadable": 265
     },
     "Video": {
       "Title": "Chip on Macbook tries to get up and run away!",
@@ -8124,8 +8155,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 263,
-      "HumanReadable": 264
+      "Index": 265,
+      "HumanReadable": 266
     },
     "Video": {
       "Title": "Macs are easier to get fixed than PCs",
@@ -8155,8 +8186,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 264,
-      "HumanReadable": 265
+      "Index": 266,
+      "HumanReadable": 267
     },
     "Video": {
       "Title": "Can Macbook be repaired after fire?",
@@ -8186,8 +8217,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 265,
-      "HumanReadable": 266
+      "Index": 267,
+      "HumanReadable": 268
     },
     "Video": {
       "Title": "JESSA LIED, BACKLIGHTS DIED!",
@@ -8217,8 +8248,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 266,
-      "HumanReadable": 267
+      "Index": 268,
+      "HumanReadable": 269
     },
     "Video": {
       "Title": "Can room temperature kill a Macbook?",
@@ -8248,8 +8279,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 267,
-      "HumanReadable": 268
+      "Index": 269,
+      "HumanReadable": 270
     },
     "Video": {
       "Title": "Can plugging in a USB drive kill a Macbook?",
@@ -8279,8 +8310,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 268,
-      "HumanReadable": 269
+      "Index": 270,
+      "HumanReadable": 271
     },
     "Video": {
       "Title": "Can Macbook audio circuit spontaneously kill entire machine?",
@@ -8310,8 +8341,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 269,
-      "HumanReadable": 270
+      "Index": 271,
+      "HumanReadable": 272
     },
     "Video": {
       "Title": "How ONE missing probe point can kill a Macbook.",
@@ -8341,8 +8372,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 270,
-      "HumanReadable": 271
+      "Index": 272,
+      "HumanReadable": 273
     },
     "Video": {
       "Title": "How many pubes does it take to kill a Macbook?",
@@ -8372,8 +8403,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 271,
-      "HumanReadable": 272
+      "Index": 273,
+      "HumanReadable": 274
     },
     "Video": {
       "Title": "How cheap eBay batteries DESTROY Macbook logic boards!",
@@ -8403,8 +8434,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 272,
-      "HumanReadable": 273
+      "Index": 274,
+      "HumanReadable": 275
     },
     "Video": {
       "Title": "Macbook Air not turning on: surprising PM_SLP_S4_L failure.",
@@ -8434,8 +8465,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 273,
-      "HumanReadable": 274
+      "Index": 275,
+      "HumanReadable": 276
     },
     "Video": {
       "Title": "Can a Macbook with a hole in the board be fixed?",
@@ -8465,8 +8496,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 274,
-      "HumanReadable": 275
+      "Index": 276,
+      "HumanReadable": 277
     },
     "Video": {
       "Title": "The MOST DURABLE Apple component.",
@@ -8496,8 +8527,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 275,
-      "HumanReadable": 276
+      "Index": 277,
+      "HumanReadable": 278
     },
     "Video": {
       "Title": "Macbook Air Liquid Damage repair",
@@ -8527,8 +8558,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 276,
-      "HumanReadable": 277
+      "Index": 278,
+      "HumanReadable": 279
     },
     "Video": {
       "Title": "INGENIOUS Macbook Engineering: explained in 3 minutes.",
@@ -8558,8 +8589,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 277,
-      "HumanReadable": 278
+      "Index": 279,
+      "HumanReadable": 280
     },
     "Video": {
       "Title": "Mall repair franchises are GARBAGE and ruin the credibility of our industry.",
@@ -8589,8 +8620,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 278,
-      "HumanReadable": 279
+      "Index": 280,
+      "HumanReadable": 281
     },
     "Video": {
       "Title": "MACBOOK CHARGING EXPLAINED - FAST \u0026 SIMPLE!",
@@ -8620,8 +8651,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 279,
-      "HumanReadable": 280
+      "Index": 281,
+      "HumanReadable": 282
     },
     "Video": {
       "Title": "Macbook Pro no green light on charger",
@@ -8651,8 +8682,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 280,
-      "HumanReadable": 281
+      "Index": 282,
+      "HumanReadable": 283
     },
     "Video": {
       "Title": "Battery not showing up on A1278 Unibody Macbook Pro: how to troubleshoot \u0026 repair.",
@@ -8682,8 +8713,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 281,
-      "HumanReadable": 282
+      "Index": 283,
+      "HumanReadable": 284
     },
     "Video": {
       "Title": "APPLE'S NEXT RECALL: 12' 2015 A1534 Macbook logic board premature failure",
@@ -8713,8 +8744,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 282,
-      "HumanReadable": 283
+      "Index": 284,
+      "HumanReadable": 285
     },
     "Video": {
       "Title": "Just how weak \u0026 fragile is the Macbook Air?",
@@ -8744,8 +8775,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 283,
-      "HumanReadable": 284
+      "Index": 285,
+      "HumanReadable": 286
     },
     "Video": {
       "Title": "Macbook Air won't turn on: how to repair.",
@@ -8775,8 +8806,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 284,
-      "HumanReadable": 285
+      "Index": 286,
+      "HumanReadable": 287
     },
     "Video": {
       "Title": "UBREAKIFIX visits for a board repair!",
@@ -8806,8 +8837,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 285,
-      "HumanReadable": 286
+      "Index": 287,
+      "HumanReadable": 288
     },
     "Video": {
       "Title": "Macbook air board repair",
@@ -8837,8 +8868,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 286,
-      "HumanReadable": 287
+      "Index": 288,
+      "HumanReadable": 289
     },
     "Video": {
       "Title": "How to repair Macbook Pro USB ports on logic board.",
@@ -8868,8 +8899,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 287,
-      "HumanReadable": 288
+      "Index": 289,
+      "HumanReadable": 290
     },
     "Video": {
       "Title": "[WINNING] Cleaning up another store's mess :(",
@@ -8899,8 +8930,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 288,
-      "HumanReadable": 289
+      "Index": 290,
+      "HumanReadable": 291
     },
     "Video": {
       "Title": "12' Macbook A1534 DEAD how to fix COMMON FAILURE!",
@@ -8930,8 +8961,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 289,
-      "HumanReadable": 290
+      "Index": 291,
+      "HumanReadable": 292
     },
     "Video": {
       "Title": "WHERE DO I START? Open-source tutorial to Macbook logic board repair.",
@@ -8961,8 +8992,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 290,
-      "HumanReadable": 291
+      "Index": 292,
+      "HumanReadable": 293
     },
     "Video": {
       "Title": "Using a DC power supply to troubleshoot MacBook and iPhone logic boards.",
@@ -8990,10 +9021,10 @@
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 291,
-      "HumanReadable": 292
+      "Index": 293,
+      "HumanReadable": 294
     },
     "Video": {
       "Title": "What did they get wrong?",
@@ -9001,13 +9032,13 @@
       "EmbeddedUrl": "https://youtube.com/embed/--TZHAoKJu8"
     },
     "Repair": {
-      "Cause": "",
+      "Cause": "Liquid damage, previous repair attempt.",
       "Symptom": "No Green Light on Charger",
       "Issues": [
-        "",
+        "Broken connection between Pin 4 of U6901 to Pin 1 of U6900",
         ""
       ],
-      "OtherInfo": ""
+      "OtherInfo": "Adapter Sense line not communicating to charger. U6900 not getting proper input (pin 1) and not turning on. U6901 is providing proper output on pin 4, but no connection to U6900. Jumper wire was ran. Fixed"
     },
     "Mac": {
       "ModelIdentifier": "Macbook Pro",
@@ -9017,14 +9048,14 @@
     "Wiki": {
       "Url": "",
       "Notes": "",
-      "Status": "Nothing yet"
+      "Status": "Done"
     }
   },
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 292,
-      "HumanReadable": 293
+      "Index": 294,
+      "HumanReadable": 295
     },
     "Video": {
       "Title": "No keyboard backlight logic board repair Macbook Pro Retina",
@@ -9054,8 +9085,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 293,
-      "HumanReadable": 294
+      "Index": 295,
+      "HumanReadable": 296
     },
     "Video": {
       "Title": "Retina Macbook Pro DEAD, PPBUS_G3H stuck at 4v.",
@@ -9085,8 +9116,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 294,
-      "HumanReadable": 295
+      "Index": 296,
+      "HumanReadable": 297
     },
     "Video": {
       "Title": "Macbook Retina no backlight: NEW things to check.",
@@ -9116,8 +9147,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 295,
-      "HumanReadable": 296
+      "Index": 297,
+      "HumanReadable": 298
     },
     "Video": {
       "Title": "Does Linux have better driver support for a Macbook Air than OSX?",
@@ -9147,8 +9178,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 296,
-      "HumanReadable": 297
+      "Index": 298,
+      "HumanReadable": 299
     },
     "Video": {
       "Title": "Cute bug destroys macbook",
@@ -9178,8 +9209,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 297,
-      "HumanReadable": 298
+      "Index": 299,
+      "HumanReadable": 300
     },
     "Video": {
       "Title": "Retina Macbook blank screen REPAIR GUIDE: 2012 GPU vcore failure due to U8900",
@@ -9209,8 +9240,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 298,
-      "HumanReadable": 299
+      "Index": 300,
+      "HumanReadable": 301
     },
     "Video": {
       "Title": "Macbook Air short circuit repair",
@@ -9240,8 +9271,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 299,
-      "HumanReadable": 300
+      "Index": 301,
+      "HumanReadable": 302
     },
     "Video": {
       "Title": "This kills more Macbook Air motherboards than anything else",
@@ -9271,8 +9302,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 300,
-      "HumanReadable": 301
+      "Index": 302,
+      "HumanReadable": 303
     },
     "Video": {
       "Title": "How to remove short circuits from Apple Macbook multilayer PCBs",
@@ -9302,8 +9333,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 301,
-      "HumanReadable": 302
+      "Index": 303,
+      "HumanReadable": 304
     },
     "Video": {
       "Title": "Macbook Air no light on magsafe charger 820-3435",
@@ -9333,8 +9364,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 302,
-      "HumanReadable": 303
+      "Index": 304,
+      "HumanReadable": 305
     },
     "Video": {
       "Title": "Correcting common microsoldering mistakes.",
@@ -9364,8 +9395,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 303,
-      "HumanReadable": 304
+      "Index": 305,
+      "HumanReadable": 306
     },
     "Video": {
       "Title": "Macbook Air Magsafe charging circuit walkthrough and repair",
@@ -9395,8 +9426,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 304,
-      "HumanReadable": 305
+      "Index": 306,
+      "HumanReadable": 307
     },
     "Video": {
       "Title": "No backlight on poor little Macbook board that was senselessly sodomized :(",
@@ -9426,8 +9457,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 305,
-      "HumanReadable": 306
+      "Index": 307,
+      "HumanReadable": 308
     },
     "Video": {
       "Title": "Macbook not charging due to welded voltage regulator IC!",
@@ -9457,8 +9488,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 306,
-      "HumanReadable": 307
+      "Index": 308,
+      "HumanReadable": 309
     },
     "Video": {
       "Title": "My favorite motherboard repair: removing the JTAG connector :)",
@@ -9488,8 +9519,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 307,
-      "HumanReadable": 308
+      "Index": 309,
+      "HumanReadable": 310
     },
     "Video": {
       "Title": "Diagnosing a dead SMC on Macbook Pro with brief walkthrough of magsafe light circuit",
@@ -9519,8 +9550,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 308,
-      "HumanReadable": 309
+      "Index": 310,
+      "HumanReadable": 311
     },
     "Video": {
       "Title": "PP3V42_G3H \u0026 SMC issue keeping Macbook from working",
@@ -9550,8 +9581,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 309,
-      "HumanReadable": 310
+      "Index": 311,
+      "HumanReadable": 312
     },
     "Video": {
       "Title": "PM_PCH_PWROK: the A1502 Retina Macbook killer when there's liquid damage!",
@@ -9581,8 +9612,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 310,
-      "HumanReadable": 311
+      "Index": 312,
+      "HumanReadable": 313
     },
     "Video": {
       "Title": "Will the real Q7706 please stand up?",
@@ -9612,8 +9643,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 311,
-      "HumanReadable": 312
+      "Index": 313,
+      "HumanReadable": 314
     },
     "Video": {
       "Title": "What the USB mouse tells us about CPU vcore",
@@ -9643,8 +9674,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 312,
-      "HumanReadable": 313
+      "Index": 314,
+      "HumanReadable": 315
     },
     "Video": {
       "Title": "820-2915 that looks like it was taken from bottom of Hudson visits my desk",
@@ -9674,8 +9705,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 313,
-      "HumanReadable": 314
+      "Index": 315,
+      "HumanReadable": 316
     },
     "Video": {
       "Title": "Electronics repair made easy",
@@ -9705,8 +9736,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 314,
-      "HumanReadable": 315
+      "Index": 316,
+      "HumanReadable": 317
     },
     "Video": {
       "Title": "101 fever meets electronics repair",
@@ -9736,8 +9767,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 315,
-      "HumanReadable": 316
+      "Index": 317,
+      "HumanReadable": 318
     },
     "Video": {
       "Title": "Dead Macbook Air from water spill on edge",
@@ -9767,8 +9798,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 316,
-      "HumanReadable": 317
+      "Index": 318,
+      "HumanReadable": 319
     },
     "Video": {
       "Title": "Macbook Air S0 pgood circuitry repair due to liquid",
@@ -9798,8 +9829,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 317,
-      "HumanReadable": 318
+      "Index": 319,
+      "HumanReadable": 320
     },
     "Video": {
       "Title": "Hunting liquid damage that was cleaned off a Macbook Pro",
@@ -9829,8 +9860,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 318,
-      "HumanReadable": 319
+      "Index": 320,
+      "HumanReadable": 321
     },
     "Video": {
       "Title": "Repairing missing PP3V42_G3H: How feedback circuit regulates output",
@@ -9860,8 +9891,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 319,
-      "HumanReadable": 320
+      "Index": 321,
+      "HumanReadable": 322
     },
     "Video": {
       "Title": "Finding broken vias and how RTC circuit failure presents itself",
@@ -9891,8 +9922,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 320,
-      "HumanReadable": 321
+      "Index": 322,
+      "HumanReadable": 323
     },
     "Video": {
       "Title": "Hunting liquid damage; you can take cover but you can't hide from me!",
@@ -9922,8 +9953,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 321,
-      "HumanReadable": 322
+      "Index": 323,
+      "HumanReadable": 324
     },
     "Video": {
       "Title": "Macbook Pro Retina bad power button but every other key works!",
@@ -9953,8 +9984,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 322,
-      "HumanReadable": 323
+      "Index": 324,
+      "HumanReadable": 325
     },
     "Video": {
       "Title": "Understanding power rail sequence saves time in electronics troubleshooting.",
@@ -9984,8 +10015,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 323,
-      "HumanReadable": 324
+      "Index": 325,
+      "HumanReadable": 326
     },
     "Video": {
       "Title": "Shhh! I'm hunting liquid damage on a macbook logic board...",
@@ -10015,8 +10046,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 324,
-      "HumanReadable": 325
+      "Index": 326,
+      "HumanReadable": 327
     },
     "Video": {
       "Title": "820-3476 logic board with PPVRTC_G3H problem",
@@ -10046,8 +10077,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 325,
-      "HumanReadable": 326
+      "Index": 327,
+      "HumanReadable": 328
     },
     "Video": {
       "Title": "Macbook Pro trackpad moves but doesn't register clicks; logic board issue",
@@ -10077,8 +10108,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 326,
-      "HumanReadable": 327
+      "Index": 328,
+      "HumanReadable": 329
     },
     "Video": {
       "Title": "Hunting liquid damage on 820-3115 boards with no backlight",
@@ -10108,8 +10139,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 327,
-      "HumanReadable": 328
+      "Index": 329,
+      "HumanReadable": 330
     },
     "Video": {
       "Title": "Fixing liquid damage through the magic of localized reflows",
@@ -10139,8 +10170,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 328,
-      "HumanReadable": 329
+      "Index": 330,
+      "HumanReadable": 331
     },
     "Video": {
       "Title": "Apples and pits would make better capacitors than tantalum",
@@ -10170,8 +10201,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 329,
-      "HumanReadable": 330
+      "Index": 331,
+      "HumanReadable": 332
     },
     "Video": {
       "Title": "Jason gets fired.",
@@ -10201,8 +10232,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 330,
-      "HumanReadable": 331
+      "Index": 332,
+      "HumanReadable": 333
     },
     "Video": {
       "Title": "Macbook Pro Retina gets sodomized; let's shed a tear for poor little L9000 :(",
@@ -10232,8 +10263,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 331,
-      "HumanReadable": 332
+      "Index": 333,
+      "HumanReadable": 334
     },
     "Video": {
       "Title": "PP3V42 regulator does a wheelie, miserable 820-2530 board repair",
@@ -10263,8 +10294,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 332,
-      "HumanReadable": 333
+      "Index": 334,
+      "HumanReadable": 335
     },
     "Video": {
       "Title": "No, I don't ALWAYS  drag solder! Demonstrating the T30-KN tip \u0026 FM-2032 iron.",
@@ -10294,8 +10325,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 333,
-      "HumanReadable": 334
+      "Index": 335,
+      "HumanReadable": 336
     },
     "Video": {
       "Title": "Macbook Pro 2010 kernel panic GPU issue repair: SOLVED! C9560",
@@ -10325,8 +10356,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 334,
-      "HumanReadable": 335
+      "Index": 336,
+      "HumanReadable": 337
     },
     "Video": {
       "Title": "What does a high voltage reading mean on a DC to DC boost circuit?",
@@ -10356,8 +10387,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 335,
-      "HumanReadable": 336
+      "Index": 337,
+      "HumanReadable": 338
     },
     "Video": {
       "Title": "Laptop keeps going to sleep after liquid damage",
@@ -10387,8 +10418,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 336,
-      "HumanReadable": 337
+      "Index": 338,
+      "HumanReadable": 339
     },
     "Video": {
       "Title": "Liquid on capacitors kill Retina Macbook Pro",
@@ -10418,8 +10449,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 337,
-      "HumanReadable": 338
+      "Index": 339,
+      "HumanReadable": 340
     },
     "Video": {
       "Title": "The microscope recommendation video: buy Amscope!",
@@ -10449,8 +10480,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 338,
-      "HumanReadable": 339
+      "Index": 340,
+      "HumanReadable": 341
     },
     "Video": {
       "Title": "No backlight repair with a grade inspired schematic",
@@ -10480,8 +10511,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 339,
-      "HumanReadable": 340
+      "Index": 341,
+      "HumanReadable": 342
     },
     "Video": {
       "Title": "Macbook no backlight troubleshooting same old thing",
@@ -10511,8 +10542,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 340,
-      "HumanReadable": 341
+      "Index": 342,
+      "HumanReadable": 343
     },
     "Video": {
       "Title": "My channel's youngest viewer brings in a board",
@@ -10542,8 +10573,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 341,
-      "HumanReadable": 342
+      "Index": 343,
+      "HumanReadable": 344
     },
     "Video": {
       "Title": "Sunny visits while fixing a board.",
@@ -10573,8 +10604,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 342,
-      "HumanReadable": 343
+      "Index": 344,
+      "HumanReadable": 345
     },
     "Video": {
       "Title": "820-3437 logic board repair with new video format",
@@ -10604,8 +10635,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 343,
-      "HumanReadable": 344
+      "Index": 345,
+      "HumanReadable": 346
     },
     "Video": {
       "Title": "Electronics repair is detective work",
@@ -10635,8 +10666,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 344,
-      "HumanReadable": 345
+      "Index": 346,
+      "HumanReadable": 347
     },
     "Video": {
       "Title": "Can you microsolder without steady hands?",
@@ -10666,8 +10697,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 345,
-      "HumanReadable": 346
+      "Index": 347,
+      "HumanReadable": 348
     },
     "Video": {
       "Title": "How to correct micro bga soldering when you screw it up(hey, it happens)",
@@ -10697,8 +10728,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 346,
-      "HumanReadable": 347
+      "Index": 348,
+      "HumanReadable": 349
     },
     "Video": {
       "Title": "DIY tip on Macbook battery replacement",
@@ -10728,8 +10759,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 347,
-      "HumanReadable": 348
+      "Index": 349,
+      "HumanReadable": 350
     },
     "Video": {
       "Title": "Macbook Pro Retina works off battery but doesn't charge 820-3462",
@@ -10759,8 +10790,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 348,
-      "HumanReadable": 349
+      "Index": 350,
+      "HumanReadable": 351
     },
     "Video": {
       "Title": "Disgusting looking board repair with footage after ultrasonic cleaning",
@@ -10790,8 +10821,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 349,
-      "HumanReadable": 350
+      "Index": 351,
+      "HumanReadable": 352
     },
     "Video": {
       "Title": "Getting owned on backlight when its not the backlight circuits fault",
@@ -10821,8 +10852,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 350,
-      "HumanReadable": 351
+      "Index": 352,
+      "HumanReadable": 353
     },
     "Video": {
       "Title": "Macbook Air DIY no backlight repair attempt and correction",
@@ -10850,10 +10881,10 @@
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 351,
-      "HumanReadable": 352
+      "Index": 353,
+      "HumanReadable": 354
     },
     "Video": {
       "Title": "Annoying no backlight repair on a Macbook",
@@ -10861,30 +10892,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/j7aLzsxxI5M"
     },
     "Repair": {
-      "Cause": "",
+      "Cause": "Liquid damage",
       "Symptom": "No Backlight",
       "Issues": [
-        "",
+        "Corrosion at backlight enable voltage divider.",
         ""
       ],
-      "OtherInfo": ""
+      "OtherInfo": "Backlight area was cleaned up and U7701/8550 was replaced, and missing resistor was replaced and this fixed the issue."
     },
     "Mac": {
-      "ModelIdentifier": "MacBook",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
+      "ModelIdentifier": "MacBook Air",
+      "ModelNumber": "A1466",
+      "LogicBoardPartNumber": "820-3437"
     },
     "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Nothing yet"
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1466_2013-2014_13%E2%80%9D_Macbook_Air",
+      "Notes": "Backlight voltage was 19 V, should be 24/25V. BKL_PWM was 0V.",
+      "Status": "Done"
     }
   },
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 352,
-      "HumanReadable": 353
+      "Index": 354,
+      "HumanReadable": 355
     },
     "Video": {
       "Title": "Macbook Pro turns on no chime no image repair",
@@ -10914,8 +10945,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 353,
-      "HumanReadable": 354
+      "Index": 355,
+      "HumanReadable": 356
     },
     "Video": {
       "Title": "When a MOSFET sends 12v to my framebuffer :(",
@@ -10945,8 +10976,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 354,
-      "HumanReadable": 355
+      "Index": 356,
+      "HumanReadable": 357
     },
     "Video": {
       "Title": "Brains continue to triumph over ovens and heatguns when fixing Macbooks with no video",
@@ -10976,8 +11007,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 355,
-      "HumanReadable": 356
+      "Index": 357,
+      "HumanReadable": 358
     },
     "Video": {
       "Title": "Just because you lie to yourself doesn't mean you didn't screw it up!",
@@ -11007,8 +11038,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 356,
-      "HumanReadable": 357
+      "Index": 358,
+      "HumanReadable": 359
     },
     "Video": {
       "Title": "Macbook Air fan constantly spinning full speed after liquid spill repair",
@@ -11038,8 +11069,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 357,
-      "HumanReadable": 358
+      "Index": 359,
+      "HumanReadable": 360
     },
     "Video": {
       "Title": "No vcore on valentines day, a lesson on resentment and CPUIMVP_TON",
@@ -11069,8 +11100,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 358,
-      "HumanReadable": 359
+      "Index": 360,
+      "HumanReadable": 361
     },
     "Video": {
       "Title": "Macbook Pro Retina dead no power due to bad current sensing circuit",
@@ -11100,8 +11131,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 359,
-      "HumanReadable": 360
+      "Index": 361,
+      "HumanReadable": 362
     },
     "Video": {
       "Title": "Do you bend the rules for high paying clients?",
@@ -11131,8 +11162,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 360,
-      "HumanReadable": 361
+      "Index": 362,
+      "HumanReadable": 363
     },
     "Video": {
       "Title": "Macbook Pro repairing USB port and displayport after liquid damage",
@@ -11162,8 +11193,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 361,
-      "HumanReadable": 362
+      "Index": 363,
+      "HumanReadable": 364
     },
     "Video": {
       "Title": "2009 Unibody Macbook Pro 17' dead out of nowhere; but why?",
@@ -11193,8 +11224,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 362,
-      "HumanReadable": 363
+      "Index": 364,
+      "HumanReadable": 365
     },
     "Video": {
       "Title": "A walkthrough of ancient Macbook Pro onewire circuit from historic times",
@@ -11224,8 +11255,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 363,
-      "HumanReadable": 364
+      "Index": 365,
+      "HumanReadable": 366
     },
     "Video": {
       "Title": "Charging mosfet trolling and a talk on hot air rework stations",
@@ -11255,8 +11286,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 364,
-      "HumanReadable": 365
+      "Index": 366,
+      "HumanReadable": 367
     },
     "Video": {
       "Title": "Before you say I'm doing it wrong ask why I'm doing it that way!",
@@ -11286,8 +11317,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 365,
-      "HumanReadable": 366
+      "Index": 367,
+      "HumanReadable": 368
     },
     "Video": {
       "Title": "A word on warranty service facilities, ovens, and real troubleshooting!",
@@ -11317,8 +11348,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 366,
-      "HumanReadable": 367
+      "Index": 368,
+      "HumanReadable": 369
     },
     "Video": {
       "Title": "No backlight repair with a telemarketer",
@@ -11348,8 +11379,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 367,
-      "HumanReadable": 368
+      "Index": 369,
+      "HumanReadable": 370
     },
     "Video": {
       "Title": "Macbook Air no keyboard or trackpad some tips on repairing logic board",
@@ -11379,8 +11410,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 368,
-      "HumanReadable": 369
+      "Index": 370,
+      "HumanReadable": 371
     },
     "Video": {
       "Title": "Old Macbook logic board trolls Louis hardcore(and almost wins)",
@@ -11410,8 +11441,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 369,
-      "HumanReadable": 370
+      "Index": 371,
+      "HumanReadable": 372
     },
     "Video": {
       "Title": "How the SMC being in the wrong mode can screw up PM_SLP_S4_L",
@@ -11441,8 +11472,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 370,
-      "HumanReadable": 371
+      "Index": 372,
+      "HumanReadable": 373
     },
     "Video": {
       "Title": "A bad onewire circuit repair video fixing Macbook Air that doesn't charge",
@@ -11472,8 +11503,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 371,
-      "HumanReadable": 372
+      "Index": 373,
+      "HumanReadable": 374
     },
     "Video": {
       "Title": "Breaking down widespread complex damage to make component level repair manageable",
@@ -11503,8 +11534,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 372,
-      "HumanReadable": 373
+      "Index": 374,
+      "HumanReadable": 375
     },
     "Video": {
       "Title": "When to replace LED driver on Macbook logic board",
@@ -11534,8 +11565,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 373,
-      "HumanReadable": 374
+      "Index": 375,
+      "HumanReadable": 376
     },
     "Video": {
       "Title": "Macbook no backlight repair tips on using solder wick",
@@ -11565,8 +11596,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 374,
-      "HumanReadable": 375
+      "Index": 376,
+      "HumanReadable": 377
     },
     "Video": {
       "Title": "Macbook Air logic board why is SMC_RESET_L missing and why does this matter?",
@@ -11596,8 +11627,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 375,
-      "HumanReadable": 376
+      "Index": 377,
+      "HumanReadable": 378
     },
     "Video": {
       "Title": "Macbook that doesn't charge magically fixes its own current sensing circuit",
@@ -11627,8 +11658,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 376,
-      "HumanReadable": 377
+      "Index": 378,
+      "HumanReadable": 379
     },
     "Video": {
       "Title": "Replacing SMD components without burning neighboring connectors without hot tweezers",
@@ -11658,8 +11689,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 377,
-      "HumanReadable": 378
+      "Index": 379,
+      "HumanReadable": 380
     },
     "Video": {
       "Title": "Retina Macbook Pro dead no power after KB replacement",
@@ -11689,8 +11720,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 378,
-      "HumanReadable": 379
+      "Index": 380,
+      "HumanReadable": 381
     },
     "Video": {
       "Title": "How experienced electronics repair professionals gain intuition",
@@ -11720,8 +11751,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 379,
-      "HumanReadable": 380
+      "Index": 381,
+      "HumanReadable": 382
     },
     "Video": {
       "Title": "Troubleshooting dead Retina Macbook Pro",
@@ -11751,8 +11782,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 380,
-      "HumanReadable": 381
+      "Index": 382,
+      "HumanReadable": 383
     },
     "Video": {
       "Title": "Louis kicks it with a visiting fan!",
@@ -11782,8 +11813,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 381,
-      "HumanReadable": 382
+      "Index": 383,
+      "HumanReadable": 384
     },
     "Video": {
       "Title": "Drying out liquid damaged Macbooks is a bad idea",
@@ -11811,10 +11842,10 @@
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 382,
-      "HumanReadable": 383
+      "Index": 384,
+      "HumanReadable": 385
     },
     "Video": {
       "Title": "Fixing Macbook Pro Retina with no video using brains not oven or heatgun",
@@ -11822,30 +11853,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/h29GpDL0mn4"
     },
     "Repair": {
-      "Cause": "",
-      "Symptom": "No Video",
+      "Cause": "Bad screen",
+      "Symptom": "No image",
       "Issues": [
-        "",
+        "Burned L8300",
         ""
       ],
-      "OtherInfo": ""
+      "OtherInfo": "board from other company, no complete device, Louis said most likely cause is broken screen or connector plugged in sideways, L8300 replaced-\u003efixed"
     },
     "Mac": {
-      "ModelIdentifier": "",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
+      "ModelIdentifier": "MacBook Pro",
+      "ModelNumber": "A1398",
+      "LogicBoardPartNumber": "820-3662"
     },
     "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Nothing yet"
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1398_2013-2014_15%E2%80%9D_Macbook_Pro_Retina",
+      "Notes": "Added extra solution to no image + link to video",
+      "Status": "Done"
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 383,
-      "HumanReadable": 384
+      "Index": 385,
+      "HumanReadable": 386
     },
     "Video": {
       "Title": "What knockoff Amazon and eBay chargers do to your $1200 Macbook Pro",
@@ -11853,30 +11884,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/-8nLuNJvvMY"
     },
     "Repair": {
-      "Cause": "",
-      "Symptom": "",
+      "Cause": "Bad charger",
+      "Symptom": "No power",
       "Issues": [
-        "",
+        "Burned fuses",
         ""
       ],
-      "OtherInfo": ""
+      "OtherInfo": "2 fuses replaced-\u003efixed"
     },
     "Mac": {
       "ModelIdentifier": "MacBook Pro",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
+      "ModelNumber": "A1278",
+      "LogicBoardPartNumber": "820-3115"
     },
     "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Nothing yet"
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1278_2012_13%E2%80%9D_Macbook_Pro",
+      "Notes": "Board id through image matching, added No power, Bad charger used link to video as example to wiki",
+      "Status": "Done"
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 384,
-      "HumanReadable": 385
+      "Index": 386,
+      "HumanReadable": 387
     },
     "Video": {
       "Title": "Macbook logic board repairing X in battery after liquid damage 820-2936",
@@ -11885,29 +11916,29 @@
     },
     "Repair": {
       "Cause": "Liquid Damage",
-      "Symptom": "X in Battery",
+      "Symptom": "Battery not recognized",
       "Issues": [
-        "",
+        "Short to ground on data line between SMC and ISL 6259 caused by corrosion at ISL 6259",
         ""
       ],
-      "OtherInfo": ""
+      "OtherInfo": "ISL 6259 replaced-\u003efixed"
     },
     "Mac": {
-      "ModelIdentifier": "MacBook",
-      "ModelNumber": "",
+      "ModelIdentifier": "MacBook Pro",
+      "ModelNumber": "A1278",
       "LogicBoardPartNumber": "820-2936"
     },
     "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Nothing yet"
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1278_2011_13%E2%80%9D_Macbook_Pro",
+      "Notes": "Added battery not recognized + link to video + some info",
+      "Status": "Done"
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 385,
-      "HumanReadable": 386
+      "Index": 387,
+      "HumanReadable": 388
     },
     "Video": {
       "Title": "Unused diagnostic ports CAN kill your board! Pay attention to them.",
@@ -11915,30 +11946,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/ECWJ3Um1UQU"
     },
     "Repair": {
-      "Cause": "",
-      "Symptom": "",
+      "Cause": "na",
+      "Symptom": "na",
       "Issues": [
-        "",
+        "na",
         ""
       ],
-      "OtherInfo": ""
+      "OtherInfo": "General explanation about JTAG connectors"
     },
     "Mac": {
-      "ModelIdentifier": "",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
+      "ModelIdentifier": "na",
+      "ModelNumber": "na",
+      "LogicBoardPartNumber": "na"
     },
     "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Nothing yet"
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=JTAG",
+      "Notes": "No repair in this video, made page for info about JTAG connector",
+      "Status": "Done"
     }
   },
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 386,
-      "HumanReadable": 387
+      "Index": 388,
+      "HumanReadable": 389
     },
     "Video": {
       "Title": "Easy no backlight repair on macbook logic board",
@@ -11968,8 +11999,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 387,
-      "HumanReadable": 388
+      "Index": 389,
+      "HumanReadable": 390
     },
     "Video": {
       "Title": "What power rail do I check first and what is causing my short to ground?",
@@ -11999,8 +12030,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 388,
-      "HumanReadable": 389
+      "Index": 390,
+      "HumanReadable": 391
     },
     "Video": {
       "Title": "Fixing no backlight on liquid damaged Macbook Air logic board (mic died) :(",
@@ -12030,8 +12061,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 389,
-      "HumanReadable": 390
+      "Index": 391,
+      "HumanReadable": 392
     },
     "Video": {
       "Title": "Macbook logic board repair 820 2936 enters S0 state but doesn't turn on",
@@ -12061,8 +12092,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 390,
-      "HumanReadable": 391
+      "Index": 392,
+      "HumanReadable": 393
     },
     "Video": {
       "Title": "Macbook liquid spill damage causes current sensing problems",
@@ -12092,8 +12123,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 391,
-      "HumanReadable": 392
+      "Index": 393,
+      "HumanReadable": 394
     },
     "Video": {
       "Title": "Macbook Pro PBUS VP0R sensor issue running slow common issue",
@@ -12123,8 +12154,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 392,
-      "HumanReadable": 393
+      "Index": 394,
+      "HumanReadable": 395
     },
     "Video": {
       "Title": "Louis pays a debt to Sunny: 820-3437 dead because of missing S5 rails",
@@ -12154,8 +12185,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 393,
-      "HumanReadable": 394
+      "Index": 395,
+      "HumanReadable": 396
     },
     "Video": {
       "Title": "Psychic repair of Macbook Air logic board",
@@ -12185,8 +12216,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 394,
-      "HumanReadable": 395
+      "Index": 396,
+      "HumanReadable": 397
     },
     "Video": {
       "Title": "Correcting bad ISL6259AHRTZ U7000 QFN chip soldering",
@@ -12216,8 +12247,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 395,
-      "HumanReadable": 396
+      "Index": 397,
+      "HumanReadable": 398
     },
     "Video": {
       "Title": "Macbook Air no backlight and no image on LCD logic board repair",
@@ -12247,8 +12278,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 396,
-      "HumanReadable": 397
+      "Index": 398,
+      "HumanReadable": 399
     },
     "Video": {
       "Title": "No backlight on Macbook Air due to bad capacitor",
@@ -12278,8 +12309,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 397,
-      "HumanReadable": 398
+      "Index": 399,
+      "HumanReadable": 400
     },
     "Video": {
       "Title": "Lemonade destroys Macbook logic board from front to back",
@@ -12309,8 +12340,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 398,
-      "HumanReadable": 399
+      "Index": 400,
+      "HumanReadable": 401
     },
     "Video": {
       "Title": "A1297 Macbook Pro no backlight repair",
@@ -12340,8 +12371,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 399,
-      "HumanReadable": 400
+      "Index": 401,
+      "HumanReadable": 402
     },
     "Video": {
       "Title": "Macbook logic board repair complete nightmare everything goes to shit bad day at office",
@@ -12371,8 +12402,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 400,
-      "HumanReadable": 401
+      "Index": 402,
+      "HumanReadable": 403
     },
     "Video": {
       "Title": "On point intuition provides the best education: SYSCLK_CLK32K_RTC fault",
@@ -12402,8 +12433,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 401,
-      "HumanReadable": 402
+      "Index": 403,
+      "HumanReadable": 404
     },
     "Video": {
       "Title": "How unauthorized idiots repair Apple laptops.",
@@ -12433,8 +12464,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 402,
-      "HumanReadable": 403
+      "Index": 404,
+      "HumanReadable": 405
     },
     "Video": {
       "Title": "Why are inductors used as filters in data lines tricky to measure?",
@@ -12464,8 +12495,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 403,
-      "HumanReadable": 404
+      "Index": 405,
+      "HumanReadable": 406
     },
     "Video": {
       "Title": "Short detection on Macbook logic board",
@@ -12495,8 +12526,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 404,
-      "HumanReadable": 405
+      "Index": 406,
+      "HumanReadable": 407
     },
     "Video": {
       "Title": "Amtech Syntech solder paste for sale, watch live SMC reballing demonstration",
@@ -12526,8 +12557,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 405,
-      "HumanReadable": 406
+      "Index": 407,
+      "HumanReadable": 408
     },
     "Video": {
       "Title": "VCCIO vs vcore and why power rail sequence is important to laptop motherboard repair",
@@ -12557,8 +12588,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 406,
-      "HumanReadable": 407
+      "Index": 408,
+      "HumanReadable": 409
     },
     "Video": {
       "Title": "Repairing Macbook Pro Retina displayport symbol error in ASD",
@@ -12588,8 +12619,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 407,
-      "HumanReadable": 408
+      "Index": 409,
+      "HumanReadable": 410
     },
     "Video": {
       "Title": "Dead 820-3437 logic board because of short to ground and missing S5 rails",
@@ -12619,8 +12650,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 408,
-      "HumanReadable": 409
+      "Index": 410,
+      "HumanReadable": 411
     },
     "Video": {
       "Title": "820-3209 Macbook logic board tries to turn on but fails entering s0 state",
@@ -12650,8 +12681,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 409,
-      "HumanReadable": 410
+      "Index": 411,
+      "HumanReadable": 412
     },
     "Video": {
       "Title": "Macbook logic board fan spins for one second then turns off",
@@ -12681,8 +12712,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 410,
-      "HumanReadable": 411
+      "Index": 412,
+      "HumanReadable": 413
     },
     "Video": {
       "Title": "Macbook 820-2936 logic board dead; diagnosis and repair of U7000 circuit.",
@@ -12712,8 +12743,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 411,
-      "HumanReadable": 412
+      "Index": 413,
+      "HumanReadable": 414
     },
     "Video": {
       "Title": "The cost of being an asshole.",
@@ -12743,8 +12774,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 412,
-      "HumanReadable": 413
+      "Index": 414,
+      "HumanReadable": 415
     },
     "Video": {
       "Title": "Macbook Air no backlight bad caps shorting power to ground",
@@ -12774,8 +12805,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 413,
-      "HumanReadable": 414
+      "Index": 415,
+      "HumanReadable": 416
     },
     "Video": {
       "Title": "Macbook logic board clock issues cause quarter fan spin :(",
@@ -12805,8 +12836,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 414,
-      "HumanReadable": 415
+      "Index": 416,
+      "HumanReadable": 417
     },
     "Video": {
       "Title": "Overworked \u0026 sleepy: 820-3115 Macbook Pro dead logic board repair",
@@ -12836,8 +12867,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 415,
-      "HumanReadable": 416
+      "Index": 417,
+      "HumanReadable": 418
     },
     "Video": {
       "Title": "Macbook logic board recognizes battery but won't run off of the battery",
@@ -12867,8 +12898,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 416,
-      "HumanReadable": 417
+      "Index": 418,
+      "HumanReadable": 419
     },
     "Video": {
       "Title": "Solutions based billing says I'm not just replacing the fuse",
@@ -12898,8 +12929,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 417,
-      "HumanReadable": 418
+      "Index": 419,
+      "HumanReadable": 420
     },
     "Video": {
       "Title": "Short to ground keeps Macbook from turning on",
@@ -12929,8 +12960,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 418,
-      "HumanReadable": 419
+      "Index": 420,
+      "HumanReadable": 421
     },
     "Video": {
       "Title": "Macbook Air flickering screen after liquid damage",
@@ -12960,8 +12991,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 419,
-      "HumanReadable": 420
+      "Index": 421,
+      "HumanReadable": 422
     },
     "Video": {
       "Title": "Raging at board with no power no firewire no backlight",
@@ -12991,8 +13022,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 420,
-      "HumanReadable": 421
+      "Index": 422,
+      "HumanReadable": 423
     },
     "Video": {
       "Title": "Louis' birthday gift to himself is solving the worst board in the pile",
@@ -13022,8 +13053,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 421,
-      "HumanReadable": 422
+      "Index": 423,
+      "HumanReadable": 424
     },
     "Video": {
       "Title": "Recovering \u0026 reworking destroyed ISL6259 area from liquid spill damage on Macbook logic board",
@@ -13053,8 +13084,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 422,
-      "HumanReadable": 423
+      "Index": 424,
+      "HumanReadable": 425
     },
     "Video": {
       "Title": "Need sleep Macbook Air logic board dead SYSCLK_CLK32K_RTC missing.",
@@ -13084,8 +13115,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 423,
-      "HumanReadable": 424
+      "Index": 425,
+      "HumanReadable": 426
     },
     "Video": {
       "Title": "Macbook Pro keyboard and trackpad not working logic board repair",
@@ -13115,8 +13146,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 424,
-      "HumanReadable": 425
+      "Index": 426,
+      "HumanReadable": 427
     },
     "Video": {
       "Title": "Fixing Macbook Pro Retina logic boards with no schematic",
@@ -13146,8 +13177,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 425,
-      "HumanReadable": 426
+      "Index": 427,
+      "HumanReadable": 428
     },
     "Video": {
       "Title": "Macbook Pro Retina liquid spill causing questionmark folder; repair of logic board",
@@ -13177,8 +13208,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 426,
-      "HumanReadable": 427
+      "Index": 428,
+      "HumanReadable": 429
     },
     "Video": {
       "Title": "Dead Macbook Pro Retina 820-3476 motherboard repair",
@@ -13208,8 +13239,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 427,
-      "HumanReadable": 428
+      "Index": 429,
+      "HumanReadable": 430
     },
     "Video": {
       "Title": "Outsourcing logic board repair sucks",
@@ -13239,8 +13270,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 428,
-      "HumanReadable": 429
+      "Index": 430,
+      "HumanReadable": 431
     },
     "Video": {
       "Title": "No image on Macbook Pro; replace the LCD connector... right?",
@@ -13270,8 +13301,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 429,
-      "HumanReadable": 430
+      "Index": 431,
+      "HumanReadable": 432
     },
     "Video": {
       "Title": "820-2879 Macbook logic board dead because of ripple on PP3V42_G3H rail.",
@@ -13301,8 +13332,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 430,
-      "HumanReadable": 431
+      "Index": 432,
+      "HumanReadable": 433
     },
     "Video": {
       "Title": "Louis keeps his middle finger high for Apple Inc!",
@@ -13332,8 +13363,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 431,
-      "HumanReadable": 432
+      "Index": 433,
+      "HumanReadable": 434
     },
     "Video": {
       "Title": "A lack of success is only failure if you cry about it.",
@@ -13363,8 +13394,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 432,
-      "HumanReadable": 433
+      "Index": 434,
+      "HumanReadable": 435
     },
     "Video": {
       "Title": "Fixing Macbook Air with short to ground on PPBUS_G3H.",
@@ -13394,8 +13425,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 433,
-      "HumanReadable": 434
+      "Index": 435,
+      "HumanReadable": 436
     },
     "Video": {
       "Title": "How to detect a short circuit and repair an Apple Macbook logic board",
@@ -13425,8 +13456,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 434,
-      "HumanReadable": 435
+      "Index": 436,
+      "HumanReadable": 437
     },
     "Video": {
       "Title": "Bad backlight coil: how to fix no backlight by replacing the coil :) :) :)",
@@ -13456,8 +13487,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 435,
-      "HumanReadable": 436
+      "Index": 437,
+      "HumanReadable": 438
     },
     "Video": {
       "Title": "High definition BGA rework camera from advancedreworks.com",
@@ -13487,8 +13518,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 436,
-      "HumanReadable": 437
+      "Index": 438,
+      "HumanReadable": 439
     },
     "Video": {
       "Title": "Walkthrough of onewire circuit for green light on magsafe connector",
@@ -13518,8 +13549,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 437,
-      "HumanReadable": 438
+      "Index": 439,
+      "HumanReadable": 440
     },
     "Video": {
       "Title": "Another dead Macbook Air logic board check your PP3V42!!",
@@ -13549,8 +13580,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 438,
-      "HumanReadable": 439
+      "Index": 440,
+      "HumanReadable": 441
     },
     "Video": {
       "Title": "Diagnosing Macbook Pro SMC failure chip U4900",
@@ -13580,8 +13611,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 439,
-      "HumanReadable": 440
+      "Index": 441,
+      "HumanReadable": 442
     },
     "Video": {
       "Title": "Macbook Pro dead because T29 boost circuit for thunderbolt is shorting PPBUS_G3H to ground",
@@ -13611,8 +13642,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 440,
-      "HumanReadable": 441
+      "Index": 442,
+      "HumanReadable": 443
     },
     "Video": {
       "Title": "How to replace a backlight fuse without hot air or hot tweezers",
@@ -13642,8 +13673,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 441,
-      "HumanReadable": 442
+      "Index": 443,
+      "HumanReadable": 444
     },
     "Video": {
       "Title": "Macbook Retina no keyboard no trackpad after liquid how to repair",
@@ -13673,8 +13704,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 442,
-      "HumanReadable": 443
+      "Index": 444,
+      "HumanReadable": 445
     },
     "Video": {
       "Title": "How to troubleshoot charger MOSFET on Apple laptop motherboard.",
@@ -13704,8 +13735,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 443,
-      "HumanReadable": 444
+      "Index": 445,
+      "HumanReadable": 446
     },
     "Video": {
       "Title": "Short to ground inside the board made humble old country way",
@@ -13735,8 +13766,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 444,
-      "HumanReadable": 445
+      "Index": 446,
+      "HumanReadable": 447
     },
     "Video": {
       "Title": "Revived Macbook Pro logic board, dead 820-2850 no power.",
@@ -13766,8 +13797,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 445,
-      "HumanReadable": 446
+      "Index": 447,
+      "HumanReadable": 448
     },
     "Video": {
       "Title": "Sunny fixes a logic board and it works.",
@@ -13797,8 +13828,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 446,
-      "HumanReadable": 447
+      "Index": 448,
+      "HumanReadable": 449
     },
     "Video": {
       "Title": "820-2850 with no video on screen; we've seen this problem before!",
@@ -13828,8 +13859,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 447,
-      "HumanReadable": 448
+      "Index": 449,
+      "HumanReadable": 450
     },
     "Video": {
       "Title": "Apple uses spite to force planned obsolescence.",
@@ -13859,8 +13890,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 448,
-      "HumanReadable": 449
+      "Index": 450,
+      "HumanReadable": 451
     },
     "Video": {
       "Title": "Tech amateurs replace components, tech PROFESSIONALS provide solutions!",
@@ -13890,8 +13921,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 449,
-      "HumanReadable": 450
+      "Index": 451,
+      "HumanReadable": 452
     },
     "Video": {
       "Title": "No trackpad or keyboard on liquid damaged Macbook Air",
@@ -13921,8 +13952,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 450,
-      "HumanReadable": 451
+      "Index": 452,
+      "HumanReadable": 453
     },
     "Video": {
       "Title": "Macbook Air in S0 state but not turning on",
@@ -13952,8 +13983,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 451,
-      "HumanReadable": 452
+      "Index": 453,
+      "HumanReadable": 454
     },
     "Video": {
       "Title": "How to use rice to repair water damage on iPhones and Macbooks",
@@ -13983,8 +14014,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 452,
-      "HumanReadable": 453
+      "Index": 454,
+      "HumanReadable": 455
     },
     "Video": {
       "Title": "Macbook logic board not charging battery repair.",
@@ -14014,8 +14045,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 453,
-      "HumanReadable": 454
+      "Index": 455,
+      "HumanReadable": 456
     },
     "Video": {
       "Title": "PP1V05_S0 missing on dead Macbook Air",
@@ -14045,8 +14076,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 454,
-      "HumanReadable": 455
+      "Index": 456,
+      "HumanReadable": 457
     },
     "Video": {
       "Title": "Why 'professional' Macbook logic board repair costs more than $80; what you get run to eBay.",
@@ -14076,8 +14107,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 455,
-      "HumanReadable": 456
+      "Index": 457,
+      "HumanReadable": 458
     },
     "Video": {
       "Title": "Repairing Macbook with no power from charger.",
@@ -14107,8 +14138,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 456,
-      "HumanReadable": 457
+      "Index": 458,
+      "HumanReadable": 459
     },
     "Video": {
       "Title": "820-3115 logic board no backlight caps shorted to ground",
@@ -14138,8 +14169,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 457,
-      "HumanReadable": 458
+      "Index": 459,
+      "HumanReadable": 460
     },
     "Video": {
       "Title": "How NOT to replace an SMC chip on Macbook logic board.",
@@ -14169,8 +14200,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 458,
-      "HumanReadable": 459
+      "Index": 460,
+      "HumanReadable": 461
     },
     "Video": {
       "Title": "No backlight on Macbook Air, shorted cap in enable circuit.",
@@ -14200,8 +14231,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 459,
-      "HumanReadable": 460
+      "Index": 461,
+      "HumanReadable": 462
     },
     "Video": {
       "Title": "820-2936 Turns on doesn't POST logic board repair",
@@ -14231,8 +14262,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 460,
-      "HumanReadable": 461
+      "Index": 462,
+      "HumanReadable": 463
     },
     "Video": {
       "Title": "Macbook Pro Retina no green light on magsafe logic board repair",
@@ -14262,8 +14293,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 461,
-      "HumanReadable": 462
+      "Index": 463,
+      "HumanReadable": 464
     },
     "Video": {
       "Title": "Macbook Pro quarter fan spin fixed by replacing current sensing resistors.",
@@ -14293,8 +14324,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 462,
-      "HumanReadable": 463
+      "Index": 464,
+      "HumanReadable": 465
     },
     "Video": {
       "Title": "Macbook logic board measures properly but still doesn't work.",
@@ -14322,10 +14353,10 @@
     }
   },
   {
-    "NeedsProcessing": true,
+    "NeedsProcessing": false,
     "RowID": {
-      "Index": 463,
-      "HumanReadable": 464
+      "Index": 465,
+      "HumanReadable": 466
     },
     "Video": {
       "Title": "Macbook Pro logic board no video how to repair 820-3330",
@@ -14333,30 +14364,30 @@
       "EmbeddedUrl": "https://youtube.com/embed/Ho2W902s5P8"
     },
     "Repair": {
-      "Cause": "",
-      "Symptom": "",
+      "Cause": "Liquid damage",
+      "Symptom": "No video \u0026 No backlight",
       "Issues": [
-        "",
-        ""
+        "Corroded ISL6263C",
+        "Missing backlight power on display connector"
       ],
-      "OtherInfo": ""
+      "OtherInfo": "Power on LED driver output OK but not on display connector. Probably burnt pad or track. Rewired directly from LED driver to connector."
     },
     "Mac": {
-      "ModelIdentifier": "",
-      "ModelNumber": "",
+      "ModelIdentifier": "MacBook Pro",
+      "ModelNumber": "A1286",
       "LogicBoardPartNumber": "820-3330"
     },
     "Wiki": {
-      "Url": "",
+      "Url": "https://wiki2.rossmanngroup.com/index.php?title=A1286_2012_15”_Macbook_Pro",
       "Notes": "",
-      "Status": "Nothing yet"
+      "Status": "Done"
     }
   },
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 464,
-      "HumanReadable": 465
+      "Index": 466,
+      "HumanReadable": 467
     },
     "Video": {
       "Title": "How sharky the oven mit repaired a Macbook Pro logic board with a hole burned through it.",
@@ -14386,8 +14417,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 465,
-      "HumanReadable": 466
+      "Index": 467,
+      "HumanReadable": 468
     },
     "Video": {
       "Title": "TEACHER! Leave them chips alone. All in all, it wasn't a cracked solder ball.",
@@ -14417,8 +14448,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 466,
-      "HumanReadable": 467
+      "Index": 468,
+      "HumanReadable": 469
     },
     "Video": {
       "Title": "PPBUS _G3H shorted to ground by CPU vcore on 820-3209 Macbook Air logic board",
@@ -14448,8 +14479,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 467,
-      "HumanReadable": 468
+      "Index": 469,
+      "HumanReadable": 470
     },
     "Video": {
       "Title": "Macbook Air doesn't chime, no video. Fix it with a heatgun right??",
@@ -14479,8 +14510,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 468,
-      "HumanReadable": 469
+      "Index": 470,
+      "HumanReadable": 471
     },
     "Video": {
       "Title": "Replacing backlight fuse on Macbook Air.",
@@ -14510,8 +14541,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 469,
-      "HumanReadable": 470
+      "Index": 471,
+      "HumanReadable": 472
     },
     "Video": {
       "Title": "Louis sucks at soldering connectors; if I can do it, SO CAN YOU!!!",
@@ -14541,8 +14572,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 470,
-      "HumanReadable": 471
+      "Index": 472,
+      "HumanReadable": 473
     },
     "Video": {
       "Title": "No power because of high side current sensing malfunction on 820-2936",
@@ -14572,8 +14603,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 471,
-      "HumanReadable": 472
+      "Index": 473,
+      "HumanReadable": 474
     },
     "Video": {
       "Title": "Missing PM_SLP_S4_L signal on Macbook Pro 820-2330 logic board.",
@@ -14603,8 +14634,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 472,
-      "HumanReadable": 473
+      "Index": 474,
+      "HumanReadable": 475
     },
     "Video": {
       "Title": "Keyboard connector replacement with jumper wires.",
@@ -14634,8 +14665,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 473,
-      "HumanReadable": 474
+      "Index": 475,
+      "HumanReadable": 476
     },
     "Video": {
       "Title": "Macbook Air no backlight burned feedback line to LP8550 WLED driver",
@@ -14665,8 +14696,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 474,
-      "HumanReadable": 475
+      "Index": 476,
+      "HumanReadable": 477
     },
     "Video": {
       "Title": "Don't plug burned liquid damaged LCD cables back into fixed Macbook logic boards!",
@@ -14696,8 +14727,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 475,
-      "HumanReadable": 476
+      "Index": 477,
+      "HumanReadable": 478
     },
     "Video": {
       "Title": "Macbook Pro Retina missing PM_SLP_S4_L signal logic board repair",
@@ -14727,8 +14758,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 476,
-      "HumanReadable": 477
+      "Index": 478,
+      "HumanReadable": 479
     },
     "Video": {
       "Title": "Basic no backlight repair on 820-3437 Macbook Air logic board with troubleshooting hints",
@@ -14758,8 +14789,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 477,
-      "HumanReadable": 478
+      "Index": 479,
+      "HumanReadable": 480
     },
     "Video": {
       "Title": "Macbook Air logic board not turning on because of missing PM_SLP_S4_L signal, no SPI ROM",
@@ -14789,8 +14820,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 478,
-      "HumanReadable": 479
+      "Index": 480,
+      "HumanReadable": 481
     },
     "Video": {
       "Title": "Dead Macbook Air logic board; Louis calls it a rabbit hole to hell and moves on",
@@ -14820,8 +14851,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 479,
-      "HumanReadable": 480
+      "Index": 481,
+      "HumanReadable": 482
     },
     "Video": {
       "Title": "Repairing no video and no firewire on Macbook Pro logic board after liquid damage.",
@@ -14851,8 +14882,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 480,
-      "HumanReadable": 481
+      "Index": 482,
+      "HumanReadable": 483
     },
     "Video": {
       "Title": "Macbook Air not turning on; which power rail do we fix first when they're all missing?",
@@ -14882,8 +14913,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 481,
-      "HumanReadable": 482
+      "Index": 483,
+      "HumanReadable": 484
     },
     "Video": {
       "Title": "820-3330 not charging due to bad ISL6259 QFN chip",
@@ -14913,8 +14944,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 482,
-      "HumanReadable": 483
+      "Index": 484,
+      "HumanReadable": 485
     },
     "Video": {
       "Title": "What's the worst that can happen when I install my own hard drive?",
@@ -14944,8 +14975,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 483,
-      "HumanReadable": 484
+      "Index": 485,
+      "HumanReadable": 486
     },
     "Video": {
       "Title": "How to solder ISL6259 QFN chip on Macbook Pro logic board if you suck at soldering.",
@@ -14975,8 +15006,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 484,
-      "HumanReadable": 485
+      "Index": 486,
+      "HumanReadable": 487
     },
     "Video": {
       "Title": "Macbook Pro Retina improved durability in backlight circuit in newer models.",
@@ -15006,8 +15037,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 485,
-      "HumanReadable": 486
+      "Index": 487,
+      "HumanReadable": 488
     },
     "Video": {
       "Title": "Macbook Air keyboard \u0026 trackpad not working because of missing bias on USB hub.",
@@ -15037,8 +15068,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 486,
-      "HumanReadable": 487
+      "Index": 488,
+      "HumanReadable": 489
     },
     "Video": {
       "Title": "Darby's second board 820-3462 not turning on because of spikes on dc in rail.",
@@ -15068,8 +15099,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 487,
-      "HumanReadable": 488
+      "Index": 489,
+      "HumanReadable": 490
     },
     "Video": {
       "Title": "Fixing boards with a 102 fever sucks; dead 820-3330 needs a wire.",
@@ -15099,8 +15130,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 488,
-      "HumanReadable": 489
+      "Index": 490,
+      "HumanReadable": 491
     },
     "Video": {
       "Title": "Louis chases Darby's rabbit all the way to hell; longest board repair EVER!",
@@ -15130,8 +15161,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 489,
-      "HumanReadable": 490
+      "Index": 491,
+      "HumanReadable": 492
     },
     "Video": {
       "Title": "How to fix PP3V42_G3H power supply when resistor trolls you.",
@@ -15161,8 +15192,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 490,
-      "HumanReadable": 491
+      "Index": 492,
+      "HumanReadable": 493
     },
     "Video": {
       "Title": "How to fix no magsafe green light on Macbook Pro logic board.",
@@ -15192,8 +15223,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 491,
-      "HumanReadable": 492
+      "Index": 493,
+      "HumanReadable": 494
     },
     "Video": {
       "Title": "No picture on LCD - it must be the video chip!!!! (not)",
@@ -15223,8 +15254,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 492,
-      "HumanReadable": 493
+      "Index": 494,
+      "HumanReadable": 495
     },
     "Video": {
       "Title": "Can Louis beat the genius bar while wasted off Jagermeister?",
@@ -15254,8 +15285,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 493,
-      "HumanReadable": 494
+      "Index": 495,
+      "HumanReadable": 496
     },
     "Video": {
       "Title": "Trackpad causing Macbook Pro logic board to turn off; how to repair.",
@@ -15285,8 +15316,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 494,
-      "HumanReadable": 495
+      "Index": 496,
+      "HumanReadable": 497
     },
     "Video": {
       "Title": "No backlight because of bad switch trace, A1278 Macbook Pro no backlight repair",
@@ -15316,8 +15347,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 495,
-      "HumanReadable": 496
+      "Index": 497,
+      "HumanReadable": 498
     },
     "Video": {
       "Title": "Why newbies suck at repairing the CPU vcore circuit.",
@@ -15347,8 +15378,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 496,
-      "HumanReadable": 497
+      "Index": 498,
+      "HumanReadable": 499
     },
     "Video": {
       "Title": "No picture because of DIY mess; use the right LCD cable and DON'T LIE!!!",
@@ -15378,8 +15409,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 497,
-      "HumanReadable": 498
+      "Index": 499,
+      "HumanReadable": 500
     },
     "Video": {
       "Title": "Fixing no backlight on DIY messed up Macbook logic board.",
@@ -15409,8 +15440,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 498,
-      "HumanReadable": 499
+      "Index": 500,
+      "HumanReadable": 501
     },
     "Video": {
       "Title": "Diagnosing a dead MCP on a Macbook Pro logic board.",
@@ -15440,8 +15471,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 499,
-      "HumanReadable": 500
+      "Index": 501,
+      "HumanReadable": 502
     },
     "Video": {
       "Title": "How DC to DC boost circuits work explained simply; fixing no backlight on 820-2523.",
@@ -15471,8 +15502,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 500,
-      "HumanReadable": 501
+      "Index": 502,
+      "HumanReadable": 503
     },
     "Video": {
       "Title": "Don't lower yourself by lying; make customers humble when fixing 820-3330 boards with no backlight.",
@@ -15502,8 +15533,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 501,
-      "HumanReadable": 502
+      "Index": 503,
+      "HumanReadable": 504
     },
     "Video": {
       "Title": "Why doesn't steve's board have a green light?",
@@ -15533,8 +15564,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 502,
-      "HumanReadable": 503
+      "Index": 504,
+      "HumanReadable": 505
     },
     "Video": {
       "Title": "Easy idiot-proof trick to replacing LCD connector on Macbook logic board.",
@@ -15564,8 +15595,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 503,
-      "HumanReadable": 504
+      "Index": 505,
+      "HumanReadable": 506
     },
     "Video": {
       "Title": "How to find short circuit component without spending $6k on FLIR cam.",
@@ -15595,8 +15626,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 504,
-      "HumanReadable": 505
+      "Index": 506,
+      "HumanReadable": 507
     },
     "Video": {
       "Title": "Reviving 820-2879 with no power no MCP and no CPU after destruction by idiot. :-(",
@@ -15626,8 +15657,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 505,
-      "HumanReadable": 506
+      "Index": 507,
+      "HumanReadable": 508
     },
     "Video": {
       "Title": "820-3462 Macbook Pro Retina missing PP3V42_G3H due to shorted caps on logic board.",
@@ -15657,8 +15688,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 506,
-      "HumanReadable": 507
+      "Index": 508,
+      "HumanReadable": 509
     },
     "Video": {
       "Title": "No fix; Macbook Pro retina board with shorts to ground inside PCB.",
@@ -15688,8 +15719,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 507,
-      "HumanReadable": 508
+      "Index": 509,
+      "HumanReadable": 510
     },
     "Video": {
       "Title": "Macbook Pro logic board not charging battery, missing pullup resistor on SMC data line.",
@@ -15719,8 +15750,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 508,
-      "HumanReadable": 509
+      "Index": 510,
+      "HumanReadable": 511
     },
     "Video": {
       "Title": "820-3330 current sensing repair on Macbook Pro charging circuit.",
@@ -15750,8 +15781,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 509,
-      "HumanReadable": 510
+      "Index": 511,
+      "HumanReadable": 512
     },
     "Video": {
       "Title": "Macbook Pro logic board repair; not turning on, step by step fix.",
@@ -15781,8 +15812,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 510,
-      "HumanReadable": 511
+      "Index": 512,
+      "HumanReadable": 513
     },
     "Video": {
       "Title": "Troubleshooting Macbook Pro battery recognition issues at component level.",
@@ -15812,8 +15843,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 511,
-      "HumanReadable": 512
+      "Index": 513,
+      "HumanReadable": 514
     },
     "Video": {
       "Title": "820-3115 Macbook logic board repair PP3V42_G3H and PPBUS_G3H missing.",
@@ -15843,8 +15874,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 512,
-      "HumanReadable": 513
+      "Index": 514,
+      "HumanReadable": 515
     },
     "Video": {
       "Title": "How to solder WLED driver LP8550 BGA chip on a Macbook Air",
@@ -15874,8 +15905,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 513,
-      "HumanReadable": 514
+      "Index": 515,
+      "HumanReadable": 516
     },
     "Video": {
       "Title": "If you don't know what you're doing...",
@@ -15905,8 +15936,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 514,
-      "HumanReadable": 515
+      "Index": 516,
+      "HumanReadable": 517
     },
     "Video": {
       "Title": "Louis makes Macbook logic board repair look easy.",
@@ -15936,8 +15967,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 515,
-      "HumanReadable": 516
+      "Index": 517,
+      "HumanReadable": 518
     },
     "Video": {
       "Title": "What is current sensing and how does it stop my Macbook from charging?",
@@ -15967,8 +15998,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 516,
-      "HumanReadable": 517
+      "Index": 518,
+      "HumanReadable": 519
     },
     "Video": {
       "Title": "Drag soldering to repair Macbook Pro LVDS connector.",
@@ -15998,8 +16029,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 517,
-      "HumanReadable": 518
+      "Index": 519,
+      "HumanReadable": 520
     },
     "Video": {
       "Title": "How does PP3V42_G3H circuit work and does it require PPBUS_G3H to operate?",
@@ -16029,8 +16060,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 518,
-      "HumanReadable": 519
+      "Index": 520,
+      "HumanReadable": 521
     },
     "Video": {
       "Title": "Macbook charger green light; or what is the onewire circuit and why should I care?",
@@ -16060,8 +16091,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 519,
-      "HumanReadable": 520
+      "Index": 521,
+      "HumanReadable": 522
     },
     "Video": {
       "Title": "Importance of DIODE MODE measurements for troubleshooting.  820-2879 no trackpad",
@@ -16091,8 +16122,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 520,
-      "HumanReadable": 521
+      "Index": 522,
+      "HumanReadable": 523
     },
     "Video": {
       "Title": "Zhuo Mao ZM-R6200c for Macbook Pro logic board repair, 2011 GPU issue 820-2915",
@@ -16122,8 +16153,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 521,
-      "HumanReadable": 522
+      "Index": 523,
+      "HumanReadable": 524
     },
     "Video": {
       "Title": "Don't pee on your Macbook!",
@@ -16153,8 +16184,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 522,
-      "HumanReadable": 523
+      "Index": 524,
+      "HumanReadable": 525
     },
     "Video": {
       "Title": "ZM-R6200c demo.",
@@ -16184,8 +16215,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 523,
-      "HumanReadable": 524
+      "Index": 525,
+      "HumanReadable": 526
     },
     "Video": {
       "Title": "820-3115 does not see hard drive logic board repair.",
@@ -16215,8 +16246,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 524,
-      "HumanReadable": 525
+      "Index": 526,
+      "HumanReadable": 527
     },
     "Video": {
       "Title": "Replacing LVDS connector on A1286 Unibody Macbook Pro with Weller WMP65.",
@@ -16246,8 +16277,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 525,
-      "HumanReadable": 526
+      "Index": 527,
+      "HumanReadable": 528
     },
     "Video": {
       "Title": "Fixing not chiming Macbook Pro - no CPU VCORE on 820-2915 because of CPUIMVP_TON.",
@@ -16277,8 +16308,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 526,
-      "HumanReadable": 527
+      "Index": 528,
+      "HumanReadable": 529
     },
     "Video": {
       "Title": "Introduction to Macbook logic board power circuits - 820-2936 no PPBUS_G3H repair",
@@ -16308,8 +16339,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 527,
-      "HumanReadable": 528
+      "Index": 529,
+      "HumanReadable": 530
     },
     "Video": {
       "Title": "Unibody Macbook Pro no wifi logic board repair 820-2915",
@@ -16339,8 +16370,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 528,
-      "HumanReadable": 529
+      "Index": 530,
+      "HumanReadable": 531
     },
     "Video": {
       "Title": "820-3023 logic board repair - how CPU power circuit works on Macbook Air",
@@ -16370,8 +16401,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 529,
-      "HumanReadable": 530
+      "Index": 531,
+      "HumanReadable": 532
     },
     "Video": {
       "Title": "How Macbook Pro logic board power circuit works - 820-2915 logic board repair.",
@@ -16401,8 +16432,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 530,
-      "HumanReadable": 531
+      "Index": 532,
+      "HumanReadable": 533
     },
     "Video": {
       "Title": "820-2879 fans stuck on high simple logic board repair for A1278 Macbook Pro",
@@ -16432,8 +16463,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 531,
-      "HumanReadable": 532
+      "Index": 533,
+      "HumanReadable": 534
     },
     "Video": {
       "Title": "Macbook Air no feedback trace to LED driver 820-3437 logic board repair",
@@ -16463,8 +16494,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 532,
-      "HumanReadable": 533
+      "Index": 534,
+      "HumanReadable": 535
     },
     "Video": {
       "Title": "Reballing flip chip GPUs is BULLSHIT - the truth about dead laptop GPUs \u0026 repairing them.",
@@ -16494,8 +16525,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 533,
-      "HumanReadable": 534
+      "Index": 535,
+      "HumanReadable": 536
     },
     "Video": {
       "Title": "820-3437 not turning on no PP5V logic board repair.",
@@ -16525,8 +16556,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 534,
-      "HumanReadable": 535
+      "Index": 536,
+      "HumanReadable": 537
     },
     "Video": {
       "Title": "820-3209 restoring vcore while half asleep(I'm not a morning person)",
@@ -16556,8 +16587,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 535,
-      "HumanReadable": 536
+      "Index": 537,
+      "HumanReadable": 538
     },
     "Video": {
       "Title": "logic board repair 820-2879 - not charging - not turning on - no backlight.",
@@ -16587,8 +16618,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 536,
-      "HumanReadable": 537
+      "Index": 538,
+      "HumanReadable": 539
     },
     "Video": {
       "Title": "Macbook liquid spill - 820-2879 not charging logic board repair",
@@ -16618,8 +16649,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 537,
-      "HumanReadable": 538
+      "Index": 539,
+      "HumanReadable": 540
     },
     "Video": {
       "Title": "Macbook liquid spill logic board repair. Running slow, 820-2936",
@@ -16649,8 +16680,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 538,
-      "HumanReadable": 539
+      "Index": 540,
+      "HumanReadable": 541
     },
     "Video": {
       "Title": "Introduction to new logic board repair channel.",
@@ -16680,8 +16711,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 539,
-      "HumanReadable": 540
+      "Index": 541,
+      "HumanReadable": 542
     },
     "Video": {
       "Title": "Macbook Pro logic board repair 820-3115 no vcore no chime",
@@ -16711,8 +16742,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 540,
-      "HumanReadable": 541
+      "Index": 542,
+      "HumanReadable": 543
     },
     "Video": {
       "Title": "820 3115 logic board repair no backlight no feedback trace how to fix",
@@ -16742,8 +16773,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 541,
-      "HumanReadable": 542
+      "Index": 543,
+      "HumanReadable": 544
     },
     "Video": {
       "Title": "Macbook Air no backlight logic board repair A1466 820-3437",
@@ -16773,8 +16804,8 @@
   {
     "NeedsProcessing": true,
     "RowID": {
-      "Index": 542,
-      "HumanReadable": 543
+      "Index": 544,
+      "HumanReadable": 545
     },
     "Video": {
       "Title": "820-2567 A1342 White Unibody Macbook no backlight logic board repair",
@@ -16804,8 +16835,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 543,
-      "HumanReadable": 544
+      "Index": 545,
+      "HumanReadable": 546
     },
     "Video": {
       "Title": "820-2879 not charging macbook pro logic board repair",
@@ -16835,8 +16866,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 544,
-      "HumanReadable": 545
+      "Index": 546,
+      "HumanReadable": 547
     },
     "Video": {
       "Title": "820 2879 no backlight, BKL_EN resistors messed up. macbook pro logic board repair",
@@ -16866,8 +16897,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 545,
-      "HumanReadable": 546
+      "Index": 547,
+      "HumanReadable": 548
     },
     "Video": {
       "Title": "820-3115 Unibody Macbook Pro A1278 no backlight - finding the short \u0026 fixing the issue",
@@ -16897,8 +16928,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 546,
-      "HumanReadable": 547
+      "Index": 548,
+      "HumanReadable": 549
     },
     "Video": {
       "Title": "Macbook logic board repair - 820-2530 no backlight repair,",
@@ -16928,8 +16959,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 547,
-      "HumanReadable": 548
+      "Index": 549,
+      "HumanReadable": 550
     },
     "Video": {
       "Title": "Macbook Pro logic board repair - charges battery but won't run off battery. 820-2915",
@@ -16959,8 +16990,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 548,
-      "HumanReadable": 549
+      "Index": 550,
+      "HumanReadable": 551
     },
     "Video": {
       "Title": "How to solder backlight fuse on Unibody Macbook without rework station.",
@@ -16990,8 +17021,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 549,
-      "HumanReadable": 550
+      "Index": 551,
+      "HumanReadable": 552
     },
     "Video": {
       "Title": "Macbook pro logic board component level repair 820-2936 liquid spill",
@@ -17021,8 +17052,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 550,
-      "HumanReadable": 551
+      "Index": 552,
+      "HumanReadable": 553
     },
     "Video": {
       "Title": "A1181 White Macbook no backlight logic board repair",
@@ -17052,8 +17083,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 551,
-      "HumanReadable": 552
+      "Index": 553,
+      "HumanReadable": 554
     },
     "Video": {
       "Title": "No backlight on Unibody Macbook - how to fix via QFN soldering.",
@@ -17083,8 +17114,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 552,
-      "HumanReadable": 553
+      "Index": 554,
+      "HumanReadable": 555
     },
     "Video": {
       "Title": "I betrayed EM3EV for a Shenzhen Foxell Technologies ebike battery, then this happened.",
@@ -17114,8 +17145,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 553,
-      "HumanReadable": 554
+      "Index": 555,
+      "HumanReadable": 556
     },
     "Video": {
       "Title": "Scott Galloway | Full Video | 2018 Code Commerce",
@@ -17145,8 +17176,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 554,
-      "HumanReadable": 555
+      "Index": 556,
+      "HumanReadable": 557
     },
     "Video": {
       "Title": "Razer laptop DIY repair fail: audio IC fault on motherboard fixed.",
@@ -17176,8 +17207,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 555,
-      "HumanReadable": 556
+      "Index": 557,
+      "HumanReadable": 558
     },
     "Video": {
       "Title": "Why is EVERYONE Buying this TV?? - TCL 55S405",
@@ -17207,8 +17238,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 556,
-      "HumanReadable": 557
+      "Index": 558,
+      "HumanReadable": 559
     },
     "Video": {
       "Title": "Demonstration of our industry leading quality control/quality assurance post-repair testing.",
@@ -17238,70 +17269,70 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 557,
-      "HumanReadable": 558
-    },
-    "Video": {
-      "Title": "Macbook Air no backlight A1466 logic board repair",
-      "Url": "https://www.youtube.com/watch?v=VhcbCn5D_Rg",
-      "EmbeddedUrl": "https://youtube.com/embed/VhcbCn5D_Rg"
-    },
-    "Repair": {
-      "Cause": "",
-      "Symptom": "",
-      "Issues": [
-        "",
-        ""
-      ],
-      "OtherInfo": ""
-    },
-    "Mac": {
-      "ModelIdentifier": "",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
-    },
-    "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Duplicate"
-    }
-  },
-  {
-    "NeedsProcessing": false,
-    "RowID": {
-      "Index": 558,
-      "HumanReadable": 559
-    },
-    "Video": {
-      "Title": "Macbook Air no backlight A1466 logic board repair",
-      "Url": "https://www.youtube.com/watch?v=VhcbCn5D_Rg",
-      "EmbeddedUrl": "https://youtube.com/embed/VhcbCn5D_Rg"
-    },
-    "Repair": {
-      "Cause": "",
-      "Symptom": "",
-      "Issues": [
-        "",
-        ""
-      ],
-      "OtherInfo": ""
-    },
-    "Mac": {
-      "ModelIdentifier": "",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
-    },
-    "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Duplicate"
-    }
-  },
-  {
-    "NeedsProcessing": false,
-    "RowID": {
       "Index": 559,
       "HumanReadable": 560
+    },
+    "Video": {
+      "Title": "Macbook Air no backlight A1466 logic board repair",
+      "Url": "https://www.youtube.com/watch?v=VhcbCn5D_Rg",
+      "EmbeddedUrl": "https://youtube.com/embed/VhcbCn5D_Rg"
+    },
+    "Repair": {
+      "Cause": "",
+      "Symptom": "",
+      "Issues": [
+        "",
+        ""
+      ],
+      "OtherInfo": ""
+    },
+    "Mac": {
+      "ModelIdentifier": "",
+      "ModelNumber": "",
+      "LogicBoardPartNumber": ""
+    },
+    "Wiki": {
+      "Url": "",
+      "Notes": "",
+      "Status": "Duplicate"
+    }
+  },
+  {
+    "NeedsProcessing": false,
+    "RowID": {
+      "Index": 560,
+      "HumanReadable": 561
+    },
+    "Video": {
+      "Title": "Macbook Air no backlight A1466 logic board repair",
+      "Url": "https://www.youtube.com/watch?v=VhcbCn5D_Rg",
+      "EmbeddedUrl": "https://youtube.com/embed/VhcbCn5D_Rg"
+    },
+    "Repair": {
+      "Cause": "",
+      "Symptom": "",
+      "Issues": [
+        "",
+        ""
+      ],
+      "OtherInfo": ""
+    },
+    "Mac": {
+      "ModelIdentifier": "",
+      "ModelNumber": "",
+      "LogicBoardPartNumber": ""
+    },
+    "Wiki": {
+      "Url": "",
+      "Notes": "",
+      "Status": "Duplicate"
+    }
+  },
+  {
+    "NeedsProcessing": false,
+    "RowID": {
+      "Index": 561,
+      "HumanReadable": 562
     },
     "Video": {
       "Title": "Macbook wine spill repair 820-4924",
@@ -17331,75 +17362,13 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 560,
-      "HumanReadable": 561
+      "Index": 562,
+      "HumanReadable": 563
     },
     "Video": {
       "Title": "820-00239 board charger stuck at 5v-300mA then loops on/off. Why?",
       "Url": "https://www.youtube.com/watch?v=R4iIf_PlLpA",
       "EmbeddedUrl": "https://youtube.com/embed/R4iIf_PlLpA"
-    },
-    "Repair": {
-      "Cause": "",
-      "Symptom": "",
-      "Issues": [
-        "",
-        ""
-      ],
-      "OtherInfo": ""
-    },
-    "Mac": {
-      "ModelIdentifier": "",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
-    },
-    "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Duplicate"
-    }
-  },
-  {
-    "NeedsProcessing": false,
-    "RowID": {
-      "Index": 561,
-      "HumanReadable": 562
-    },
-    "Video": {
-      "Title": "A random PM_SLP_S4_L+ board repair",
-      "Url": "https://www.youtube.com/watch?v=1CqYQWdo6XE",
-      "EmbeddedUrl": "https://youtube.com/embed/1CqYQWdo6XE"
-    },
-    "Repair": {
-      "Cause": "",
-      "Symptom": "",
-      "Issues": [
-        "",
-        ""
-      ],
-      "OtherInfo": ""
-    },
-    "Mac": {
-      "ModelIdentifier": "",
-      "ModelNumber": "",
-      "LogicBoardPartNumber": ""
-    },
-    "Wiki": {
-      "Url": "",
-      "Notes": "",
-      "Status": "Duplicate"
-    }
-  },
-  {
-    "NeedsProcessing": false,
-    "RowID": {
-      "Index": 562,
-      "HumanReadable": 563
-    },
-    "Video": {
-      "Title": "A random PM_SLP_S4_L+ board repair",
-      "Url": "https://www.youtube.com/watch?v=1CqYQWdo6XE",
-      "EmbeddedUrl": "https://youtube.com/embed/1CqYQWdo6XE"
     },
     "Repair": {
       "Cause": "",
@@ -17552,6 +17521,68 @@
       "HumanReadable": 568
     },
     "Video": {
+      "Title": "A random PM_SLP_S4_L+ board repair",
+      "Url": "https://www.youtube.com/watch?v=1CqYQWdo6XE",
+      "EmbeddedUrl": "https://youtube.com/embed/1CqYQWdo6XE"
+    },
+    "Repair": {
+      "Cause": "",
+      "Symptom": "",
+      "Issues": [
+        "",
+        ""
+      ],
+      "OtherInfo": ""
+    },
+    "Mac": {
+      "ModelIdentifier": "",
+      "ModelNumber": "",
+      "LogicBoardPartNumber": ""
+    },
+    "Wiki": {
+      "Url": "",
+      "Notes": "",
+      "Status": "Duplicate"
+    }
+  },
+  {
+    "NeedsProcessing": false,
+    "RowID": {
+      "Index": 568,
+      "HumanReadable": 569
+    },
+    "Video": {
+      "Title": "A random PM_SLP_S4_L+ board repair",
+      "Url": "https://www.youtube.com/watch?v=1CqYQWdo6XE",
+      "EmbeddedUrl": "https://youtube.com/embed/1CqYQWdo6XE"
+    },
+    "Repair": {
+      "Cause": "",
+      "Symptom": "",
+      "Issues": [
+        "",
+        ""
+      ],
+      "OtherInfo": ""
+    },
+    "Mac": {
+      "ModelIdentifier": "",
+      "ModelNumber": "",
+      "LogicBoardPartNumber": ""
+    },
+    "Wiki": {
+      "Url": "",
+      "Notes": "",
+      "Status": "Duplicate"
+    }
+  },
+  {
+    "NeedsProcessing": false,
+    "RowID": {
+      "Index": 569,
+      "HumanReadable": 570
+    },
+    "Video": {
       "Title": "How do Touchbar Macbooks charge? What is the sequel to the famous onewire circuit?",
       "Url": "https://www.youtube.com/watch?v=91VcojTX69s",
       "EmbeddedUrl": "https://youtube.com/embed/91VcojTX69s"
@@ -17579,8 +17610,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 569,
-      "HumanReadable": 570
+      "Index": 571,
+      "HumanReadable": 572
     },
     "Video": {
       "Title": "[Private video]",
@@ -17610,8 +17641,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 570,
-      "HumanReadable": 571
+      "Index": 572,
+      "HumanReadable": 573
     },
     "Video": {
       "Title": "[Private video]",
@@ -17641,8 +17672,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 571,
-      "HumanReadable": 572
+      "Index": 573,
+      "HumanReadable": 574
     },
     "Video": {
       "Title": "[Private video]",
@@ -17672,8 +17703,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 572,
-      "HumanReadable": 573
+      "Index": 574,
+      "HumanReadable": 575
     },
     "Video": {
       "Title": "[Private video]",
@@ -17703,8 +17734,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 573,
-      "HumanReadable": 574
+      "Index": 575,
+      "HumanReadable": 576
     },
     "Video": {
       "Title": "[Private video]",
@@ -17734,8 +17765,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 574,
-      "HumanReadable": 575
+      "Index": 576,
+      "HumanReadable": 577
     },
     "Video": {
       "Title": "[Private video]",
@@ -17765,8 +17796,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 575,
-      "HumanReadable": 576
+      "Index": 577,
+      "HumanReadable": 578
     },
     "Video": {
       "Title": "[Private video]",
@@ -17796,8 +17827,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 576,
-      "HumanReadable": 577
+      "Index": 578,
+      "HumanReadable": 579
     },
     "Video": {
       "Title": "[Private video]",
@@ -17827,8 +17858,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 577,
-      "HumanReadable": 578
+      "Index": 579,
+      "HumanReadable": 580
     },
     "Video": {
       "Title": "[Private video]",
@@ -17858,8 +17889,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 578,
-      "HumanReadable": 579
+      "Index": 580,
+      "HumanReadable": 581
     },
     "Video": {
       "Title": "[Private video]",
@@ -17889,8 +17920,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 579,
-      "HumanReadable": 580
+      "Index": 581,
+      "HumanReadable": 582
     },
     "Video": {
       "Title": "[Private video]",
@@ -17920,8 +17951,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 580,
-      "HumanReadable": 581
+      "Index": 582,
+      "HumanReadable": 583
     },
     "Video": {
       "Title": "[Private video]",
@@ -17951,8 +17982,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 581,
-      "HumanReadable": 582
+      "Index": 583,
+      "HumanReadable": 584
     },
     "Video": {
       "Title": "[Private video]",
@@ -17982,8 +18013,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 582,
-      "HumanReadable": 583
+      "Index": 584,
+      "HumanReadable": 585
     },
     "Video": {
       "Title": "[Private video]",
@@ -18013,8 +18044,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 583,
-      "HumanReadable": 584
+      "Index": 585,
+      "HumanReadable": 586
     },
     "Video": {
       "Title": "[Private video]",
@@ -18044,8 +18075,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 584,
-      "HumanReadable": 585
+      "Index": 586,
+      "HumanReadable": 587
     },
     "Video": {
       "Title": "[Private video]",
@@ -18075,8 +18106,8 @@
   {
     "NeedsProcessing": false,
     "RowID": {
-      "Index": 585,
-      "HumanReadable": 586
+      "Index": 587,
+      "HumanReadable": 588
     },
     "Video": {
       "Title": "[Private video]",
