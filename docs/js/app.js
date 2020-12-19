@@ -1,5 +1,6 @@
 const LOCAL_STORAGE_APP_KEY = 'app-state';
 const LOCAL_STORAGE_REPORTS_KEY = 'app-reports';
+const addToWikiColumns = ['VideoUrl', 'Model Identifier', 'Model Number', 'Logic Board Part Number', 'Other info'];
 
 function mergeFormDataWithVideo(video, forms) {
   const { watchVideoForm, addToWikiForm } = forms;
@@ -27,7 +28,7 @@ function mergeFormDataWithVideo(video, forms) {
   });
 }
 
-function DisplayUserReportValuesTable(video) {
+function tableRowsForUserCopyableTable(video) {
   const tableRows = [
     {
       columnName: 'Row Number',
@@ -137,6 +138,12 @@ function DisplayUserReportValuesTable(video) {
     },
   ];
 
+  return tableRows;
+}
+
+function DisplayUserReportValuesTable(video) {
+  const tableRows = tableRowsForUserCopyableTable(video);
+
   return tableRows.map(tblRow => {
     const columnNameTd = document.createElement('td');
     columnNameTd.classList.add('text-right');
@@ -162,167 +169,78 @@ function DisplayUserReportValuesTable(video) {
   });
 }
 
+function generateCopyableTableRows(tableRow) {
+  // TODO: Ensure this meets expected JSON scheme
+  let timeouts = [];
+  const columnNameTd = document.createElement('td');
+  columnNameTd.classList.add('text-right');
+  columnNameTd.textContent = tableRow.columnName;
+
+  const userCopyBtnTd = document.createElement('td');
+  userCopyBtnTd.classList.add('text-center');
+
+  const columnDataTd = document.createElement('td');
+  columnDataTd.textContent = tableRow.columnData;
+
+
+  const tr = document.createElement('tr');
+  tr.append(columnNameTd, userCopyBtnTd, columnDataTd);
+
+  if (tableRow.options.copy) {
+    columnNameTd.classList.add('font-weight-bold');
+    columnDataTd.classList.add('font-weight-bold');
+
+    const favIcon = document.createElement('i');
+    favIcon.classList.add('fa', 'fa-clipboard', 'fa-lg');
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.classList.add('btn', 'btn-link', 'btn-lg');
+    btn.setAttribute('data-copy-value', tableRow.columnData);
+    btn.appendChild(favIcon);
+
+    const copiedAlert = document.getElementById('copied-alert');
+    btn.onclick = ((e) => {
+      timeouts.forEach(clearTimeout);
+      copiedAlert.classList.remove('d-none');
+      timeouts = [
+        ...timeouts,
+        setTimeout(() => {
+          copiedAlert.classList.add('d-none');
+        }, 750),
+      ]
+      const data = e.currentTarget.getAttribute('data-copy-value');
+      const el = document.createElement('textarea');
+      el.value = data;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    });
+
+    userCopyBtnTd.appendChild(btn);
+
+  } else {
+    tr.classList.add('table-secondary');
+    columnNameTd.classList.add('font-weight-light');
+    columnDataTd.classList.add('font-weight-light');
+  }
+
+  return tr;
+}
+
 function CopyUserInputTableFromVideoData(video) {
-  const tableRows = [
-    {
-      columnName: 'VideoUrl',
-      columnData: video.Video.Url,
-      options: {
-        copy: false,
-      },
-    },
-    {
-      columnName: 'Upload date',
-      columnData: 'ignore',
-      options: {
-        copy: false,
-      },
-    },
-    {
-      columnName: 'Name',
-      columnData: video.Video.Title,
-      options: {
-        copy: false,
-      },
-    },
-    {
-      columnName: 'Cause',
-      columnData: video.Repair.Cause,
-      options: {
-        copy: true,
-      },
-    },
-    {
-      columnName: 'Issue',
-      columnData: video.Repair.Issues[0],
-      options: {
-        copy: true,
-      },
-    },
-    {
-      columnName: 'Issue 2',
-      columnData: video.Repair.Issues[1],
-      options: {
-        copy: false,
-      },
-    },
-    {
-      columnName: 'Model Identifier',
-      columnData: video.Mac.ModelIdentifier,
-      options: {
-        copy: true,
-      },
-    },
-    {
-      columnName: 'Model Number',
-      columnData: video.Mac.ModelNumber,
-      options: {
-        copy: true,
-      },
-    },
-    {
-      columnName: 'Logic Board Part Number',
-      columnData: video.Mac.LogicBoardPartNumber,
-      options: {
-        copy: true,
-      },
-    },
-    {
-      columnName: 'Other info',
-      columnData: video.Repair.OtherInfo,
-      options: {
-        copy: true,
-      },
-    },
-    {
-      columnName: 'Status',
-      columnData: video.Wiki.Status,
-      options: {
-        copy: true,
-      },
-    },
-    {
-      columnName: 'User working on it',
-      columnData: 'ignore',
-      options: {
-        copy: true,
-        input: true,
-      },
-    },
-    {
-      columnName: 'Link to wiki page',
-      columnData: video.Wiki.Url,
-      options: {
-        copy: true,
-      },
-    },
-    {
-      columnName: 'Notes',
-      columnData: video.Wiki.Notes,
-      options: {
-        copy: true,
-      },
-    },
-  ];
+  const tableRows = tableRowsForUserCopyableTable(video);
 
-  return tableRows.map(tblRow => {
-    let timeouts = [];
-    const columnNameTd = document.createElement('td');
-    columnNameTd.classList.add('text-right');
-    columnNameTd.textContent = tblRow.columnName;
+  return tableRows.map(generateCopyableTableRows);
+}
 
-    const userCopyBtnTd = document.createElement('td');
-    userCopyBtnTd.classList.add('text-center');
+function CopyUserInputForWikiEntryTable(video) {
+  const tableRows = tableRowsForUserCopyableTable(video)
+    .filter((tblRow) => addToWikiColumns.indexOf(tblRow.columnName) > -1)
+    .map((tblRow) => Object.assign({}, tblRow, { options: { copy: true } }));
 
-    const columnDataTd = document.createElement('td');
-    columnDataTd.textContent = tblRow.columnData;
-
-
-    const tr = document.createElement('tr');
-    tr.append(columnNameTd, userCopyBtnTd, columnDataTd);
-
-    if (tblRow.options.copy) {
-      columnNameTd.classList.add('font-weight-bold');
-      columnDataTd.classList.add('font-weight-bold');
-
-      const favIcon = document.createElement('i');
-      favIcon.classList.add('fa', 'fa-clipboard', 'fa-lg');
-
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.classList.add('btn', 'btn-link', 'btn-lg');
-      btn.setAttribute('data-copy-value', tblRow.columnData);
-      btn.appendChild(favIcon);
-
-      const copiedAlert = document.getElementById('copied-alert');
-      btn.onclick = ((e) => {
-        timeouts.forEach(clearTimeout);
-        copiedAlert.classList.remove('d-none');
-        timeouts = [
-          ...timeouts,
-          setTimeout(() => {
-            copiedAlert.classList.add('d-none');
-          }, 750),
-        ]
-        const data = e.currentTarget.getAttribute('data-copy-value');
-        const el = document.createElement('textarea');
-        el.value = data;
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
-      });
-
-      userCopyBtnTd.appendChild(btn);
-
-    } else {
-      tr.classList.add('table-secondary');
-      columnNameTd.classList.add('font-weight-light');
-      columnDataTd.classList.add('font-weight-light');
-    }
-
-    return tr;
-  });
+  return tableRows.map(generateCopyableTableRows);
 }
 
 function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
@@ -620,6 +538,13 @@ class ProcessRepairVideosApp {
         this.renderSheetPreviewTable();
       }
     };
+    document.getElementById('heading-write-to-wiki').onclick = () => {
+      const classList = document.getElementById('collapse-write-to-wiki').classList
+      // If the card is going to open...
+      if (!classList.contains('show')) {
+        this.renderAddToWikiUserCopyTable();
+      }
+    }
 
     this.renderState(this.state);
   }
@@ -679,9 +604,22 @@ class ProcessRepairVideosApp {
     }
   }
 
+  renderAddToWikiUserCopyTable() {
+    const table = document.getElementById('add-to-wiki-user-copy-table-body');
+    table.innerHTML = '';
+
+    const video = this.state.video;
+    const watchVideoForm = this.state.watchVideoForm || {};
+    const addToWikiForm = this.state.addToWikiForm || {};
+    const videoWithFormInput = mergeFormDataWithVideo(video, { watchVideoForm, addToWikiForm });
+
+    table.append(...CopyUserInputForWikiEntryTable(videoWithFormInput));
+  }
+
   renderUserCopyTable() {
     const table = document.getElementById('user-copy-table-body');
     table.innerHTML = '';
+
     const video = this.state.video;
     const watchVideoForm = this.state.watchVideoForm || {};
     const addToWikiForm = this.state.addToWikiForm || {};
