@@ -16,7 +16,6 @@
     <title>Help Louis Rossmann</title>
   </head>
   <body class="container">
-
     <div id="information" class="card mt-2 mb-3">
       <div class="card-header">
         <h1 class="h3 float-left">
@@ -333,7 +332,7 @@
                               name="wiki-entry-notes"
                               type="text"
                               class="form-control"
-                              placeholder="Did you add a new wiki page? Did you find something odd about the page you edited?""></textarea>
+                              placeholder="Did you add a new wiki page? Did you find something odd about the page you edited?"></textarea>
 
                     <div class="form-check mt-5">
                       <input id="wiki-quality-check"
@@ -364,15 +363,38 @@
                     This is the final step!
                   </p>
                   <p>
-                    Update Louis' <a href="" target="_blank">repair videos google sheet</a> with the information you gathered. Reference the table below for how your update should look. If you want to update the table values below, go back to step 2 or 3.
+                    Update Louis' <a href="https://docs.google.com/spreadsheets/d/1PulZnpPHxBFyJwKiJvTQqR0D3liKHdl48rz7zwh652U/edit"
+                    target="_blank">Repair Videos Google Sheet</a> with the information you gathered. Reference the table below for how your update should look. If you want to update the table values below, go back to step 2 or 3.
+                  </p>
+                  <h3 class="h4">
+                    Column Name to User Input table
+                  </h3>
+                  <p>
+                    Copy each value to your clipboard and paste into the Google sheet!
+                  </p>
+                  <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                      <th scope="col" class="text-right" style="width: 150px;">Google Sheet column name</td>
+                      <th scope="col" class="text-center" style="width: 100px;" class="text-right">Copy</td>
+                      <th scope="col">Value</td>
+                    </tr>
+                    </thead>
+                    <tbody id="user-copy-table-body"></tbody>
+                  </table>
+                  <h3 class="h4">
+                    Google Sheet Preview
+                  </h3>
+                  <p>
+                    This app's data may be a little stale. This preview should help you update the correct google sheet row!
                   </p>
                   <div class="card">
                     <div class="card-body p-0" style="overflow-x: scroll;">
-                      <table id="form-inputs-as-sheet-additions" class="table table-sm table-hover">
+                      <table id="form-inputs-as-sheet-additions" class="table table-bordered table-sm table-hover">
                         <thead class="thead-dark">
                         <tr>
                           <th scope="col" class="text-right" style="min-width: 95px;">#</th>
-                          <th scope="col">VideoUrl</th>
+                          <th scope="col" style="min-width: 400px;">VideoUrl</th>
                           <th scope="col">Upload date</th>
                           <th scope="col" style="min-width: 400px;">Name</th>
                           <th scope="col" style="min-width: 400px;">Cause</th>
@@ -425,7 +447,6 @@
       </div>
     </div>
 
-
     <div id="user-generated-reports" class="card my-5">
       <div id="heading-user-generated-reports" class="card-header">
         <h5 class="mb-0 float-left">
@@ -467,13 +488,13 @@
             <table id="done-row-answers-table" class="table table-hover" style="width: 100%;">
               <thead class="thead-dark">
               <tr>
-                <th scope="col">#</th>
-                <th scope="col" style="min-width: 125px;">Model ID</th>
-                <th scope="col">Model #</th>
-                <th scope="col" style="min-width: 125px;">Logic Board #</th>
-                <th scope="col" style="min-width: 200px;">Symptom</th>
-                <th scope="col" style="min-width: 300px;">Cause</th>
-                <th scope="col" style="min-width: 300px;">Issue</th>
+                <th scope="col" style="position: sticky; top: 0;">#</th>
+                <th scope="col" style="position: sticky; top: 0; min-width: 125px;">Model ID</th>
+                <th scope="col" style="position: sticky; top: 0;">Model #</th>
+                <th scope="col" style="position: sticky; top: 0; min-width: 135px;">Logic Board #</th>
+                <th scope="col" style="position: sticky; top: 0; min-width: 200px;">Symptom</th>
+                <th scope="col" style="position: sticky; top: 0; min-width: 300px;">Cause</th>
+                <th scope="col" style="position: sticky; top: 0; min-width: 300px;">Issue</th>
               </tr>
               </thead>
               <tbody></tbody>
@@ -484,6 +505,10 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div id="copied-alert" class="alert alert-success position-fixed d-none" role="alert" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+      Text Copied!
     </div>
 
     <footer class="d-print-none my-5 pt-5 text-muted text-center text-small">

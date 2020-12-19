@@ -1,6 +1,329 @@
 const LOCAL_STORAGE_APP_KEY = 'app-state';
 const LOCAL_STORAGE_REPORTS_KEY = 'app-reports';
 
+function mergeFormDataWithVideo(video, forms) {
+  const { watchVideoForm, addToWikiForm } = forms;
+
+  return Object.assign({}, video, {
+    Mac: {
+      ModelIdentifier: watchVideoForm['model-identifier'],
+      ModelNumber: watchVideoForm['model-number'],
+      LogicBoardPartNumber: watchVideoForm['logic-board-number'],
+    },
+    Repair: {
+      Cause: watchVideoForm['cause'],
+      Symptom: watchVideoForm['symptom'],
+      Issues: [
+        watchVideoForm['issue'],
+        '',
+      ],
+    },
+    Wiki: {
+      Url: addToWikiForm['wiki-url'],
+      Notes: addToWikiForm['wiki-entry-notes'],
+      Status: 'Done',
+    },
+  });
+}
+
+function DisplayUserReportValuesTable(video) {
+  const tableRows = [
+    {
+      columnName: 'Row Number',
+      columnData: video.RowID.HumanReadable,
+      options: {
+        copy: false,
+      }
+    },
+    {
+      columnName: 'VideoUrl',
+      columnData: video.Video.Url,
+      options: {
+        copy: false,
+      },
+    },
+    {
+      columnName: 'Upload date',
+      columnData: 'ignore',
+      options: {
+        copy: false,
+      },
+    },
+    {
+      columnName: 'Name',
+      columnData: video.Video.Title,
+      options: {
+        copy: false,
+      },
+    },
+    {
+      columnName: 'Cause',
+      columnData: video.Repair.Cause,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Issue',
+      columnData: video.Repair.Issues[0],
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Issue 2',
+      columnData: video.Repair.Issues[1],
+      options: {
+        copy: false,
+      },
+    },
+    {
+      columnName: 'Model Identifier',
+      columnData: video.Mac.ModelIdentifier,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Model Number',
+      columnData: video.Mac.ModelNumber,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Logic Board Part Number',
+      columnData: video.Mac.LogicBoardPartNumber,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Other info',
+      columnData: 'ignore',
+      options: {
+        copy: false,
+      },
+    },
+    {
+      columnName: 'Status',
+      columnData: video.Wiki.Status,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'User working on it',
+      columnData: 'ignore',
+      options: {
+        copy: true,
+        input: true,
+      },
+    },
+    {
+      columnName: 'Link to wiki page',
+      columnData: video.Wiki.Url,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Notes',
+      columnData: video.Wiki.Notes,
+      options: {
+        copy: true,
+      },
+    },
+  ];
+
+  return tableRows.map(tblRow => {
+    const columnNameTd = document.createElement('td');
+    columnNameTd.classList.add('text-right');
+    columnNameTd.textContent = tblRow.columnName;
+
+    const columnDataTd = document.createElement('td');
+    columnDataTd.textContent = tblRow.columnData;
+
+
+    const tr = document.createElement('tr');
+    tr.append(columnNameTd, columnDataTd);
+
+    if (tblRow.options.copy) {
+      columnNameTd.classList.add('font-weight-bold');
+      columnDataTd.classList.add('font-weight-bold');
+    } else {
+      tr.classList.add('table-secondary');
+      columnNameTd.classList.add('font-weight-light');
+      columnDataTd.classList.add('font-weight-light');
+    }
+
+    return tr;
+  });
+}
+
+function CopyUserInputTableFromVideoData(video) {
+  const tableRows = [
+    {
+      columnName: 'VideoUrl',
+      columnData: video.Video.Url,
+      options: {
+        copy: false,
+      },
+    },
+    {
+      columnName: 'Upload date',
+      columnData: 'ignore',
+      options: {
+        copy: false,
+      },
+    },
+    {
+      columnName: 'Name',
+      columnData: video.Video.Title,
+      options: {
+        copy: false,
+      },
+    },
+    {
+      columnName: 'Cause',
+      columnData: video.Repair.Cause,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Issue',
+      columnData: video.Repair.Issues[0],
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Issue 2',
+      columnData: video.Repair.Issues[1],
+      options: {
+        copy: false,
+      },
+    },
+    {
+      columnName: 'Model Identifier',
+      columnData: video.Mac.ModelIdentifier,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Model Number',
+      columnData: video.Mac.ModelNumber,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Logic Board Part Number',
+      columnData: video.Mac.LogicBoardPartNumber,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Other info',
+      columnData: 'ignore',
+      options: {
+        copy: false,
+      },
+    },
+    {
+      columnName: 'Status',
+      columnData: video.Wiki.Status,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'User working on it',
+      columnData: 'ignore',
+      options: {
+        copy: true,
+        input: true,
+      },
+    },
+    {
+      columnName: 'Link to wiki page',
+      columnData: video.Wiki.Url,
+      options: {
+        copy: true,
+      },
+    },
+    {
+      columnName: 'Notes',
+      columnData: video.Wiki.Notes,
+      options: {
+        copy: true,
+      },
+    },
+  ];
+
+  return tableRows.map(tblRow => {
+    let timeouts = [];
+    const columnNameTd = document.createElement('td');
+    columnNameTd.classList.add('text-right');
+    columnNameTd.textContent = tblRow.columnName;
+
+    const userCopyBtnTd = document.createElement('td');
+    userCopyBtnTd.classList.add('text-center');
+
+    const columnDataTd = document.createElement('td');
+    columnDataTd.textContent = tblRow.columnData;
+
+
+    const tr = document.createElement('tr');
+    tr.append(columnNameTd, userCopyBtnTd, columnDataTd);
+
+    if (tblRow.options.copy) {
+      columnNameTd.classList.add('font-weight-bold');
+      columnDataTd.classList.add('font-weight-bold');
+
+      const favIcon = document.createElement('i');
+      favIcon.classList.add('fa', 'fa-clipboard', 'fa-lg');
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.classList.add('btn', 'btn-default', 'btn-lg');
+      btn.setAttribute('data-copy-value', tblRow.columnData);
+      btn.appendChild(favIcon);
+
+      const copiedAlert = document.getElementById('copied-alert');
+      btn.onclick = ((e) => {
+        timeouts.forEach(clearTimeout);
+        copiedAlert.classList.remove('d-none');
+        timeouts = [
+          ...timeouts,
+          setTimeout(() => {
+            copiedAlert.classList.add('d-none');
+          }, 750),
+        ]
+        const data = e.currentTarget.getAttribute('data-copy-value');
+        const el = document.createElement('textarea');
+        el.value = data;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+      });
+
+      userCopyBtnTd.appendChild(btn);
+
+    } else {
+      tr.classList.add('table-secondary');
+      columnNameTd.classList.add('font-weight-light');
+      columnDataTd.classList.add('font-weight-light');
+    }
+
+    return tr;
+  });
+}
+
 function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
   const tr = document.createElement('tr');
   if (highlight) {
@@ -27,13 +350,13 @@ function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
 
   ].map((tdText, indx) => {
     const td = document.createElement('td');
-    if (indx === 0) {
+    if (indx === 0) { // the row ID
       td.classList.add('text-right');
       td.textContent = tdText;
     } else if (indx === 1) { // the video URL
       const a = document.createElement('a');
       a.href = tdText;
-      a.textContent = '(link)';
+      a.textContent = tdText;
       td.appendChild(a);
     } else {
       td.textContent = tdText;
@@ -47,7 +370,8 @@ function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
 }
 
 class ReportsWidget {
-  constructor() {
+  constructor(parentRef) {
+    this.parentRef = parentRef;
     this.dom = {
       reportsContainer: document.getElementById('reports-container'),
       deleteReportsBtn: document.getElementById('delete-reports'),
@@ -84,7 +408,7 @@ class ReportsWidget {
     if (reports.length > 0) {
       this.dom.reportsContainer.innerText = '';
       reports
-        .map(this.reportCardDOM)
+        .map(this.reportCardDOM.bind(this))
         .forEach(DOM => this.dom.reportsContainer.appendChild(DOM));
       this.dom.deleteReportsBtn.classList.remove('disabled');
     } else {
@@ -131,12 +455,50 @@ class ReportsWidget {
     videoIFrame.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
     videoIFrame.setAttribute('allowFullscreen', 'true');
 
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <th scope="col" class="text-right" style="width: 150px;">Google Sheet column name</td>
+      <th scope="col">Value</td>
+    `;
+
+    const thead = document.createElement('thead');
+    thead.appendChild(tr);
+
+    const tbody = document.createElement('tbody');
+    const { watchVideoForm, addToWikiForm } = report;
+    const videoWithFormData = mergeFormDataWithVideo(report.video, { watchVideoForm, addToWikiForm });
+    tbody.append(...DisplayUserReportValuesTable(videoWithFormData));
+
+    const table = document.createElement('table');
+    table.classList.add('table', 'table-bordered');
+    table.append(thead, tbody);
+
+    const parentRef = this.parentRef;
+    const editBtn = document.createElement('button');
+    editBtn.type = 'button';
+    editBtn.classList.add('btn', 'btn-outline-primary', 'px-5', 'mx-2');
+    editBtn.textContent = 'Edit';
+    editBtn.onclick = (e) => {
+      parentRef.resetProcessForm();
+      parentRef.renderProcessVideoHtml(videoWithFormData);
+      parentRef.setProcessFormByVideoData(videoWithFormData);
+      parentRef.showProcessForm();
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    };
+
+    const buttonToolbar = document.createElement('div');
+    buttonToolbar.classList.add('btn-group', 'float-right', 'mb-3');
+    buttonToolbar.setAttribute('role', 'group');
+    buttonToolbar.setAttribute('aria-label', 'Report button group');
+    buttonToolbar.append(editBtn);
+
     const cardBody = document.createElement('div');
     cardBody.id = `collapse-report-${report.video.RowID.Index}`;
     cardBody.classList.add('collapse');
     cardBody.setAttribute('aria-labelledby', `heading-report-${report.video.RowID.Index}`);
     cardBody.setAttribute('data-parent', '#reports-container');
-    cardBody.appendChild(videoIFrame);
+    cardBody.append(videoIFrame, table, buttonToolbar);
 
     // Complete Card
     const card = document.createElement('div');
@@ -154,7 +516,7 @@ class ReportsWidget {
 
 class ProcessRepairVideosApp {
   constructor() {
-    this.reportsWidget = new ReportsWidget();
+    this.reportsWidget = new ReportsWidget(this);
 
     this.dom = {
       topSection: document.getElementById('information-collapsable'),
@@ -210,17 +572,14 @@ class ProcessRepairVideosApp {
       this.resetProcessForm();
     }
     this.dom.resetVideoBtn.onclick = this.resetProcessForm.bind(this);
+    this.activateReportToolbelt();
 
     // Report section forms
     this.dom.watchVideoForm.oninput = () => {
-      this.activateReportToolbelt();
-
       const formData = Object.fromEntries(new FormData(this.dom.watchVideoForm).entries());
       this.setState({ watchVideoForm: formData });
     };
     this.dom.addToWikiForm.oninput = () => {
-      this.activateReportToolbelt();
-
       const formData = Object.fromEntries(new FormData(this.dom.addToWikiForm).entries());
       this.setState({ addToWikiForm: formData });
     }
@@ -230,7 +589,8 @@ class ProcessRepairVideosApp {
       const classList = this.dom.writeToGoogleSheetCollapsable.classList;
       // If the card is going to open...
       if (!classList.contains('show')) {
-        this.renderUserInputAsTable();
+        this.renderUserCopyTable();
+        this.renderSheetPreviewTable();
       }
     };
 
@@ -278,12 +638,12 @@ class ProcessRepairVideosApp {
     }
 
     if (state.addToWikiForm) {
-      Object.keys(state.watchVideoForm).forEach(inputName => {
+      Object.keys(state.addToWikiForm).forEach(inputName => {
         document.getElementsByName(inputName).forEach(elem => {
           if (elem.type === 'checkbox') {
-            elem.checked = state.watchVideoForm[inputName] === 'on';
+            elem.checked = state.addToWikiForm[inputName] === 'on';
           } else {
-            elem.value = state.watchVideoForm[inputName];
+            elem.value = state.addToWikiForm[inputName];
           }
         });
       });
@@ -292,43 +652,38 @@ class ProcessRepairVideosApp {
     }
   }
 
-  renderUserInputAsTable() {
+  renderUserCopyTable() {
+    const table = document.getElementById('user-copy-table-body');
+    table.innerHTML = '';
+    const video = this.state.video;
+    const watchVideoForm = this.state.watchVideoForm || {};
+    const addToWikiForm = this.state.addToWikiForm || {};
+    const videoWithFormInput = mergeFormDataWithVideo(video, { watchVideoForm, addToWikiForm });
+
+    const trs = CopyUserInputTableFromVideoData(videoWithFormInput);
+    table.append(...trs)
+  }
+
+  renderSheetPreviewTable() {
     // Hacks: just take formData, append `-output` to each input name, and update HTML
     // Object.keys(formData).forEach(inputKey => { document.getElementById(`${inputKey}-output`).textContent = formData[inputKey]; })
     const table = this.dom.writeToGoogleSheetTableBody;
     table.innerHTML = '';
 
     const video = this.state.video;
-    const watchVideoForm = this.state.watchVideoForm;
-    const addToWikiForm = this.state.addToWikiForm;
-
+    const watchVideoForm = this.state.watchVideoForm || {};
+    const addToWikiForm = this.state.addToWikiForm || {};
     // TODO: Maybe this data conversion happens on user input? May enable a decrease in what data needs to be
     // tracked (e.g. forms; rehydrating forms could happen from the video JSON object)
-    const videoWithFormInput = Object.assign({}, video, {
-      Mac: {
-        ModelIdentifier: watchVideoForm['model-identifier'],
-        ModelNumber: watchVideoForm['model-number'],
-        LogicBoardPartNumber: watchVideoForm['logic-board-number'],
-      },
-      Repair: {
-        Cause: watchVideoForm['cause'],
-        Symptom: watchVideoForm['symptom'],
-        Issues: [
-          watchVideoForm['issue'],
-          '',
-        ],
-      },
-      Wiki: {
-        Url: addToWikiForm['wiki-url'],
-        Notes: addToWikiForm['wiki-entry-notes'],
-        Status: 'Done',
-      },
-    });
+    const videoWithFormInput = mergeFormDataWithVideo(video, { watchVideoForm, addToWikiForm });
 
+
+    // TODO: What if this is the topmost or bottommost table row?
     const surroundingVideos = this.state.videos
       .filter(_ => _.RowID.Index != video.RowID.Index && _.RowID.Index >= video.RowID.Index - 2 && _.RowID.Index <= video.RowID.Index + 2)
 
     const [ one, two, three, four, ...rest ] = surroundingVideos;
+    // get 2 rows above, and two rows below the data
     const renderTheseVideos = [
       one,
       two,
@@ -336,12 +691,12 @@ class ProcessRepairVideosApp {
       three,
       four,
     ];
+
     renderTheseVideos
       .map(videoData => VideoTableDataToGoogleSheetTableRow(videoData, videoData.RowID.Index == video.RowID.Index))
       .forEach(tr => {
         table.appendChild(tr);
       });
-    // get 2 rows above, and two rows below the data
   }
 
   renderProcessVideoHtml(videoDataRow) {
@@ -352,12 +707,36 @@ class ProcessRepairVideosApp {
     this.dom.videoYoutubeLink.href = videoDataRow.Video.Url;
     this.dom.videoTitle.innerText = videoDataRow.Video.Title;
     this.dom.videoRow.innerText = videoDataRow.RowID.HumanReadable;
+  }
 
-
+  setProcessFormByVideoData(videoData) {
+    if (videoData.Mac.ModelIdentifier) {
+      document.getElementsByName('model-identifier').forEach(_ => _.value = videoData.Mac.ModelIdentifier);
+    }
+    if (videoData.Mac.ModelNumber) {
+      document.getElementsByName('model-number').forEach(_ => _.value = videoData.Mac.ModelNumber);
+    }
+    if (videoData.Mac.LogicBoardPartNumber) {
+      document.getElementsByName('logic-board-number').forEach(_ => _.value = videoData.Mac.LogicBoardPartNumber);
+    }
+    if (videoData.Repair.Cause) {
+      document.getElementsByName('logic-board-number').forEach(_ => _.value = videoData.Repair.Cause);
+    }
+    if (videoData.Repair.Symptom) {
+      document.getElementsByName('symptom').forEach(_ => _.value = videoData.Repair.Symptom);
+    }
+    if (videoData.Repair.Issues[0]) {
+      document.getElementsByName('issue').forEach(_ => _.value = videoData.Repair.Issues[0]);
+    }
+    if (videoData.Wiki.Url) {
+      document.getElementsByName('wiki-entry-url').forEach(_ => _.value = videoData.Wiki.Url);
+    }
+    if (videoData.Wiki.Notes) {
+      document.getElementsByName('wiki-entry-notes').forEach(_ => _.value = videoData.Wiki.Notes);
+    }
   }
 
   resetProcessForm() {
-    this.deactivateReportToolbelt();
     this.dom.watchVideoForm.reset();
     this.dom.addToWikiForm.reset();
 
@@ -421,6 +800,7 @@ class ProcessRepairVideosApp {
 
       this.resetProcessForm();
       this.renderProcessVideoHtml(randomVideo);
+      this.setProcessFormByVideoData(randomVideo);
       this.showProcessForm();
     };
 
