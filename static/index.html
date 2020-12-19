@@ -75,8 +75,6 @@
         </p>
 
         <div id="process-guide" class="d-none">
-          <hr/>
-
           <div id="process-accordion">
             <div id="take-notes" class="card">
               <div id="heading-one" class="card-header">
@@ -126,6 +124,7 @@
                       </p>
                     </div>
                   </div>
+
                   <hr/>
 
                   <form id="repair-report-form" action="javascript:void(0);" class="my-4">
@@ -152,24 +151,27 @@
                         <div id="model-identifier-dropdown" class="dropdown-menu"></div>
                       </div>
                     </div>
-
-                    <p id="analyze-video-help-text-2" class="collapse">
+                    <p id="model-identifier-help-text" class="collapse">
                       If the model ID is not in the video's title then check the video's description.
                       Quickly scrub through the video for spots with the model ID.
+                      <br/>
+                      <br/>
+                      You may be able to use <a href="https://logi.wiki/index.php/Board_Number_by_A_Number">this wiki</a> to find this info,
+                      presuming you have the other info to match everything up.
                     </p>
                     <button class="btn btn-link text-info p-0 mb-3" data-toggle="collapse"
-                            data-target="#analyze-video-help-text-2" aria-expanded="true"
-                            aria-controls="analyze-video-help-text-2">
+                            data-target="#model-identifier-help-text" aria-expanded="true"
+                            aria-controls="model-identifier-help-text">
                       show tip
                     </button>
                     <br/>
 
 
-                    <label for="model-identifier" data-toggle="tooltip" data-placement="top"
+                    <label for="model-number" data-toggle="tooltip" data-placement="top"
                            title="The number of the specific model">
                       Model Number <span class="badge badge-pill badge-info">?</span>
                     </label>
-                    <div class="input-group mb-4">
+                    <div class="input-group">
                       <input id="model-number"
                              name="model-number"
                              type="text"
@@ -184,8 +186,18 @@
                         <div id="model-number-dropdown" class="dropdown-menu"></div>
                       </div>
                     </div>
+                    <p id="help-text-model-number" class="collapse">
+                      You may be able to use <a href="https://logi.wiki/index.php/Board_Number_by_A_Number">this wiki</a> to find this info,
+                      presuming you have the other info to match everything up.
+                    </p>
+                    <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse"
+                            data-target="#help-text-model-number" aria-expanded="true"
+                            aria-controls="help-text-model-number">
+                      show tip
+                    </button>
+                    <br/>
 
-                    <label for="model-identifier" data-toggle="tooltip" data-placement="top"
+                    <label for="logic-board-number" data-toggle="tooltip" data-placement="top"
                            title="Check the title. Otherwise, scrub through the video for the model ID">
                       Logic Board Number <span class="badge badge-pill badge-info">?</span>
                     </label>
@@ -204,7 +216,6 @@
                         <div id="logic-board-number-dropdown" class="dropdown-menu"></div>
                       </div>
                     </div>
-
                     <p id="help-text-logic-board-number" class="collapse">
                       The logic board number may be used to identify the model ID and model number;
                       consult a search engine. See if the title or description contains this. Search the
@@ -215,8 +226,8 @@
                       wiki</a> that the model ID + logic board number match.
                     </p>
                     <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse"
-                            data-target="#analyze-video-help-text-3" aria-expanded="true"
-                            aria-controls="analyze-video-help-text-3">
+                            data-target="#help-text-logic-board-number" aria-expanded="true"
+                            aria-controls="help-text-logic-board-number">
                       show tip
                     </button>
                     <br/>
@@ -262,15 +273,33 @@
                               name="issue"
                               type="text"
                               class="form-control"
-                              placeholder="What is the detailed logic board based explanation for the break?"></textarea>
+                              placeholder="Provide a more detailed explanation"></textarea>
                     <p id="help-text-issue" class="collapse">
-                      What is the detailed logic board based explanation for the break?
+                      What is the detailed logic board based explanation for the break? What component(s) failed and were replaced?
+                      Please reference previous "done" answers (button below) for example responses!
                     </p>
                     <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse"
                             data-target="#help-text-issue" aria-expanded="true"
                             aria-controls="help-text-issue">
                       show tip
                     </button>
+                    <br/>
+
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes"
+                              name="notes"
+                              type="text"
+                              class="form-control"
+                              placeholder="What else?"></textarea>
+                    <p id="help-text-notes" class="collapse">
+                      What things are said during the video that seem relevant to professional or hobbyist repair technicians?
+                    </p>
+                    <button class="btn btn-link text-info show p-0 mb-3" data-toggle="collapse"
+                            data-target="#help-text-notes" aria-expanded="true"
+                            aria-controls="help-text-notes">
+                      show tip
+                    </button>
+                    <br/>
 
                     <div class="form-check my-3">
                       <input id="quality-check"
@@ -310,8 +339,11 @@
                    data-parent="#process-accordion">
                 <div class="card-body">
                   <p>
-                    Now take your notes and add to the public knowledge base!
+                    Now take your notes and add to the <a href="https://wiki2.rossmanngroup.com/index.php" target="_blank">public knowledge wiki</a>!
                   </p>
+                  <ol>
+                    <li></li>
+                  </ol>
                   <form id="add-to-wiki-form" action="javascript:void(0);" class="my-4">
                     <label for="wiki-url" data-toggle="tooltip" data-placement="top"
                            title="The public knowledge wiki has pages for each mac. What wiki URLs are associated with the video?">
@@ -323,7 +355,7 @@
                            type="text"
                            class="form-control"
                            aria-label="Wiki URL"
-                           placeholder="What are the wiki URLs associated with this repair?">
+                           placeholder="What https://wiki2.rossmanngroup.com pages were updated?">
 
                     <label for="wiki-entry-notes" class="mt-4"  data-toggle="tooltip" data-placement="top"
                            title="This is meant to capture any meta comments about the public wiki">

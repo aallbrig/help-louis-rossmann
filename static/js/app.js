@@ -17,6 +17,7 @@ function mergeFormDataWithVideo(video, forms) {
         watchVideoForm['issue'],
         '',
       ],
+      OtherInfo: watchVideoForm['notes'],
     },
     Wiki: {
       Url: addToWikiForm['wiki-url'],
@@ -100,9 +101,9 @@ function DisplayUserReportValuesTable(video) {
     },
     {
       columnName: 'Other info',
-      columnData: 'ignore',
+      columnData: video.Repair.OtherInfo,
       options: {
-        copy: false,
+        copy: true,
       },
     },
     {
@@ -114,9 +115,9 @@ function DisplayUserReportValuesTable(video) {
     },
     {
       columnName: 'User working on it',
-      columnData: 'ignore',
+      columnData: 'ignored',
       options: {
-        copy: true,
+        copy: false,
         input: true,
       },
     },
@@ -228,9 +229,9 @@ function CopyUserInputTableFromVideoData(video) {
     },
     {
       columnName: 'Other info',
-      columnData: 'ignore',
+      columnData: video.Repair.OtherInfo,
       options: {
-        copy: false,
+        copy: true,
       },
     },
     {
@@ -342,9 +343,9 @@ function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
     video.Mac.ModelIdentifier,
     video.Mac.ModelNumber,
     video.Mac.LogicBoardPartNumber,
-    'ignore',
+    video.Repair.OtherInfo,
     video.Wiki.Status,
-    'ignore',
+    '',
     video.Wiki.Url,
     video.Wiki.Notes,
 
@@ -352,7 +353,7 @@ function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
     const td = document.createElement('td');
     // highlight which cells the user needs to update
     if ([4, 5, 7, 8, 9, 11, 13, 14].indexOf(indx) === -1) {
-      td.classList.add('table-secondary');
+      td.classList.add('etable-secondary');
     }
 
     if (indx === 0) { // the row ID
@@ -763,6 +764,17 @@ class ProcessRepairVideosApp {
   }
 
   resetProcessForm() {
+    this.hideProcessForm();
+    [
+      'collapse-analyze-video',
+      'collapse-write-to-wiki',
+      'collapse-update-google-sheet',
+    ].forEach(_ => {
+      document.getElementById(_).classList.remove('show');
+    });
+
+    const firstStep = document.getElementById('collapse-one');
+    firstStep.classList.add('show');
     this.dom.watchVideoForm.reset();
     this.dom.addToWikiForm.reset();
 
@@ -782,6 +794,13 @@ class ProcessRepairVideosApp {
     this.dom.waitingText.classList.add('d-none');
     this.dom.processGuide.classList.remove('d-none');
     this.dom.resetVideoBtn.classList.remove('disabled');
+  }
+
+  hideProcessForm() {
+    this.setState({ showProcessingForm: false });
+    this.dom.waitingText.classList.remove('d-none');
+    this.dom.processGuide.classList.add('d-none');
+    this.dom.resetVideoBtn.classList.add('disabled');
   }
 
   setDoneRowAnswersTable(repairVideos) {
