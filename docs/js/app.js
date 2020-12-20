@@ -1,6 +1,5 @@
 const LOCAL_STORAGE_APP_KEY = 'app-state';
 const LOCAL_STORAGE_REPORTS_KEY = 'app-reports';
-const addToWikiColumns = ['VideoUrl', 'Model Identifier', 'Model Number', 'Logic Board Part Number', 'Other info'];
 
 function mergeFormDataWithVideo(video, forms) {
   const { watchVideoForm, addToWikiForm } = forms;
@@ -28,135 +27,131 @@ function mergeFormDataWithVideo(video, forms) {
   });
 }
 
-function tableRowsForUserCopyableTable(video) {
-  const tableRows = [
-    {
-      columnName: 'Row Number',
-      columnData: video.RowID.HumanReadable,
-      options: {
-        copy: false,
-      }
-    },
-    {
-      columnName: 'VideoUrl',
-      columnData: video.Video.Url,
-      options: {
-        copy: false,
+class UserCopyableTable {
+  static renderTableRowJSON(video) {
+    return [
+      {
+        columnName: 'Row Number',
+        columnData: video.RowID.HumanReadable,
+        options: {
+          copy: false,
+        }
       },
-    },
-    {
-      columnName: 'Upload date',
-      columnData: 'ignore',
-      options: {
-        copy: false,
+      {
+        columnName: 'VideoUrl',
+        columnData: video.Video.Url,
+        options: {
+          copy: false,
+        },
       },
-    },
-    {
-      columnName: 'Name',
-      columnData: video.Video.Title,
-      options: {
-        copy: false,
+      {
+        columnName: 'Upload date',
+        columnData: 'ignore',
+        options: {
+          copy: false,
+        },
       },
-    },
-    {
-      columnName: 'Cause',
-      columnData: video.Repair.Cause,
-      options: {
-        copy: true,
+      {
+        columnName: 'Name',
+        columnData: video.Video.Title,
+        options: {
+          copy: false,
+        },
       },
-    },
-    {
-      columnName: 'Issue',
-      columnData: video.Repair.Issues[0],
-      options: {
-        copy: true,
+      {
+        columnName: 'Cause',
+        columnData: video.Repair.Cause,
+        options: {
+          copy: true,
+        },
       },
-    },
-    {
-      columnName: 'Issue 2',
-      columnData: video.Repair.Issues[1],
-      options: {
-        copy: false,
+      {
+        columnName: 'Issue',
+        columnData: video.Repair.Issues[0],
+        options: {
+          copy: true,
+        },
       },
-    },
-    {
-      columnName: 'Model Identifier',
-      columnData: video.Mac.ModelIdentifier,
-      options: {
-        copy: true,
+      {
+        columnName: 'Issue 2',
+        columnData: video.Repair.Issues[1],
+        options: {
+          copy: false,
+        },
       },
-    },
-    {
-      columnName: 'Model Number',
-      columnData: video.Mac.ModelNumber,
-      options: {
-        copy: true,
+      {
+        columnName: 'Model Identifier',
+        columnData: video.Mac.ModelIdentifier,
+        options: {
+          copy: true,
+        },
       },
-    },
-    {
-      columnName: 'Logic Board Part Number',
-      columnData: video.Mac.LogicBoardPartNumber,
-      options: {
-        copy: true,
+      {
+        columnName: 'Model Number',
+        columnData: video.Mac.ModelNumber,
+        options: {
+          copy: true,
+        },
       },
-    },
-    {
-      columnName: 'Other info',
-      columnData: video.Repair.OtherInfo,
-      options: {
-        copy: true,
+      {
+        columnName: 'Logic Board Part Number',
+        columnData: video.Mac.LogicBoardPartNumber,
+        options: {
+          copy: true,
+        },
       },
-    },
-    {
-      columnName: 'Status',
-      columnData: video.Wiki.Status,
-      options: {
-        copy: true,
+      {
+        columnName: 'Other info',
+        columnData: video.Repair.OtherInfo,
+        options: {
+          copy: true,
+        },
       },
-    },
-    {
-      columnName: 'User working on it',
-      columnData: 'ignored',
-      options: {
-        copy: false,
-        input: true,
+      {
+        columnName: 'Status',
+        columnData: video.Wiki.Status,
+        options: {
+          copy: true,
+        },
       },
-    },
-    {
-      columnName: 'Link to wiki page',
-      columnData: video.Wiki.Url,
-      options: {
-        copy: true,
+      {
+        columnName: 'User working on it',
+        columnData: 'ignored',
+        options: {
+          copy: false,
+          input: true,
+        },
       },
-    },
-    {
-      columnName: 'Notes',
-      columnData: video.Wiki.Notes,
-      options: {
-        copy: true,
+      {
+        columnName: 'Link to wiki page',
+        columnData: video.Wiki.Url,
+        options: {
+          copy: true,
+        },
       },
-    },
-  ];
+      {
+        columnName: 'Notes',
+        columnData: video.Wiki.Notes,
+        options: {
+          copy: true,
+        },
+      },
+    ];
+  }
 
-  return tableRows;
-}
-
-function DisplayUserReportValuesTable(video) {
-  const tableRows = tableRowsForUserCopyableTable(video);
-
-  return tableRows.map(tblRow => {
+  static generateSlimTableRowDOM(tableRowJSON) {
+    // TODO: Ensure this meets expected JSON scheme
     const columnNameTd = document.createElement('td');
     columnNameTd.classList.add('text-right');
-    columnNameTd.textContent = tblRow.columnName;
+    columnNameTd.textContent = tableRowJSON.columnName;
 
     const columnDataTd = document.createElement('td');
-    columnDataTd.textContent = tblRow.columnData;
-
+    columnDataTd.textContent = tableRowJSON.columnData;
 
     const tr = document.createElement('tr');
     tr.append(columnNameTd, columnDataTd);
 
-    if (tblRow.options.copy) {
+    if (tableRowJSON.options.copy) {
       columnNameTd.classList.add('font-weight-bold');
       columnDataTd.classList.add('font-weight-bold');
     } else {
@@ -166,133 +161,66 @@ function DisplayUserReportValuesTable(video) {
     }
 
     return tr;
-  });
-}
-
-function generateCopyableTableRows(tableRow) {
-  // TODO: Ensure this meets expected JSON scheme
-  let timeouts = [];
-  const columnNameTd = document.createElement('td');
-  columnNameTd.classList.add('text-right');
-  columnNameTd.textContent = tableRow.columnName;
-
-  const userCopyBtnTd = document.createElement('td');
-  userCopyBtnTd.classList.add('text-center');
-
-  const columnDataTd = document.createElement('td');
-  columnDataTd.textContent = tableRow.columnData;
-
-
-  const tr = document.createElement('tr');
-  tr.append(columnNameTd, userCopyBtnTd, columnDataTd);
-
-  if (tableRow.options.copy) {
-    columnNameTd.classList.add('font-weight-bold');
-    columnDataTd.classList.add('font-weight-bold');
-
-    const favIcon = document.createElement('i');
-    favIcon.classList.add('fa', 'fa-clipboard', 'fa-lg');
-
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.classList.add('btn', 'btn-link', 'btn-lg');
-    btn.setAttribute('data-copy-value', tableRow.columnData);
-    btn.appendChild(favIcon);
-
-    const copiedAlert = document.getElementById('copied-alert');
-    btn.onclick = ((e) => {
-      timeouts.forEach(clearTimeout);
-      copiedAlert.classList.remove('d-none');
-      timeouts = [
-        ...timeouts,
-        setTimeout(() => {
-          copiedAlert.classList.add('d-none');
-        }, 750),
-      ]
-      const data = e.currentTarget.getAttribute('data-copy-value');
-      const el = document.createElement('textarea');
-      el.value = data;
-      document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
-    });
-
-    userCopyBtnTd.appendChild(btn);
-
-  } else {
-    tr.classList.add('table-secondary');
-    columnNameTd.classList.add('font-weight-light');
-    columnDataTd.classList.add('font-weight-light');
   }
 
-  return tr;
-}
+  static generateFatTableRowDOM(tableRowJSON) {
+    // TODO: Ensure this meets expected JSON scheme
+    let timeouts = [];
+    const columnNameTd = document.createElement('td');
+    columnNameTd.classList.add('text-right');
+    columnNameTd.textContent = tableRowJSON.columnName;
 
-function CopyUserInputTableFromVideoData(video) {
-  const tableRows = tableRowsForUserCopyableTable(video);
+    const userCopyBtnTd = document.createElement('td');
+    userCopyBtnTd.classList.add('text-center');
 
-  return tableRows.map(generateCopyableTableRows);
-}
+    const columnDataTd = document.createElement('td');
+    columnDataTd.textContent = tableRowJSON.columnData;
 
-function CopyUserInputForWikiEntryTable(video) {
-  const tableRows = tableRowsForUserCopyableTable(video)
-    .filter((tblRow) => addToWikiColumns.indexOf(tblRow.columnName) > -1)
-    .map((tblRow) => Object.assign({}, tblRow, { options: { copy: true } }));
+    const tr = document.createElement('tr');
+    tr.append(columnNameTd, userCopyBtnTd, columnDataTd);
 
-  return tableRows.map(generateCopyableTableRows);
-}
+    if (tableRowJSON.options.copy) {
+      columnNameTd.classList.add('font-weight-bold');
+      columnDataTd.classList.add('font-weight-bold');
 
-function VideoTableDataToGoogleSheetTableRow(video, highlight = false) {
-  const tr = document.createElement('tr');
-  if (highlight) {
-    tr.classList.add('font-weight-bold');
-  } else {
-    tr.classList.add('table-dark')
-  }
+      const favIcon = document.createElement('i');
+      favIcon.classList.add('fa', 'fa-clipboard', 'fa-lg');
 
-  [
-    `${(highlight) ? 'YOU ' : ''}${video.RowID.HumanReadable}`,
-    video.Video.Url,
-    'ignore',
-    video.Video.Title,
-    video.Repair.Cause,
-    ...video.Repair.Issues,
-    video.Mac.ModelIdentifier,
-    video.Mac.ModelNumber,
-    video.Mac.LogicBoardPartNumber,
-    video.Repair.OtherInfo,
-    video.Wiki.Status,
-    '',
-    video.Wiki.Url,
-    video.Wiki.Notes,
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.classList.add('btn', 'btn-link', 'btn-lg');
+      btn.setAttribute('data-copy-value', tableRowJSON.columnData);
+      btn.appendChild(favIcon);
 
-  ].map((tdText, indx) => {
-    const td = document.createElement('td');
-    // highlight which cells the user needs to update
-    if ([4, 5, 7, 8, 9, 11, 13, 14].indexOf(indx) === -1) {
-      td.classList.add('etable-secondary');
-    }
+      const copiedAlert = document.getElementById('copied-alert');
+      btn.onclick = ((e) => {
+        timeouts.forEach(clearTimeout);
+        copiedAlert.classList.remove('d-none');
+        timeouts = [
+          ...timeouts,
+          setTimeout(() => {
+            copiedAlert.classList.add('d-none');
+          }, 750),
+        ]
+        const data = e.currentTarget.getAttribute('data-copy-value');
+        const el = document.createElement('textarea');
+        el.value = data;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+      });
 
-    if (indx === 0) { // the row ID
-      td.classList.add('text-right');
-    }
+      userCopyBtnTd.appendChild(btn);
 
-    if (indx === 1) { // the video URL
-      const a = document.createElement('a');
-      a.href = tdText;
-      a.textContent = tdText;
-      td.appendChild(a);
     } else {
-      td.textContent = tdText;
+      tr.classList.add('table-secondary');
+      columnNameTd.classList.add('font-weight-light');
+      columnDataTd.classList.add('font-weight-light');
     }
 
-    return td;
-  }).forEach(td => {
-    tr.appendChild(td);
-  });
-
-  return tr;
+    return tr;
+  }
 }
 
 class ReportsWidget {
@@ -355,6 +283,12 @@ class ReportsWidget {
     }
   }
 
+  displayUserReportValuesTable(video) {
+    const tableRows = UserCopyableTable.renderTableRowJSON(video);
+
+    return tableRows.map(UserCopyableTable.generateSlimTableRowDOM);
+  }
+
   reportCardDOM(report) {
     // Card Header
     const rowIDBadge = document.createElement('span');
@@ -405,7 +339,7 @@ class ReportsWidget {
     const tbody = document.createElement('tbody');
     const { watchVideoForm, addToWikiForm } = report;
     const videoWithFormData = mergeFormDataWithVideo(report.video, { watchVideoForm, addToWikiForm });
-    tbody.append(...DisplayUserReportValuesTable(videoWithFormData));
+    tbody.append(...this.displayUserReportValuesTable(videoWithFormData));
 
     const table = document.createElement('table');
     table.classList.add('table', 'table-bordered');
@@ -612,8 +546,12 @@ class ProcessRepairVideosApp {
     const watchVideoForm = this.state.watchVideoForm || {};
     const addToWikiForm = this.state.addToWikiForm || {};
     const videoWithFormInput = mergeFormDataWithVideo(video, { watchVideoForm, addToWikiForm });
+    const addToWikiColumns = ['VideoUrl', 'Model Identifier', 'Model Number', 'Logic Board Part Number', 'Other info'];
+    const tableRows = UserCopyableTable.renderTableRowJSON(videoWithFormInput)
+      .filter((tblRow) => addToWikiColumns.indexOf(tblRow.columnName) > -1)
+      .map((tblRow) => Object.assign({}, tblRow, { options: { copy: true } }));
 
-    table.append(...CopyUserInputForWikiEntryTable(videoWithFormInput));
+    table.append(...tableRows.map(UserCopyableTable.generateFatTableRowDOM));
   }
 
   renderUserCopyTable() {
@@ -624,9 +562,9 @@ class ProcessRepairVideosApp {
     const watchVideoForm = this.state.watchVideoForm || {};
     const addToWikiForm = this.state.addToWikiForm || {};
     const videoWithFormInput = mergeFormDataWithVideo(video, { watchVideoForm, addToWikiForm });
+    const tableRows = UserCopyableTable.renderTableRowJSON(videoWithFormInput);
 
-    const trs = CopyUserInputTableFromVideoData(videoWithFormInput);
-    table.append(...trs)
+    table.append(...tableRows.map(UserCopyableTable.generateFatTableRowDOM))
   }
 
   renderSheetPreviewTable() {
@@ -658,7 +596,7 @@ class ProcessRepairVideosApp {
     ];
 
     renderTheseVideos
-      .map(videoData => VideoTableDataToGoogleSheetTableRow(videoData, videoData.RowID.Index == video.RowID.Index))
+      .map(videoData => this._videoTableDataToGoogleSheetTableRow(videoData, videoData.RowID.Index == video.RowID.Index))
       .forEach(tr => {
         table.appendChild(tr);
       });
@@ -703,13 +641,12 @@ class ProcessRepairVideosApp {
 
   resetProcessForm() {
     this.hideProcessForm();
+
     [
       'collapse-analyze-video',
       'collapse-write-to-wiki',
       'collapse-update-google-sheet',
-    ].forEach(_ => {
-      document.getElementById(_).classList.remove('show');
-    });
+    ].forEach(_ => document.getElementById(_).classList.remove('show'));
 
     const firstStep = document.getElementById('collapse-one');
     firstStep.classList.add('show');
@@ -741,8 +678,9 @@ class ProcessRepairVideosApp {
     this.dom.resetVideoBtn.classList.add('disabled');
   }
 
-  setDoneRowAnswersTable(repairVideos) {
-    const tableData = repairVideos
+  setDoneRowAnswersTable(repairVideosJSON) {
+    // TODO: Check repairVideosJSON meets an expected JSON schema
+    const tableData = repairVideosJSON
       .filter(_ => _.Wiki.Status === 'Done')
       .map(_ => {
         const tr = document.createElement('tr');
@@ -821,6 +759,58 @@ class ProcessRepairVideosApp {
         return menuItem
       })
       .forEach((_) => dropdownElem.appendChild(_));
+  }
+
+  _videoTableDataToGoogleSheetTableRow(video, highlight = false) {
+    const tr = document.createElement('tr');
+    if (highlight) {
+      tr.classList.add('font-weight-bold');
+    } else {
+      tr.classList.add('table-dark')
+    }
+
+    [
+      `${(highlight) ? 'YOU ' : ''}${video.RowID.HumanReadable}`,
+      video.Video.Url,
+      'ignore',
+      video.Video.Title,
+      video.Repair.Cause,
+      ...video.Repair.Issues,
+      video.Mac.ModelIdentifier,
+      video.Mac.ModelNumber,
+      video.Mac.LogicBoardPartNumber,
+      video.Repair.OtherInfo,
+      video.Wiki.Status,
+      '',
+      video.Wiki.Url,
+      video.Wiki.Notes,
+
+    ].map((tdText, indx) => {
+      const td = document.createElement('td');
+      // highlight which cells the user needs to update
+      if ([4, 5, 7, 8, 9, 11, 13, 14].indexOf(indx) === -1) {
+        td.classList.add('etable-secondary');
+      }
+
+      if (indx === 0) { // the row ID
+        td.classList.add('text-right');
+      }
+
+      if (indx === 1) { // the video URL
+        const a = document.createElement('a');
+        a.href = tdText;
+        a.textContent = tdText;
+        td.appendChild(a);
+      } else {
+        td.textContent = tdText;
+      }
+
+      return td;
+    }).forEach(td => {
+      tr.appendChild(td);
+    });
+
+    return tr;
   }
 }
 
