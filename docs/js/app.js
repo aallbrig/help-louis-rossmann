@@ -151,14 +151,12 @@ class UserCopyableTable {
     const tr = document.createElement('tr');
     tr.append(columnNameTd, columnDataTd);
 
-    if (tableRowJSON.options.copy) {
-      columnNameTd.classList.add('font-weight-bold');
-      columnDataTd.classList.add('font-weight-bold');
-    } else {
-      tr.classList.add('table-secondary');
-      columnNameTd.classList.add('font-weight-light');
-      columnDataTd.classList.add('font-weight-light');
-    }
+    [
+      columnNameTd,
+      columnDataTd,
+    ].forEach(_ => {
+      _.classList.add(tableRowJSON.options.copy ? 'font-weight-bold' : 'font-weight-light');
+    });
 
     return tr;
   }
